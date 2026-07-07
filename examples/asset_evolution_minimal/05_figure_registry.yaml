@@ -1,0 +1,42 @@
+version: 1
+figures:
+  - figure_id: F1
+    target_message: v1 adds claim linkage and candidate asset boundaries.
+    claim_id: C1
+    input_data:
+      - assets/minimal_points.csv
+    plotting_script: reproduction_entry.md
+    output_path: assets/figure_v1.txt
+    caption_draft: "Fig. F1. Minimal asset evolution figure with v0/v1 history; dry-run only."
+    visual_style_reference: Minimal line comparison
+    validation_status: dry_run
+    reviewer_risk: It has not been compared to a real journal figure style.
+    version_history:
+      - version: v0
+        path: assets/figure_v0.txt
+        change_note: no asset boundary
+        review_status: weak
+      - version: v1
+        path: assets/figure_v1.txt
+        change_note: adds candidate boundary and reproduction link
+        review_status: candidate
+    before_after_paths:
+      before: assets/figure_v0.txt
+      after: assets/figure_v1.txt
+    target_paper_reference: none
+    visual_style_pack: assets/minimal_style_pack.yaml
+    quality_scores:
+      scientific_message: 3
+      visual_clarity: 3
+      journal_similarity: 1
+      reproducibility: 5
+      aesthetics: 2
+      annotation_completeness: 3
+      reviewer_risk: 2
+    known_visual_issues:
+      - no real target paper reference
+    next_redraw_action: reuse on a real figure and fill target_paper_reference.
+    reusable_asset_candidate:
+      is_candidate: true
+      asset_type: figure_style
+      asset_id: asset.figure_style.minimal_line_comparison.v1

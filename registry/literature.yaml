@@ -1,0 +1,26 @@
+﻿version: 1
+literature:
+  - id: lit_mie_pk_tv_s_limited_angle_tomography_placeholder
+    title: Literature intake placeholder for limited-angle spray tomography and Mie-Pk-TV-S baselines
+    source_project: sc-nmt
+    status: pending validation
+    path: G:\BaiduSyncdisk\ResearchLoop\examples\mie_pk_tv_s_paper_flow\literature_card_limited_angle_tomography_placeholder.md
+    citation_key: TODO_first_target_paper
+    pdf_policy: pdf_original_not_copied_to_reusable_knowledge
+    evidence_use: Define target literature roles for limited-angle tomography, optical spray diagnostics, TV regularization, validation metrics, and reviewer limitations.
+    citation_locations:
+      - Introduction limited-angle gap
+      - Methods baseline comparison
+      - Reviewer gate limitations paragraph
+    updated_at: '2026-07-01'
+    created_at: '2026-07-01'
+    last_verified_at: ''
+    verification_due_days: 7
+    encoding_status: ok
+    confidence: 0.45
+    confidence_reason: placeholder card awaiting real source citation
+    reference_count: 1
+    last_used_at: '2026-07-01T00:00:00+08:00'
+    last_reviewed_at: '2026-07-01T00:00:00+08:00'
+    quality_level: bronze
+    superseded_by: ''

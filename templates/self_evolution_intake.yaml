@@ -1,0 +1,22 @@
+﻿schema: research_harness_self_evolution_intake.v1
+trigger: 自进化
+project_root: G:\BaiduSyncdisk\ResearchLoop
+project_id: researchloop
+task:
+  title: ''
+  summary: ''
+  source_refs: []
+  evidence_refs: []
+  verification_commands: []
+risk_boundary:
+  - Do not copy raw experimental data, model weights, CAD binaries, or temporary files into G:\knowledge.
+  - Do not write to G:\knowledge\_harness or G:\知识库\_harness.
+  - Do not auto-promote candidate material to validated, reusable, approved, pass, or paper_ready.
+candidates:
+  knowledge: []
+  prompts: []
+  research_assets: []
+  decisions: []
+  workflow_improvements: []
+next_bottleneck: ''
+notes: ''

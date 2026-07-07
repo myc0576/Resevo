@@ -1,0 +1,45 @@
+﻿version: 1
+output_objects:
+  - output_id: paper_lifecycle_minimal_output
+    output_type: paper
+    title: Minimal paper-driven research project example
+    source_project: researchloop
+    status: draft
+    target_venue: internal dry-run
+    linked_project_root: G:\BaiduSyncdisk\ResearchLoop\examples\paper_lifecycle_minimal
+    central_claim: A claim-first project skeleton can be validated without copying raw data.
+    linked_claims:
+      - C1
+    linked_figures:
+      - F1
+    release_artifacts:
+      - G:\BaiduSyncdisk\ResearchLoop\examples\paper_lifecycle_minimal\reproduction_entry.md
+    updated_at: 2026-06-26
+  - output_id: asset_evolution_minimal_output
+    output_type: reusable_asset_loop
+    title: Minimal asset evolution loop example
+    source_project: researchloop
+    status: draft
+    target_venue: internal dry-run
+    linked_project_root: G:\BaiduSyncdisk\ResearchLoop\examples\asset_evolution_minimal
+    central_claim: A figure style can remain candidate until reuse evidence and boundaries are recorded.
+    linked_claims:
+      - C1
+    linked_figures:
+      - F1
+    release_artifacts:
+      - G:\BaiduSyncdisk\ResearchLoop\examples\asset_evolution_minimal\reproduction_entry.md
+    updated_at: 2026-06-26
+  - output_id: legacy_spray_research_harness_assetization_20260622
+    output_type: reusable_asset_seed
+    title: Legacy spray ResearchLoop case-bank migration
+    source_project: legacy_zhishiku_harness
+    status: candidate
+    target_venue: canonical ResearchLoop asset evolution registry
+    linked_project_root: G:\BaiduSyncdisk\ResearchLoop
+    central_claim: Legacy case-bank entries should seed candidate assets, not bypass review into reusable state.
+    linked_claims: []
+    linked_figures: []
+    release_artifacts:
+      - G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    updated_at: 2026-06-26

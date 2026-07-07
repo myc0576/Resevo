@@ -1,0 +1,426 @@
+﻿version: 1
+asset_evolution:
+  - asset_id: asset.figure_style.legacy_sc_nmt_mie_core.v1
+    asset_type: figure_style
+    title: SC-NMT Mie 3D core figure workflow
+    source_project: legacy_zhishiku_harness
+    source_output_objects:
+      - legacy_spray_research_harness_assetization_20260622
+    source_claims:
+      - relative equivalent Mie scattering intensity only
+    source_figures:
+      - Mie 3D isosurface, slice, axial curve, reprojection residual panel
+    current_version: v1
+    status: candidate
+    quality_score: 2.5
+    reuse_count: 0
+    known_issues:
+      - Migrated from legacy case-bank; needs a fresh asset card and project-specific reproduction before promotion.
+    applicable_contexts:
+      - paper or PPT figures for sparse-view Mie/LIF 3D reconstruction
+    non_applicable_contexts:
+      - absolute droplet density, SMD, mass-flow or concentration claims without calibration
+    reproduction_entry: G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    linked_files:
+      - G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+      - G:\BaiduSyncdisk\ResearchLoop\workflows\paper_lifecycle\validation_rules.yaml
+    successor_asset_id: ""
+    next_upgrade_action: Create an asset card from a current SC-NMT figure pack and attach actual plotting scripts.
+    updated_at: 2026-06-26
+  - asset_id: asset.figure_style.legacy_lif_mie_relative_smd.v1
+    asset_type: figure_style
+    title: LIF/Mie relative SMD support-mask visualization
+    source_project: legacy_zhishiku_harness
+    source_output_objects:
+      - legacy_spray_research_harness_assetization_20260622
+    source_claims:
+      - relative SMD trial figures must not claim absolute D32/SMD calibration
+    source_figures:
+      - support-masked LIF/Mie ratio map
+    current_version: v1
+    status: candidate
+    quality_score: 2.5
+    reuse_count: 0
+    known_issues:
+      - Needs fresh evidence of support mask parameters and color-scale checks.
+    applicable_contexts:
+      - exploratory 2D LIF/Mie visualization with clear relative wording
+    non_applicable_contexts:
+      - calibrated particle sizing claims
+    reproduction_entry: G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    linked_files:
+      - G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+      - G:\BaiduSyncdisk\ResearchLoop\templates\research_project\figure_quality_review.md
+    successor_asset_id: ""
+    next_upgrade_action: Attach a current relative-SMD example with before/after paths and reviewer risk notes.
+    updated_at: 2026-06-26
+  - asset_id: asset.workflow_rule.legacy_lif_mie_branch_contract.v1
+    asset_type: workflow_rule
+    title: 2DLIFMIE visualization branch baseline contract
+    source_project: legacy_zhishiku_harness
+    source_output_objects:
+      - legacy_spray_research_harness_assetization_20260622
+    source_claims:
+      - visualization branches must not silently replace the main reproducible baseline
+    source_figures:
+      - branch comparison figure packs
+    current_version: v1
+    status: candidate
+    quality_score: 2.0
+    reuse_count: 0
+    known_issues:
+      - Needs current branch naming convention before promotion.
+    applicable_contexts:
+      - comparing LIF/Mie figure rendering branches
+    non_applicable_contexts:
+      - production baseline replacement without manifest review
+    reproduction_entry: G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    linked_files:
+      - G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    successor_asset_id: ""
+    next_upgrade_action: Convert into a release-pack checklist item after one validated branch comparison.
+    updated_at: 2026-06-26
+  - asset_id: asset.validation_rule.legacy_claims_evidence_matrix.v1
+    asset_type: validation_rule
+    title: Claims evidence matrix for literature and paper drafting
+    source_project: legacy_zhishiku_harness
+    source_output_objects:
+      - legacy_spray_research_harness_assetization_20260622
+    source_claims:
+      - major claims must bind to evidence clusters and limitations before prose
+    source_figures: []
+    current_version: v1
+    status: candidate
+    quality_score: 3.0
+    reuse_count: 0
+    known_issues:
+      - The new template is implemented; promotion requires use in a real manuscript project.
+    applicable_contexts:
+      - review paper, manuscript, thesis chapter claim planning
+    non_applicable_contexts:
+      - informal notes that do not make evidence-backed claims
+    reproduction_entry: G:\BaiduSyncdisk\ResearchLoop\templates\research_project\03_claim_evidence_matrix.yaml
+    linked_files:
+      - G:\BaiduSyncdisk\ResearchLoop\templates\research_project\03_claim_evidence_matrix.yaml
+      - G:\BaiduSyncdisk\ResearchLoop\workflows\paper_lifecycle\validation_rules.yaml
+    successor_asset_id: ""
+    next_upgrade_action: Promote only after a manuscript project passes claim-evidence validation.
+    updated_at: 2026-06-26
+  - asset_id: asset.prompt.legacy_chinese_academic_model_review.v1
+    asset_type: prompt
+    title: Chinese academic manuscript review prompt pattern
+    source_project: legacy_zhishiku_harness
+    source_output_objects:
+      - legacy_spray_research_harness_assetization_20260622
+    source_claims:
+      - Chinese academic drafts need terminology and style review after GPT drafting
+    source_figures: []
+    current_version: v1
+    status: candidate
+    quality_score: 2.0
+    reuse_count: 0
+    known_issues:
+      - Needs prompt card and model/version notes before reuse.
+    applicable_contexts:
+      - Chinese paper, thesis chapter, report or technical document polishing
+    non_applicable_contexts:
+      - deciding scientific truth or literature facts without source verification
+    reproduction_entry: G:\knowledge\reusable_prompts\paper_writing\20260626_asset_evolution_retro_to_candidate_prompt.md
+    linked_files:
+      - G:\knowledge\reusable_prompts\paper_writing\20260626_asset_evolution_retro_to_candidate_prompt.md
+      - G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    successor_asset_id: ""
+    next_upgrade_action: Add a concrete before/after Chinese manuscript review example with human terminology checks.
+    updated_at: 2026-06-26
+  - asset_id: asset.dataset_recipe.legacy_pdf_markdown_ingestion.v1
+    asset_type: dataset_recipe
+    title: PDF original plus Markdown sidecar ingestion chain
+    source_project: legacy_zhishiku_harness
+    source_output_objects:
+      - legacy_spray_research_harness_assetization_20260622
+    source_claims:
+      - literature ingestion should preserve original PDF and sidecar provenance
+    source_figures: []
+    current_version: v1
+    status: candidate
+    quality_score: 2.0
+    reuse_count: 0
+    known_issues:
+      - OpenViking remains optional and noncanonical; needs current FTS5 workflow adaptation.
+    applicable_contexts:
+      - literature ingestion and sidecar generation with manifest
+    non_applicable_contexts:
+      - copying large literature stores into harness
+    reproduction_entry: G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    linked_files:
+      - G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    successor_asset_id: ""
+    next_upgrade_action: Reframe around canonical SQLite FTS5 indexing and dry-run ingestion evidence.
+    updated_at: 2026-06-26
+  - asset_id: asset.dataset_recipe.legacy_desktop_dedup_manifest.v1
+    asset_type: dataset_recipe
+    title: Desktop ingestion dedup manifest recipe
+    source_project: legacy_zhishiku_harness
+    source_output_objects:
+      - legacy_spray_research_harness_assetization_20260622
+    source_claims:
+      - desktop materials should be hash-deduplicated and moved with a manifest
+    source_figures: []
+    current_version: v1
+    status: candidate
+    quality_score: 2.0
+    reuse_count: 0
+    known_issues:
+      - Needs a small dry-run fixture before promotion.
+    applicable_contexts:
+      - literature, manuals and notes ingestion from messy inboxes
+    non_applicable_contexts:
+      - raw experiment data, model caches or runtime stores
+    reproduction_entry: G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    linked_files:
+      - G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    successor_asset_id: ""
+    next_upgrade_action: Add dry-run checksum fixture and no-copy safety statement.
+    updated_at: 2026-06-26
+  - asset_id: asset.workflow_rule.legacy_agent_artifact_manifest.v1
+    asset_type: workflow_rule
+    title: Agent artifact archiving manifest rule
+    source_project: legacy_zhishiku_harness
+    source_output_objects:
+      - legacy_spray_research_harness_assetization_20260622
+    source_claims:
+      - one-off agent outputs should have a manifest instead of polluting project roots
+    source_figures: []
+    current_version: v1
+    status: candidate
+    quality_score: 2.0
+    reuse_count: 0
+    known_issues:
+      - Current project closeout already covers research_assets; this needs deduplication before promotion.
+    applicable_contexts:
+      - temporary scripts, PPT assets, QC files and reproduction snippets
+    non_applicable_contexts:
+      - raw big data or generated caches
+    reproduction_entry: G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    linked_files:
+      - G:\BaiduSyncdisk\ResearchLoop\templates\research_asset_manifest_template.md
+      - G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    successor_asset_id: ""
+    next_upgrade_action: Merge only non-duplicative checks into research_asset_harvest skill.
+    updated_at: 2026-06-26
+  - asset_id: asset.dataset_recipe.legacy_conservative_descatter.v1
+    asset_type: dataset_recipe
+    title: Conservative descatter background handling
+    source_project: legacy_zhishiku_harness
+    source_output_objects:
+      - legacy_spray_research_harness_assetization_20260622
+    source_claims:
+      - descattering should retain before/after evidence and avoid hard-cut visual artifacts
+    source_figures:
+      - before and after spray image averages
+    current_version: v1
+    status: candidate
+    quality_score: 2.5
+    reuse_count: 0
+    known_issues:
+      - Needs current image paths and parameter manifest before reuse.
+    applicable_contexts:
+      - LIF/Mie preprocessing and visual audit
+    non_applicable_contexts:
+      - claims about corrected physics without calibration evidence
+    reproduction_entry: G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    linked_files:
+      - G:\BaiduSyncdisk\ResearchLoop\templates\research_project\figure_quality_review.md
+      - G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    successor_asset_id: ""
+    next_upgrade_action: Create a project-specific before/after visual review card.
+    updated_at: 2026-06-26
+  - asset_id: asset.dissemination_recipe.legacy_editable_ppt_layers.v1
+    asset_type: dissemination_recipe
+    title: Editable text and figure separation for research PPT
+    source_project: legacy_zhishiku_harness
+    source_output_objects:
+      - legacy_spray_research_harness_assetization_20260622
+    source_claims:
+      - PPT titles, labels, formulas and annotations should remain editable when possible
+    source_figures:
+      - research PPT object tree
+    current_version: v1
+    status: candidate
+    quality_score: 3.0
+    reuse_count: 0
+    known_issues:
+      - Existing newer PPT decisions overlap; must reconcile before reusable status.
+    applicable_contexts:
+      - group meeting PPT, thesis defense slides, paper figure explanation layers
+    non_applicable_contexts:
+      - raster scientific images that must remain image data
+    reproduction_entry: G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    linked_files:
+      - G:\BaiduSyncdisk\ResearchLoop\decisions\20260623_ppt_real_image_and_editable_layer_standard.md
+      - G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    successor_asset_id: ""
+    next_upgrade_action: Merge with existing validated PPT decisions or mark replaced.
+    updated_at: 2026-06-26
+  - asset_id: asset.validation_rule.legacy_art_sart_projection_alignment.v1
+    asset_type: validation_rule
+    title: ART/SART projection alignment diagnostic checklist
+    source_project: legacy_zhishiku_harness
+    source_output_objects:
+      - legacy_spray_research_harness_assetization_20260622
+    source_claims:
+      - reconstruction edits should check geometry, masks, gain normalization and reprojection evidence
+    source_figures:
+      - reprojection error diagnostics
+    current_version: v1
+    status: candidate
+    quality_score: 2.5
+    reuse_count: 0
+    known_issues:
+      - Needs current reconstruction project fixture or command.
+    applicable_contexts:
+      - sparse-view CT or spray Mie/LIF reconstruction debugging
+    non_applicable_contexts:
+      - unrelated image processing without forward projection
+    reproduction_entry: G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    linked_files:
+      - G:\BaiduSyncdisk\ResearchLoop\workflows\paper_lifecycle\validation_rules.yaml
+      - G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    successor_asset_id: ""
+    next_upgrade_action: Bind to a current reconstruction validation command and metrics.
+    updated_at: 2026-06-26
+  - asset_id: asset.workflow_rule.legacy_lif_mie_2d_to_3d_bridge.v1
+    asset_type: workflow_rule
+    title: 2D LIF/Mie to 3D sizing calibration bridge
+    source_project: legacy_zhishiku_harness
+    source_output_objects:
+      - legacy_spray_research_harness_assetization_20260622
+    source_claims:
+      - 3D sizing claims require a 2D calibration and external measurement bridge
+    source_figures:
+      - calibration chain schematic
+    current_version: v1
+    status: candidate
+    quality_score: 2.0
+    reuse_count: 0
+    known_issues:
+      - Evidence level was legacy chat memory; must stay candidate.
+    applicable_contexts:
+      - planning LIF/Mie sizing evidence chains
+    non_applicable_contexts:
+      - direct 3D quantitative sizing claims without external calibration
+    reproduction_entry: G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    linked_files:
+      - G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+      - G:\BaiduSyncdisk\ResearchLoop\templates\research_project\03_claim_evidence_matrix.yaml
+    successor_asset_id: ""
+    next_upgrade_action: Attach external particle-sizing evidence and claim matrix links.
+    updated_at: 2026-06-26
+  - asset_id: asset.validation_rule.legacy_relative_equivalent_mie_boundary.v1
+    asset_type: validation_rule
+    title: Relative equivalent Mie scattering claim boundary
+    source_project: legacy_zhishiku_harness
+    source_output_objects:
+      - legacy_spray_research_harness_assetization_20260622
+    source_claims:
+      - Mie-Pk-TV-S volume is relative equivalent Mie scattering intensity, not density or SMD
+    source_figures:
+      - Mie-Pk-TV-S volume figure captions
+    current_version: v1
+    status: candidate
+    quality_score: 3.0
+    reuse_count: 0
+    known_issues:
+      - Newer paper claim-boundary knowledge exists; reconcile before promotion.
+    applicable_contexts:
+      - SC-NMT Mie-Pk-TV-S writing, captions and PPT language
+    non_applicable_contexts:
+      - calibrated absolute concentration, SMD, mass-flow or number density
+    reproduction_entry: G:\knowledge\reusable_knowledge\paper_writing\20260623_sc_nmt_paper_claim_boundary_history.md
+    linked_files:
+      - G:\knowledge\reusable_knowledge\paper_writing\20260623_sc_nmt_paper_claim_boundary_history.md
+      - G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    successor_asset_id: ""
+    next_upgrade_action: Decide whether this candidate is replaced by existing paper claim-boundary knowledge.
+    updated_at: 2026-06-26
+  - asset_id: asset.narrative_pattern.legacy_spray_3d_review_spine.v1
+    asset_type: narrative_pattern
+    title: Spray 3D reconstruction review narrative spine
+    source_project: legacy_zhishiku_harness
+    source_output_objects:
+      - legacy_spray_research_harness_assetization_20260622
+    source_claims:
+      - review structure should bind physics, diagnostic signal, forward model, inverse algorithm, validation and uncertainty
+    source_figures: []
+    current_version: v1
+    status: candidate
+    quality_score: 2.5
+    reuse_count: 0
+    known_issues:
+      - Needs target paper distillation before reuse in a new venue.
+    applicable_contexts:
+      - review paper and related work sections for spray 3D reconstruction
+    non_applicable_contexts:
+      - methods papers whose contribution is not a review narrative
+    reproduction_entry: G:\BaiduSyncdisk\ResearchLoop\templates\literature\exemplar_distillation_pack.md
+    linked_files:
+      - G:\BaiduSyncdisk\ResearchLoop\templates\literature\exemplar_distillation_pack.md
+      - G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    successor_asset_id: ""
+    next_upgrade_action: Validate against one current exemplar distillation pack.
+    updated_at: 2026-06-26
+  - asset_id: asset.workflow_rule.legacy_flame_to_spray_transfer_boundary.v1
+    asset_type: workflow_rule
+    title: Flame tomography to spray reconstruction transfer boundary
+    source_project: legacy_zhishiku_harness
+    source_output_objects:
+      - legacy_spray_research_harness_assetization_20260622
+    source_claims:
+      - cross-project reuse must replace signal physics instead of copying flame assumptions into spray
+    source_figures: []
+    current_version: v1
+    status: candidate
+    quality_score: 2.0
+    reuse_count: 0
+    known_issues:
+      - Legacy expert-judgment source needs current project review.
+    applicable_contexts:
+      - adapting inverse-problem workflows between combustion and spray diagnostics
+    non_applicable_contexts:
+      - reusing physical interpretation across modalities without caveats
+    reproduction_entry: G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    linked_files:
+      - G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+      - G:\BaiduSyncdisk\ResearchLoop\workflows\paper_lifecycle\validation_rules.yaml
+    successor_asset_id: ""
+    next_upgrade_action: Attach a transfer-boundary review from a current reconstruction task.
+    updated_at: 2026-06-26
+  - asset_id: asset.figure_style.minimal_line_comparison.v1
+    asset_type: figure_style
+    title: Minimal line comparison figure style candidate
+    source_project: researchloop
+    source_output_objects:
+      - asset_evolution_minimal_output
+    source_claims:
+      - C1
+    source_figures:
+      - F1
+    current_version: v1
+    status: candidate
+    quality_score: 3.0
+    reuse_count: 0
+    known_issues:
+      - Minimal dry-run asset; not reviewed against a real target journal yet.
+    applicable_contexts:
+      - small examples that need v0/v1 figure quality iteration without raw data
+    non_applicable_contexts:
+      - final journal figures or claims requiring real experimental evidence
+    reproduction_entry: G:\BaiduSyncdisk\ResearchLoop\examples\asset_evolution_minimal\reproduction_entry.md
+    linked_files:
+      - G:\BaiduSyncdisk\ResearchLoop\examples\asset_evolution_minimal\asset_card.md
+      - G:\BaiduSyncdisk\ResearchLoop\examples\asset_evolution_minimal\05_figure_registry.yaml
+      - G:\BaiduSyncdisk\ResearchLoop\examples\asset_evolution_minimal\research_retro.md
+    asset_card: G:\BaiduSyncdisk\ResearchLoop\examples\asset_evolution_minimal\asset_card.md
+    successor_asset_id: ""
+    next_upgrade_action: Reuse in one real figure pack, record reviewer feedback, then reconsider reusable status.
+    updated_at: 2026-06-26

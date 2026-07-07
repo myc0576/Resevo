@@ -1,0 +1,215 @@
+﻿version: 1
+name: ResearchLoop
+description: 'ResearchLoop: a self-evolving workflow harness for paper-driven research and reusable knowledge assets.'
+
+brand:
+  name: ResearchLoop
+  positioning: 'ResearchLoop: a self-evolving workflow harness for paper-driven research and reusable knowledge assets.'
+  local_directory_note: 'The repository brand and canonical local entry are ResearchLoop at G:\BaiduSyncdisk\ResearchLoop; historical research-harness identifiers may remain only for compatibility.'
+
+paths:
+  workspace_root: 'G:\'
+  harness_root: 'G:\BaiduSyncdisk\ResearchLoop'
+  primary_project: 'G:\projects\SC-NMT'
+  paper_docs_root: 'G:\docs\小论文'
+  reusable_knowledge_root: 'G:\knowledge\reusable_knowledge'
+  reusable_prompts_root: 'G:\knowledge\reusable_prompts'
+  removed_legacy_reference: 'G:\知识库\_harness'
+
+path_resolution:
+  canonical_harness_root: 'G:\BaiduSyncdisk\ResearchLoop'
+  harness_write_root: 'G:\BaiduSyncdisk\ResearchLoop'
+  phrase_harness_means: 'G:\BaiduSyncdisk\ResearchLoop'
+  phrase_knowledge_base_means: 'G:\knowledge'
+  small_paper_outputs_default_root: 'G:\docs\小论文\<paper_id>'
+  legacy_read_only_references: []
+  removed_legacy_references:
+    - 'G:\知识库\_harness'
+  deprecated_or_ambiguous_paths:
+    - 'G:\knowledge\_harness'
+    - 'G:\知识库\_harness'
+  forbidden_harness_write_roots:
+    - 'G:\knowledge\_harness'
+    - 'G:\知识库\_harness'
+
+registries:
+  projects: 'G:\BaiduSyncdisk\ResearchLoop\registry\projects.yaml'
+  knowledge: 'G:\BaiduSyncdisk\ResearchLoop\registry\knowledge.yaml'
+  prompts: 'G:\BaiduSyncdisk\ResearchLoop\registry\prompts.yaml'
+  research_assets: 'G:\BaiduSyncdisk\ResearchLoop\registry\research_assets.yaml'
+  papers: 'G:\BaiduSyncdisk\ResearchLoop\registry\papers.yaml'
+  literature: 'G:\BaiduSyncdisk\ResearchLoop\registry\literature.yaml'
+  figures: 'G:\BaiduSyncdisk\ResearchLoop\registry\figures.yaml'
+  output_objects: 'G:\BaiduSyncdisk\ResearchLoop\registry\output_objects.yaml'
+  asset_evolution: 'G:\BaiduSyncdisk\ResearchLoop\registry\asset_evolution.yaml'
+  workflow_improvement_backlog: 'G:\BaiduSyncdisk\ResearchLoop\registry\workflow_improvement_backlog.yaml'
+  decisions: 'G:\BaiduSyncdisk\ResearchLoop\registry\decisions.yaml'
+  ppt_assets: 'G:\BaiduSyncdisk\ResearchLoop\registry\ppt_assets.yaml'
+  model_assets: 'G:\BaiduSyncdisk\ResearchLoop\registry\model_assets.yaml'
+  feedback: 'G:\BaiduSyncdisk\ResearchLoop\registry\feedback.yaml'
+
+automation:
+  scripts_root: 'G:\BaiduSyncdisk\ResearchLoop\scripts'
+  runs_root: 'G:\BaiduSyncdisk\ResearchLoop\runs'
+  state_root: 'G:\BaiduSyncdisk\ResearchLoop\state'
+  evolution_ledger: 'G:\BaiduSyncdisk\ResearchLoop\state\evolution_ledger.jsonl'
+  snapshots_root: 'G:\BaiduSyncdisk\ResearchLoop\state\snapshots'
+  quality_evaluation: 'G:\BaiduSyncdisk\ResearchLoop\scripts\evaluator.py'
+  project_health: 'G:\BaiduSyncdisk\ResearchLoop\scripts\project_health.py'
+  evolution_proposals: 'G:\BaiduSyncdisk\ResearchLoop\scripts\evolve_proposals.py'
+  daily_cycle: 'G:\BaiduSyncdisk\ResearchLoop\scripts\daily_cycle.py'
+  war_room: 'G:\BaiduSyncdisk\ResearchLoop\scripts\war_room.py'
+  self_evolution_loop: 'G:\BaiduSyncdisk\ResearchLoop\scripts\self_evolution_loop.py'
+  self_evolution_workflow: 'G:\BaiduSyncdisk\ResearchLoop\workflows\self_evolution_loop\README.md'
+  self_evolution_intake_template: 'G:\BaiduSyncdisk\ResearchLoop\templates\self_evolution_intake.yaml'
+  self_evolution_contract_template: 'G:\BaiduSyncdisk\ResearchLoop\templates\self_evolution_contract.md'
+
+search:
+  canonical_engine: sqlite_fts5
+  sqlite_path: 'G:\BaiduSyncdisk\ResearchLoop\state\kb_index\research_kb.sqlite'
+  mcp_server: 'G:\BaiduSyncdisk\ResearchLoop\mcp\research_harness_mcp.py'
+  openviking_status: legacy_optional_noncanonical
+  openviking_cleanup_inventory: 'G:\BaiduSyncdisk\ResearchLoop\reports\openviking_cleanup_inventory.md'
+
+quality:
+  score_total: 100
+  scoring_weights:
+    form_completeness: 30
+    content_validity: 30
+    reproducibility: 30
+    reference_reuse: 10
+  levels:
+    bronze: form check passes
+    silver: has verification evidence and reproduction entry
+    gold: reused or referenced by later project work
+  hard_failures:
+    - missing_path
+    - bad_encoding
+    - forbidden_harness_path
+    - validated_without_evidence
+    - research_asset_missing_manifest
+    - research_asset_missing_reproduction_entry
+
+confidence:
+  defaults:
+    validated: 0.80
+    pending validation: 0.45
+    hypothesis: 0.30
+  feedback_types:
+    - useful
+    - wrong
+    - outdated
+    - needs_review
+
+status_values:
+  core:
+    - validated
+    - hypothesis
+    - pending validation
+  asset_evolution:
+    - candidate
+    - reviewed
+    - reusable
+    - deprecated
+    - replaced
+
+self_evolution:
+  workflow_id: self_evolution_loop.v1
+  trigger_terms:
+    - 自进化
+    - 沉淀
+    - 更新
+    - 更新 harness
+    - 写回
+    - 写入 harness
+    - 知识库
+    - 复用
+    - 资产化
+    - 候选资产
+    - 经验沉淀
+    - closeout
+    - harness closeout
+    - 调用历史
+    - 查历史
+    - 参考之前
+    - loop
+    - 一键 loop
+    - retro
+    - 写入知识库
+    - 更新知识库
+    - 同步 harness
+    - 沉淀到 harness
+  entry_sequence:
+    - recall
+    - intake
+    - contract
+    - candidate_writeback
+    - validation
+    - next_bottleneck
+  restart_files:
+    - contract.yaml
+    - state.json
+    - trace.jsonl
+  allowed_auto_status:
+    - candidate
+    - pending validation
+  forbidden_auto_status:
+    - validated
+    - reusable
+    - approved
+    - pass
+    - paper_ready
+
+knowledge_categories:
+  - system_engineering
+  - 3d_reconstruction
+  - mie_scattering
+  - image_processing
+  - scientific_visualization
+  - paper_writing
+  - experimental_system
+  - mechanical_modeling
+
+prompt_categories:
+  - codex
+  - claude
+  - chatgpt
+  - scientific_visualization
+  - paper_writing
+  - project_review
+  - cad_mechanical_modeling
+
+rules:
+  no_large_data_in_knowledge: true
+  no_literature_pdf_originals_in_reusable_knowledge: true
+  small_paper_manuscript_figures_and_submission_default_to_docs_root: true
+  researchloop_only_stores_templates_workflows_indexes_and_decisions_for_papers: true
+  researchloop_brand_name: true
+  visual_refs_require_figure_card: true
+  paper_contract_required_for_paper_outputs: true
+  no_legacy_move_or_delete_without_explicit_request: true
+  closeout_required_after_research_task: true
+  closeout_required_for_all_g_workspace_tasks: true
+  harness_phrase_resolves_to_projects_researchloop: true
+  never_write_harness_assets_to_knowledge_underscore_harness: true
+  sqlite_fts5_is_canonical_search: true
+  openviking_is_not_canonical_search: true
+  asset_evolution_default_status: candidate
+  self_evolution_loop_enabled: true
+  self_evolution_candidate_first: true
+  self_evolution_requires_agent_generated_intake: true
+  auto_safe_fixes_enabled: true
+  auto_safe_fix_allowlist:
+    - fill_v2_metadata_fields
+    - update_reference_counts
+    - refresh_last_seen_and_last_checked
+    - mark_deterministic_encoding_status
+    - bridge_registered_projects
+    - rebuild_index_and_reports
+  auto_safe_fix_forbidden:
+    - change_scientific_claims
+    - delete_or_move_files
+    - copy_large_experiment_data_to_knowledge
+    - promote_pending_validation_to_validated
+    - register_unknown_projects_without_explicit_plan
+    - self_evolution_promote_to_validated_or_reusable

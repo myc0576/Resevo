@@ -1,0 +1,9 @@
+version: 1
+style_pack_id: minimal_line_comparison
+style_rules:
+  - message_first_caption
+  - explicit_claim_link
+  - before_after_version_history
+  - dry_run_scope_label
+non_applicable_contexts:
+  - final journal figures without real target paper review

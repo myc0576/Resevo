@@ -1,0 +1,17 @@
+version: 1
+claims:
+  - claim_id: C1
+    claim_text: A figure style asset must remain candidate until it has boundaries, reproduction and reuse evidence.
+    manuscript_section: Asset Evolution Loop
+    supporting_experiments:
+      - E1_minimal_asset_validator
+    supporting_figures:
+      - F1
+    data_sources:
+      - assets/minimal_points.csv
+    code_entrypoints:
+      - reproduction_entry.md
+    reproduction_command: python scripts\validate_asset_evolution.py --registry registry\asset_evolution.yaml --json
+    status: tested
+    risk: This is a workflow example and should not be promoted to reusable without real reuse.
+    next_action: Apply to one real figure pack and record reviewer feedback.

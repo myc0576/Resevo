@@ -1,0 +1,142 @@
+version: 1
+ruleset_id: paper_lifecycle.validation_rules.v1
+
+required_paths:
+  - id: research_brief
+    path: 00_research_brief.md
+  - id: target_paper_distillation
+    path: 01_target_paper_distillation.md
+  - id: gap_and_contribution
+    path: 02_gap_and_contribution.md
+  - id: claim_evidence_matrix
+    path: 03_claim_evidence_matrix.yaml
+  - id: experiment_plan
+    path: 04_experiment_plan.md
+  - id: figure_registry
+    path: 05_figure_registry.yaml
+  - id: manuscript_storyboard
+    path: 06_manuscript_storyboard.md
+  - id: release_pack
+    path: 07_release_pack.md
+  - id: dissemination_pack
+    path: 08_dissemination_pack.md
+
+reproduction_entry:
+  required_any:
+    - id: reproduction_entry
+      paths:
+        - reproduction_entry.md
+
+yaml_checks:
+  - id: claim_evidence_matrix
+    path: 03_claim_evidence_matrix.yaml
+    list_key: claims
+    status_field: status
+    status_values:
+      - proposed
+      - tested
+      - supported
+      - weakened
+      - rejected
+    required_fields:
+      - claim_id
+      - claim_text
+      - manuscript_section
+      - supporting_experiments
+      - supporting_figures
+      - data_sources
+      - code_entrypoints
+      - reproduction_command
+      - status
+      - risk
+      - next_action
+  - id: figure_registry
+    path: 05_figure_registry.yaml
+    list_key: figures
+    required_fields:
+      - figure_id
+      - target_message
+      - claim_id
+      - input_data
+      - plotting_script
+      - output_path
+      - caption_draft
+      - visual_style_reference
+      - validation_status
+      - reviewer_risk
+      - version_history
+      - target_paper_reference
+      - visual_style_pack
+      - quality_scores
+      - known_visual_issues
+      - next_redraw_action
+      - reusable_asset_candidate
+
+markdown_checks:
+  - id: release_pack
+    path: 07_release_pack.md
+    required_terms:
+      - GitHub README
+      - LICENSE
+      - CITATION.cff
+      - release notes
+      - data/code availability
+      - Zenodo
+      - minimal reproduction command
+  - id: dissemination_pack
+    path: 08_dissemination_pack.md
+    required_terms:
+      - group meeting
+      - README
+      - social media
+      - evidence chain
+
+gate_policy:
+  asset_candidate_gate:
+    default_status_after_closeout: candidate
+    forbid_direct_reusable_without_review: true
+  reuse_gate:
+    reusable_requires:
+      - asset_card
+      - applicable_contexts
+      - non_applicable_contexts
+      - reproduction_entry
+      - source_output_objects
+  asset_deprecation_gate:
+    deprecated_or_replaced_requires:
+      - known_issues
+      - successor_asset_id_or_reason
+  workflow_improvement_gate:
+    allowed_sources:
+      - research_retro
+      - failed_run
+      - review_feedback
+      - validator_failure
+
+legacy_contract_seeds:
+  claim_boundary:
+    required_checks:
+      - no_unsupported_novelty_claims
+      - limitations_stated_near_claims
+      - evidence_level_matches_wording_strength
+  scientific_figure_quality:
+    required_checks:
+      - provenance_recorded
+      - labels_units_and_colorbars_present_when_needed
+      - physical_plausibility_checked
+      - reviewer_risk_recorded
+  literature_citation_quality:
+    required_checks:
+      - source_traceability
+      - citation_to_claim_link_exists
+      - uncertainty_and_contradictions_preserved
+  algorithm_validation_quality:
+    required_checks:
+      - forward_model_or_reprojection_consistency
+      - baseline_comparison
+      - physical_bounds_checked
+  ppt_quality:
+    required_checks:
+      - text_objects_are_editable
+      - slide_source_manifest_exists
+      - figures_are_paper_level_or_marked_draft

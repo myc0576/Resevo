@@ -1,0 +1,490 @@
+﻿version: 1
+knowledge:
+- id: 20260623_editable_scientific_ppt_closeout
+  title: SC-NMT 科研 PPT 图文非耦合与真实图像替换工作流
+  category: scientific_visualization
+  path: G:\knowledge\reusable_knowledge\scientific_visualization\20260623_editable_scientific_ppt_closeout.md
+  source_project: sc-nmt
+  status: validated
+  verification: 来自 session 019ebb27 的路径存在性、PPT 页数、媒体非空、预览检查和对象统计记录。
+  evidence_refs:
+  - C:\Users\Administrator\.codex\sessions\2026\06\12\rollout-2026-06-12T17-26-49-019ebb27-d005-7061-bba7-16681a670b9c.jsonl
+  - G:\projects\SC-NMT\research_assets\20260623_session_019ebb27_ppt_visual_workflow\00_asset_manifest.md
+  updated_at: 2026-06-23
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.95
+  confidence_reason: default_from_status:validated;refs:6
+  reference_count: 12
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260623_historical_session_ingestion_workflow
+  title: SC-NMT 历史 Codex 会话批量沉淀工作流
+  category: system_engineering
+  path: G:\knowledge\reusable_knowledge\system_engineering\20260623_historical_session_ingestion_workflow.md
+  source_project: sc-nmt
+  status: validated
+  verification: 扫描 551 个 session 文件，识别 72 个 SC-NMT 会话，并生成 inventory、registry 与报告。
+  evidence_refs:
+  - G:\projects\SC-NMT\research_assets\20260623_sc_nmt_historical_sessions_ingestion\session_inventory.json
+  - G:\BaiduSyncdisk\ResearchLoop\reports\20260623_sc_nmt_historical_sessions_ingestion_report.md
+  updated_at: '2026-06-23'
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  encoding_repaired_at: '2026-06-23T18:56:23+08:00'
+  confidence: 0.86
+  confidence_reason: default_from_status:validated;refs:1
+  reference_count: 2
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260623_sc_nmt_calibration_projection_history
+  title: SC-NMT 标定与投影几何历史会话沉淀
+  category: experimental_system
+  path: G:\knowledge\reusable_knowledge\experimental_system\20260623_sc_nmt_calibration_projection_history.md
+  source_project: sc-nmt
+  status: pending validation
+  verification: 历史会话归纳，需结合 calibration artifacts 后续验证。
+  evidence_refs:
+  - G:\projects\SC-NMT\research_assets\20260623_sc_nmt_historical_sessions_ingestion\theme_summary.md
+  updated_at: '2026-06-23'
+  created_at: '2026-06-23'
+  last_verified_at: ''
+  verification_due_days: 7
+  encoding_status: ok
+  encoding_repaired_at: '2026-06-23T18:56:23+08:00'
+  confidence: 0.51
+  confidence_reason: default_from_status:pending validation;refs:1
+  reference_count: 2
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260623_sc_nmt_scatter_alignment_history
+  title: SC-NMT 预处理与散射对齐历史会话沉淀
+  category: image_processing
+  path: G:\knowledge\reusable_knowledge\image_processing\20260623_sc_nmt_scatter_alignment_history.md
+  source_project: sc-nmt
+  status: pending validation
+  verification: 历史会话归纳，需结合 QC/approval artifacts 后续验证。
+  evidence_refs:
+  - G:\projects\SC-NMT\research_assets\20260623_sc_nmt_historical_sessions_ingestion\theme_summary.md
+  updated_at: '2026-06-23'
+  created_at: '2026-06-23'
+  last_verified_at: ''
+  verification_due_days: 7
+  encoding_status: ok
+  encoding_repaired_at: '2026-06-23T18:56:23+08:00'
+  confidence: 0.51
+  confidence_reason: default_from_status:pending validation;refs:1
+  reference_count: 2
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260623_sc_nmt_mie_art_reconstruction_history
+  title: SC-NMT ART、Geo-SART、Mie-SART 与 Mie-Pk-TV-S 历史沉淀
+  category: 3d_reconstruction
+  path: G:\knowledge\reusable_knowledge\3d_reconstruction\20260623_sc_nmt_mie_art_reconstruction_history.md
+  source_project: sc-nmt
+  status: pending validation
+  verification: 历史会话归纳，需结合 metrics/volume exports 后续验证。
+  evidence_refs:
+  - G:\projects\SC-NMT\research_assets\20260623_sc_nmt_historical_sessions_ingestion\theme_summary.md
+  updated_at: '2026-06-23'
+  created_at: '2026-06-23'
+  last_verified_at: ''
+  verification_due_days: 7
+  encoding_status: ok
+  encoding_repaired_at: '2026-06-23T18:56:23+08:00'
+  confidence: 0.51
+  confidence_reason: default_from_status:pending validation;refs:1
+  reference_count: 2
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260623_sc_nmt_historical_visual_materials
+  title: SC-NMT 历史 PPT 与科学可视化素材沉淀
+  category: scientific_visualization
+  path: G:\knowledge\reusable_knowledge\scientific_visualization\20260623_sc_nmt_historical_visual_materials.md
+  source_project: sc-nmt
+  status: validated
+  verification: 历史 PPT 任务归纳，并引用 visual closeout asset。
+  evidence_refs:
+  - G:\projects\SC-NMT\research_assets\20260623_sc_nmt_historical_sessions_ingestion\theme_summary.md
+  - G:\knowledge\reusable_knowledge\scientific_visualization\20260623_editable_scientific_ppt_closeout.md
+  updated_at: '2026-06-23'
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  encoding_repaired_at: '2026-06-23T18:56:23+08:00'
+  confidence: 0.86
+  confidence_reason: default_from_status:validated;refs:1
+  reference_count: 2
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260623_sc_nmt_paper_claim_boundary_history
+  title: SC-NMT 论文 claim boundary 历史沉淀
+  category: paper_writing
+  path: G:\knowledge\reusable_knowledge\paper_writing\20260623_sc_nmt_paper_claim_boundary_history.md
+  source_project: sc-nmt
+  status: pending validation
+  verification: 结合历史 memory 与 claim boundary 归纳，需后续论文证据确认。
+  evidence_refs:
+  - G:\projects\SC-NMT\research_assets\20260623_sc_nmt_historical_sessions_ingestion\theme_summary.md
+  updated_at: '2026-06-23'
+  created_at: '2026-06-23'
+  last_verified_at: ''
+  verification_due_days: 7
+  encoding_status: ok
+  encoding_repaired_at: '2026-06-23T18:56:23+08:00'
+  confidence: 0.51
+  confidence_reason: default_from_status:pending validation;refs:1
+  reference_count: 2
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260623_solidworks_parametric_burner_modeling
+  title: SolidWorks API 参数化燃烧器建模工作流
+  category: mechanical_modeling
+  path: G:\knowledge\reusable_knowledge\mechanical_modeling\20260623_solidworks_parametric_burner_modeling.md
+  source_project: burner-3d-modeling
+  status: validated
+  verification: automation_log 显示 COMPLETE，SolidWorks SaveAs3Result=0，interference_report 为 PASS，key_dims_report 存在关键尺寸回读。
+  evidence_refs:
+  - G:\projects\燃烧器3d建模绘制\research_assets\20260623_session_019ef32c_solidworks_burner_modeling\00_asset_manifest.md
+  - G:\projects\燃烧器3d建模绘制\spraysyn_api_output\reports\automation_log.txt
+  - G:\projects\燃烧器3d建模绘制\spraysyn_api_output\reports\interference_report.txt
+  - G:\projects\燃烧器3d建模绘制\spraysyn_api_output\reports\key_dims_report.txt
+  updated_at: '2026-06-23'
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.95
+  confidence_reason: default_from_status:validated;refs:3
+  reference_count: 6
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260623_g_drive_workspace_closeout_policy
+  title: G 盘工作区级 closeout 沉淀策略
+  category: system_engineering
+  path: G:\knowledge\reusable_knowledge\system_engineering\20260623_g_drive_workspace_closeout_policy.md
+  source_project: g-workspace
+  status: validated
+  verification: session 019ef32c 暴露了非 SC-NMT 项目 closeout 漏写；本次已补齐 root AGENTS、harness policy、skill、registry 和可检索知识卡。
+  evidence_refs:
+  - G:\BaiduSyncdisk\ResearchLoop\reports\20260623_session_019ef32c_closeout_gap_report.md
+  - G:\BaiduSyncdisk\ResearchLoop\system_design\workspace_closeout_policy.md
+  updated_at: '2026-06-23'
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.86
+  confidence_reason: default_from_status:validated;refs:1
+  reference_count: 2
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260623_canonical_harness_path_resolution
+  title: Harness 路径歧义消除规则
+  category: system_engineering
+  path: G:\knowledge\reusable_knowledge\system_engineering\20260623_canonical_harness_path_resolution.md
+  source_project: g-workspace
+  status: validated
+  verification: harness.yaml、root AGENTS、ResearchLoop AGENTS 和 system_design 已明确规定 harness 只写入 G:\BaiduSyncdisk\ResearchLoop，禁止写入
+    G:\knowledge\_harness。
+  evidence_refs:
+  - G:\BaiduSyncdisk\ResearchLoop\system_design\harness_path_resolution.md
+  - G:\BaiduSyncdisk\ResearchLoop\decisions\20260623_canonical_harness_path_resolution.md
+  updated_at: '2026-06-23'
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.95
+  confidence_reason: default_from_status:validated;refs:4
+  reference_count: 8
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260623_lightweight_research_harness_automation
+  title: 轻量 ResearchLoop 自动化闭环
+  category: system_engineering
+  path: G:\knowledge\reusable_knowledge\system_engineering\20260623_lightweight_research_harness_automation.md
+  source_project: g-workspace
+  status: validated
+  verification: 已实现 registry validator、SQLite FTS5 索引、project bridge、closeout health check、run capture 和 evolution ledger，并通过本轮命令验证。
+  evidence_refs:
+  - G:\BaiduSyncdisk\ResearchLoop\scripts\registry_tool.py
+  - G:\BaiduSyncdisk\ResearchLoop\scripts\kb_index.py
+  - G:\BaiduSyncdisk\ResearchLoop\scripts\project_bridge.py
+  - G:\BaiduSyncdisk\ResearchLoop\scripts\closeout_check.py
+  - G:\BaiduSyncdisk\ResearchLoop\scripts\run_capture.py
+  - G:\BaiduSyncdisk\ResearchLoop\state\registry_validation.json
+  - G:\BaiduSyncdisk\ResearchLoop\state\closeout_health.json
+  - G:\BaiduSyncdisk\ResearchLoop\reports\health\20260623_closeout_health.md
+  updated_at: '2026-06-23'
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.86
+  confidence_reason: default_from_status:validated;refs:1
+  reference_count: 2
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260623_encoding_repair_for_harness_assets
+  title: Harness 资产坏编码修复与验证策略
+  category: system_engineering
+  path: G:\knowledge\reusable_knowledge\system_engineering\20260623_encoding_repair_for_harness_assets.md
+  source_project: g-workspace
+  status: validated
+  verification: 已重建 12 个可复用 markdown 资产，registry validate 通过，closeout_check 显示 encoding_issues 为空，SQLite FTS5 已重建。
+  evidence_refs:
+  - G:\BaiduSyncdisk\ResearchLoop\scripts\repair_encoding_artifacts.py
+  - G:\BaiduSyncdisk\ResearchLoop\reports\health\20260623_encoding_repair.md
+  - G:\BaiduSyncdisk\ResearchLoop\reports\health\20260623_closeout_health.md
+  - G:\BaiduSyncdisk\ResearchLoop\state\registry_validation.json
+  - G:\BaiduSyncdisk\ResearchLoop\state\closeout_health.json
+  updated_at: '2026-06-23'
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.86
+  confidence_reason: default_from_status:validated;refs:1
+  reference_count: 2
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+
+- id: 20260626_solidworks_com_rot_connection_repair
+  title: SolidWorks COM ROT connection repair for CAD automation
+  category: mechanical_modeling
+  path: G:\knowledge\reusable_knowledge\mechanical_modeling\20260626_solidworks_com_rot_connection_repair.md
+  source_project: burner-3d-modeling
+  status: validated
+  verification: Full SolidWorks pipeline completed through ROT attachment, C# interop assembly rebuild, C# screenshot export, and final component-count checks.
+  evidence_refs:
+  - G:\projects\燃烧器3d建模绘制\research_assets\20260626_solidworks_com_connection_repair\00_asset_manifest.md
+  - G:\projects\burner_sw_runtime\reports\refined_nozzle_assembly_repair_log.txt
+  - G:\projects\burner_sw_runtime\refined_nozzle_views\sw_export_refined_nozzle_views_log.txt
+  updated_at: '2026-06-26'
+  created_at: '2026-06-26'
+  last_verified_at: '2026-06-26'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.95
+  confidence_reason: ROT attachment and C# interop pipeline verified against generated SLDASM component counts
+  reference_count: 8
+  last_used_at: '2026-06-26T10:36:00+08:00'
+  last_reviewed_at: '2026-06-26T10:36:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260626_asset_evolution_loop_for_paper_outputs
+  title: Asset Evolution Loop for paper-driven research outputs
+  category: paper_writing
+  path: G:\knowledge\reusable_knowledge\paper_writing\20260626_asset_evolution_loop_for_paper_outputs.md
+  source_project: researchloop
+  status: validated
+  verification: Implemented in paper lifecycle workflow, asset evolution registry, validator, examples and legacy cleanup report.
+  evidence_refs:
+  - G:\BaiduSyncdisk\ResearchLoop\workflows\paper_lifecycle\paper_state_machine.yaml
+  - G:\BaiduSyncdisk\ResearchLoop\registry\asset_evolution.yaml
+  - G:\BaiduSyncdisk\ResearchLoop\scripts\validate_asset_evolution.py
+  - G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+  updated_at: '2026-06-26'
+  created_at: '2026-06-26'
+  last_verified_at: '2026-06-26'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.86
+  confidence_reason: validator-backed harness implementation
+  reference_count: 4
+  last_used_at: '2026-06-26T00:00:00+08:00'
+  last_reviewed_at: '2026-06-26T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260627_sc_nmt_fullframe_rectangular_scattermasking
+  title: SC-NMT 20260624 Mie 全幅矩形杂散射门控处理
+  category: image_processing
+  path: G:\knowledge\reusable_knowledge\image_processing\20260627_sc_nmt_fullframe_rectangular_scattermasking.md
+  source_project: sc-nmt
+  status: validated
+  verification: 输出 1440 张派生 uint16 TIFF；P-018 第 61 帧抽样验证框外像素完全一致，框内 99.5 百分位从 34160 降到 1224。
+  evidence_refs:
+  - G:\projects\SC-NMT\research_assets\20260627_sc_nmt_fullframe_scattermasking\verification_evidence.md
+  - G:\data\experiments\2026\20260624mie_scattermasking\manifest.json
+  - G:\data\experiments\2026\20260624mie_scattermasking\metrics.csv
+  updated_at: '2026-06-27'
+  created_at: '2026-06-27'
+  last_verified_at: '2026-06-27'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.9
+  confidence_reason: file-generation and sampled pixel-invariance checks passed; downstream reconstruction impact remains unverified
+  reference_count: 6
+  last_used_at: '2026-06-27T00:00:00+08:00'
+  last_reviewed_at: '2026-06-27T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260627_sc_nmt_sequence_harness_migration_workflow
+  title: SC-NMT 多实验组时序数据 harness 迁移工作流
+  category: system_engineering
+  path: G:\knowledge\reusable_knowledge\system_engineering\20260627_sc_nmt_sequence_harness_migration_workflow.md
+  source_project: sc-nmt
+  status: validated
+  verification: 新增 sequence dataset 测试、既有回归测试和 compileall 全部通过；harness registry validate 通过。
+  evidence_refs:
+  - G:\projects\SC-NMT\research_assets\20260627_sequence_harness_refactor\00_asset_manifest.md
+  - G:\projects\SC-NMT\docs\decision_records\DR_20260624_sequence_harness.md
+  - G:\projects\SC-NMT\docs\architecture_coupling_audit.md
+  updated_at: '2026-06-27'
+  created_at: '2026-06-27'
+  last_verified_at: '2026-06-27'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.9
+  confidence_reason: pytest, compileall, and registry validation passed
+  reference_count: 6
+  last_used_at: '2026-06-27T00:00:00+08:00'
+  last_reviewed_at: '2026-06-27T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260701_sc_nmt_reacquired_checkerboard_calibration
+  title: SC-NMT 20260701 补拍棋盘格六视角标定经验
+  category: experimental_system
+  path: G:\knowledge\reusable_knowledge\experimental_system\20260701_sc_nmt_reacquired_checkerboard_calibration.md
+  source_project: sc-nmt
+  status: validated
+  verification: 20260701 补拍数据 4x4 OpenCV 合并优化标定六视角均 calibrated；8 组每视角择优图集已生成；inferno PPT 审计 grayscale_like_image_count=0；pytest 26 passed；compileall passed；下游使用仍需人工 gate。
+  evidence_refs:
+  - G:\projects\SC-NMT\research_assets\20260701_phase2_3_reacquired_checkerboard_calibration\00_asset_manifest.md
+  - G:\projects\SC-NMT\outputs20260628\runs\phase2_20260701_loop1\phase2_3_checkerboard_best_view_gallery_inferno_merged\phase2_3_best_view_gallery_verification_report.md
+  - G:\projects\SC-NMT\outputs20260628\runs\phase2_20260701_loop1\phase2_3_checkerboard_best_view_gallery_inferno_merged\phase2_3_best_view_gallery_pptx_audit.json
+  updated_at: '2026-07-01'
+  created_at: '2026-07-01'
+  last_verified_at: '2026-07-01'
+  verification_due_days: 30
+  encoding_status: ok
+  confidence: 0.78
+  confidence_reason: six views calibrated with merged 8-group gallery evidence and inferno pseudocolor-only audit, but view2 error remains accepted_with_notes
+  reference_count: 8
+  last_used_at: '2026-07-01T00:00:00+08:00'
+  last_reviewed_at: '2026-07-01T00:00:00+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260701_sc_nmt_portable_loop_contract_system
+  title: SC-NMT portable loop contract system
+  category: system_engineering
+  path: G:\knowledge\reusable_knowledge\system_engineering\20260701_sc_nmt_portable_loop_contract_system.md
+  source_project: sc-nmt
+  status: validated
+  verification: SC-NMT loop contract tests, CLI validate/phase-verifier dry-run, compileall, and harness registry validation passed; this validates workflow infrastructure, not scientific phase approval.
+  evidence_refs:
+  - G:\projects\SC-NMT\tests\test_loop_contract_system.py
+  - G:\projects\SC-NMT\outputs20260628\loop\phase2_20260701_loop1\verifier_report.md
+  - G:\projects\SC-NMT\research_assets\20260701_sc_nmt_loop_system_optimization\00_asset_manifest.md
+  updated_at: '2026-07-01'
+  created_at: '2026-07-01'
+  last_verified_at: '2026-07-01'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.9
+  confidence_reason: loop contract tests, dry-run validators, and compileall passed
+  reference_count: 6
+  last_used_at: '2026-07-01T00:00:00+08:00'
+  last_reviewed_at: '2026-07-01T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260701_sc_nmt_ppt_pseudocolor_only_rule
+  title: SC-NMT PPT 科学图像伪彩硬规则
+  category: scientific_visualization
+  path: G:\knowledge\reusable_knowledge\scientific_visualization\20260701_sc_nmt_ppt_pseudocolor_only_rule.md
+  source_project: sc-nmt
+  status: validated
+  verification: Phase 2.3 inferno 合并优化 PPT 审计记录 embedded_image_count=24 且 grayscale_like_image_count=0；测试和 compileall 通过。
+  evidence_refs:
+  - G:\projects\SC-NMT\outputs20260628\runs\phase2_20260701_loop1\phase2_3_checkerboard_best_view_gallery_inferno_merged\phase2_3_best_view_gallery_pptx_audit.json
+  - G:\projects\SC-NMT\AGENTS.md
+  - G:\projects\SC-NMT\LOOP.md
+  - G:\BaiduSyncdisk\ResearchLoop\decisions\20260701_sc_nmt_ppt_pseudocolor_only_rule.md
+  updated_at: '2026-07-01'
+  created_at: '2026-07-01'
+  last_verified_at: '2026-07-01'
+  verification_due_days: 30
+  encoding_status: ok
+  confidence: 0.88
+  confidence_reason: rule implemented in project docs, script audit, synthetic regression test, and inferno merged PPT artifact
+  reference_count: 8
+  last_used_at: '2026-07-01T00:00:00+08:00'
+  last_reviewed_at: '2026-07-01T00:00:00+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260702_sc_nmt_checkerboard_enhancement_detection
+  title: SC-NMT 棋盘格画质增强辅助角点检测经验
+  category: experimental_system
+  path: G:\knowledge\reusable_knowledge\experimental_system\20260702_sc_nmt_checkerboard_enhancement_detection.md
+  source_project: sc-nmt
+  status: validated
+  verification: Phase 2.2e 处理 8 组 106 张 TIFF 的 636 个 frame/view；PPT audit 为 inferno 且 grayscale_like_image_count=0；pytest 20 passed；compileall passed；下游仍为 pending_manual_review。
+  evidence_refs:
+  - G:\projects\SC-NMT\research_assets\20260702_phase2_2e_checkerboard_enhancement\00_asset_manifest.md
+  - G:\projects\SC-NMT\outputs20260628\runs\phase2_2e_checkerboard_enhancement_loop1\phase2_2e_verification_report.md
+  - G:\projects\SC-NMT\outputs20260628\runs\phase2_2e_checkerboard_enhancement_loop1\phase2_2e_pptx_audit.json
+  updated_at: '2026-07-02'
+  created_at: '2026-07-02'
+  last_verified_at: '2026-07-02'
+  verification_due_days: 30
+  encoding_status: ok
+  confidence: 0.82
+  confidence_reason: all frame/view enhancement detection completed with tests, compileall, and PPT audit; view2 remains weak
+  reference_count: 6
+  last_used_at: '2026-07-02T00:00:00+08:00'
+  last_reviewed_at: '2026-07-02T00:00:00+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260703_target_journal_reviewer_citation_rule
+  title: target journal reviewer citation rule
+  category: paper_writing
+  path: G:\knowledge\reusable_knowledge\paper_writing\20260703_target_journal_reviewer_citation_rule.md
+  source_project: sc-nmt
+  status: validated
+  verification: rule added to SC-NMT manuscript skeleton, reference template matrix, SCI2 guidance, implementation roadmap, LOOP, and project decision record; registry validation passed
+  evidence_refs:
+  - G:\projects\SC-NMT\docs\decision_records\DR_20260703_target_journal_reviewer_citation_rule.md
+  - G:\projects\SC-NMT\docs\manuscript_skeleton_20260627.md
+  - G:\projects\SC-NMT\docs\reference_template_matrix_20260627.md
+  updated_at: '2026-07-03'
+  created_at: '2026-07-03'
+  last_verified_at: '2026-07-03'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.86
+  confidence_reason: documented across SC-NMT paper-writing and loop governance surfaces with explicit anti-citation-gaming boundary
+  reference_count: 6
+  last_used_at: '2026-07-03T00:00:00+08:00'
+  last_reviewed_at: '2026-07-03T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''

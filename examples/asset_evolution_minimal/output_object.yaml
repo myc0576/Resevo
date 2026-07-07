@@ -1,0 +1,14 @@
+﻿version: 1
+output_objects:
+  - output_id: asset_evolution_minimal_output
+    output_type: reusable_asset_loop
+    title: Minimal asset evolution loop example
+    source_project: ResearchLoop
+    status: draft
+    target_venue: internal dry-run
+    linked_project_root: G:\BaiduSyncdisk\ResearchLoop\examples\asset_evolution_minimal
+    linked_claims:
+      - C1
+    linked_figures:
+      - F1
+    updated_at: 2026-06-26

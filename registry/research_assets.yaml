@@ -1,0 +1,362 @@
+version: 1
+research_assets:
+- id: 20260623_session_019ebb27_ppt_visual_workflow
+  project_id: sc-nmt
+  task_name: ppt_visual_workflow_from_session_019ebb27
+  asset_dir: G:\projects\SC-NMT\research_assets\20260623_session_019ebb27_ppt_visual_workflow
+  intended_uses:
+  - GitHub
+  - Douyin
+  - article
+  - paper figure
+  - PPT
+  manifest: G:\projects\SC-NMT\research_assets\20260623_session_019ebb27_ppt_visual_workflow\00_asset_manifest.md
+  reproduction_entry: G:\projects\SC-NMT\research_assets\20260623_session_019ebb27_ppt_visual_workflow\reproduction_entry.md
+  status: validated
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.95
+  confidence_reason: default_from_status:validated;refs:9
+  reference_count: 18
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260623_sc_nmt_historical_sessions_ingestion
+  project_id: sc-nmt
+  task_name: historical_session_ingestion
+  asset_dir: G:\projects\SC-NMT\research_assets\20260623_sc_nmt_historical_sessions_ingestion
+  intended_uses:
+  - GitHub
+  - article
+  - paper figure
+  - PPT
+  - Codex retrieval
+  manifest: G:\projects\SC-NMT\research_assets\20260623_sc_nmt_historical_sessions_ingestion\00_asset_manifest.md
+  reproduction_entry: G:\projects\SC-NMT\research_assets\20260623_sc_nmt_historical_sessions_ingestion\reproduction_entry.md
+  status: validated
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  encoding_repaired_at: '2026-06-23T18:56:23+08:00'
+  confidence: 0.95
+  confidence_reason: default_from_status:validated;refs:30
+  reference_count: 60
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260623_session_019ef32c_solidworks_burner_modeling
+  project_id: burner-3d-modeling
+  task_name: solidworks_burner_modeling_from_session_019ef32c
+  asset_dir: G:\projects\燃烧器3d建模绘制\research_assets\20260623_session_019ef32c_solidworks_burner_modeling
+  intended_uses:
+  - GitHub
+  - article
+  - PPT
+  - CAD/API automation
+  - Codex retrieval
+  manifest: G:\projects\燃烧器3d建模绘制\research_assets\20260623_session_019ef32c_solidworks_burner_modeling\00_asset_manifest.md
+  reproduction_entry: G:\projects\燃烧器3d建模绘制\research_assets\20260623_session_019ef32c_solidworks_burner_modeling\reproduction_entry.md
+  status: validated
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.95
+  confidence_reason: default_from_status:validated;refs:9
+  reference_count: 18
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260625_burner_true_half_section_ppt
+  project_id: burner-3d-modeling
+  task_name: burner_true_half_section_ppt
+  asset_dir: G:\projects\燃烧器3d建模绘制\research_assets\20260625_burner_true_half_section_ppt
+  intended_uses:
+  - PPT
+  - paper figure
+  - article
+  - CAD/API automation
+  - Codex retrieval
+  manifest: G:\projects\燃烧器3d建模绘制\research_assets\20260625_burner_true_half_section_ppt\00_asset_manifest.md
+  reproduction_entry: G:\projects\燃烧器3d建模绘制\research_assets\20260625_burner_true_half_section_ppt\reproduction_entry.md
+  status: validated
+  created_at: '2026-06-25'
+  last_verified_at: '2026-06-26'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.95
+  confidence_reason: SOLIDWORKS native section view export plus PowerPoint preview verification
+  reference_count: 18
+  last_used_at: '2026-06-25T15:42:33+08:00'
+  last_reviewed_at: '2026-06-26T11:08:43+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260625_burner_editable_spraysyn_comparison_ppt
+  project_id: burner-3d-modeling
+  task_name: burner_editable_spraysyn_comparison_ppt
+  asset_dir: G:\projects\燃烧器3d建模绘制\research_assets\20260625_burner_editable_spraysyn_comparison_ppt
+  intended_uses:
+  - PPT
+  - paper figure
+  - article
+  - CAD/API automation
+  - Codex retrieval
+  manifest: G:\projects\燃烧器3d建模绘制\research_assets\20260625_burner_editable_spraysyn_comparison_ppt\00_asset_manifest.md
+  reproduction_entry: G:\projects\燃烧器3d建模绘制\research_assets\20260625_burner_editable_spraysyn_comparison_ppt\reproduction_entry.md
+  status: validated
+  created_at: '2026-06-25'
+  last_verified_at: '2026-06-26'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.92
+  confidence_reason: SOLIDWORKS native clean section export plus editable PPT object-name and dimension-report checks
+  reference_count: 20
+  last_used_at: '2026-06-25T16:38:02+08:00'
+  last_reviewed_at: '2026-06-26T11:08:43+08:00'
+  quality_level: gold
+  superseded_by: ''
+
+- id: 20260626_solidworks_com_connection_repair
+  project_id: burner-3d-modeling
+  task_name: solidworks_com_connection_repair
+  asset_dir: G:\projects\燃烧器3d建模绘制\research_assets\20260626_solidworks_com_connection_repair
+  intended_uses:
+  - CAD/API automation
+  - PPT
+  - Codex retrieval
+  - troubleshooting
+  manifest: G:\projects\燃烧器3d建模绘制\research_assets\20260626_solidworks_com_connection_repair\00_asset_manifest.md
+  reproduction_entry: G:\projects\燃烧器3d建模绘制\research_assets\20260626_solidworks_com_connection_repair\reproduction_entry.md
+  status: validated
+  created_at: '2026-06-26'
+  last_verified_at: '2026-06-26'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.95
+  confidence_reason: SolidWorks ROT connection, C# interop assembly rebuild/export, and component-count checks passed
+  reference_count: 10
+  last_used_at: '2026-06-26T10:36:00+08:00'
+  last_reviewed_at: '2026-06-26T10:36:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260627_sc_nmt_fullframe_scattermasking
+  project_id: sc-nmt
+  task_name: fullframe_rectangular_scattermasking_20260624mie
+  asset_dir: G:\projects\SC-NMT\research_assets\20260627_sc_nmt_fullframe_scattermasking
+  intended_uses:
+  - GitHub
+  - article
+  - PPT
+  - Codex retrieval
+  - preprocessing evidence
+  manifest: G:\projects\SC-NMT\research_assets\20260627_sc_nmt_fullframe_scattermasking\00_asset_manifest.md
+  reproduction_entry: G:\projects\SC-NMT\research_assets\20260627_sc_nmt_fullframe_scattermasking\reproduction_entry.md
+  status: validated
+  created_at: '2026-06-27'
+  last_verified_at: '2026-06-27'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.9
+  confidence_reason: derived TIFF count, manifest existence, metrics existence, and sampled pixel invariance verified
+  reference_count: 8
+  last_used_at: '2026-06-27T00:00:00+08:00'
+  last_reviewed_at: '2026-06-27T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260627_sequence_harness_refactor
+  project_id: sc-nmt
+  task_name: sequence_harness_refactor
+  asset_dir: G:\projects\SC-NMT\research_assets\20260627_sequence_harness_refactor
+  intended_uses:
+  - GitHub
+  - article
+  - PPT
+  - Codex retrieval
+  - research workflow governance
+  manifest: G:\projects\SC-NMT\research_assets\20260627_sequence_harness_refactor\00_asset_manifest.md
+  reproduction_entry: G:\projects\SC-NMT\research_assets\20260627_sequence_harness_refactor\reproduction_entry.md
+  status: validated
+  created_at: '2026-06-27'
+  last_verified_at: '2026-06-27'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.9
+  confidence_reason: pytest, compileall, and registry validation passed
+  reference_count: 8
+  last_used_at: '2026-06-27T00:00:00+08:00'
+  last_reviewed_at: '2026-06-27T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260628_phase0_data_freeze_loop
+  project_id: sc-nmt
+  task_name: phase0_data_freeze_loop
+  asset_dir: G:\projects\SC-NMT\research_assets\20260628_phase0_data_freeze_loop
+  intended_uses:
+  - GitHub
+  - article
+  - PPT
+  - Codex retrieval
+  - research workflow governance
+  manifest: G:\projects\SC-NMT\research_assets\20260628_phase0_data_freeze_loop\00_asset_manifest.md
+  reproduction_entry: G:\projects\SC-NMT\research_assets\20260628_phase0_data_freeze_loop\reproduction_entry.md
+  status: validated
+  created_at: '2026-06-28'
+  last_verified_at: '2026-06-28'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.9
+  confidence_reason: Phase 0 artifacts, PPT audit, targeted pytest, compileall, and checker report passed; scientific gate remains pending_manual_review
+  reference_count: 10
+  last_used_at: '2026-06-28T13:41:00+08:00'
+  last_reviewed_at: '2026-06-28T13:41:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260628_phase1_sequence_qc_loop
+  project_id: sc-nmt
+  task_name: phase1_sequence_qc_loop
+  asset_dir: G:\projects\SC-NMT\research_assets\20260628_phase1_sequence_qc_loop
+  intended_uses:
+  - GitHub
+  - article
+  - PPT
+  - Codex retrieval
+  - research workflow governance
+  manifest: G:\projects\SC-NMT\research_assets\20260628_phase1_sequence_qc_loop\00_asset_manifest.md
+  reproduction_entry: G:\projects\SC-NMT\research_assets\20260628_phase1_sequence_qc_loop\reproduction_entry.md
+  status: validated
+  created_at: '2026-06-28'
+  last_verified_at: '2026-06-28'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.9
+  confidence_reason: Phase 1 artifacts, PPT audit, targeted pytest, compileall, and checker report passed; scientific gate remains accepted_with_notes
+  reference_count: 12
+  last_used_at: '2026-06-28T00:00:00+08:00'
+  last_reviewed_at: '2026-06-28T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260629_phase2_migration_scale_detection_loop
+  project_id: sc-nmt
+  task_name: phase2_migration_scale_detection_loop
+  asset_dir: G:\projects\SC-NMT\research_assets\20260629_phase2_migration_scale_detection_loop
+  intended_uses:
+  - GitHub
+  - article
+  - PPT
+  - Codex retrieval
+  - research workflow governance
+  manifest: G:\projects\SC-NMT\research_assets\20260629_phase2_migration_scale_detection_loop\00_asset_manifest.md
+  reproduction_entry: G:\projects\SC-NMT\research_assets\20260629_phase2_migration_scale_detection_loop\reproduction_entry.md
+  status: validated
+  created_at: '2026-06-29'
+  last_verified_at: '2026-06-29'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.9
+  confidence_reason: Phase 2.1 and Phase 2.2 artifacts, PPT audits, targeted pytest, compileall, and checker report passed; scientific gate remains accepted_with_notes
+  reference_count: 14
+  last_used_at: '2026-06-29T00:00:00+08:00'
+  last_reviewed_at: '2026-06-29T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260701_sci2_review_feedback
+  project_id: sc-nmt
+  task_name: sci2_review_feedback_processing_gates
+  asset_dir: G:\projects\SC-NMT\research_assets\20260701_sci2_review_feedback
+  intended_uses:
+  - article
+  - paper figure
+  - PPT
+  - Codex retrieval
+  - research workflow governance
+  manifest: G:\projects\SC-NMT\research_assets\20260701_sci2_review_feedback\00_asset_manifest.md
+  reproduction_entry: G:\projects\SC-NMT\research_assets\20260701_sci2_review_feedback\reproduction_entry.md
+  status: pending validation
+  created_at: '2026-07-01'
+  last_verified_at: '2026-07-01'
+  verification_due_days: 30
+  encoding_status: ok
+  confidence: 0.45
+  confidence_reason: review guidance and registry write verified; scientific reconstruction evidence remains pending
+  reference_count: 8
+  last_used_at: '2026-07-01T00:00:00+08:00'
+  last_reviewed_at: '2026-07-01T00:00:00+08:00'
+  quality_level: bronze
+  superseded_by: ''
+- id: 20260701_phase2_3_reacquired_checkerboard_calibration
+  project_id: sc-nmt
+  task_name: phase2_3_reacquired_checkerboard_calibration
+  asset_dir: G:\projects\SC-NMT\research_assets\20260701_phase2_3_reacquired_checkerboard_calibration
+  intended_uses:
+  - GitHub
+  - article
+  - PPT
+  - Codex retrieval
+  - research workflow governance
+  - calibration evidence
+  manifest: G:\projects\SC-NMT\research_assets\20260701_phase2_3_reacquired_checkerboard_calibration\00_asset_manifest.md
+  reproduction_entry: G:\projects\SC-NMT\research_assets\20260701_phase2_3_reacquired_checkerboard_calibration\reproduction_entry.md
+  status: validated
+  created_at: '2026-07-01'
+  last_verified_at: '2026-07-01'
+  verification_due_days: 30
+  encoding_status: ok
+  confidence: 0.78
+  confidence_reason: six views calibrated by OpenCV with merged 8-group 4x4 evidence; inferno PPT audit has zero grayscale-like images; view2 reprojection error remains accepted_with_notes
+  reference_count: 16
+  last_used_at: '2026-07-01T00:00:00+08:00'
+  last_reviewed_at: '2026-07-01T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260701_sc_nmt_loop_system_optimization
+  project_id: sc-nmt
+  task_name: loop_system_optimization
+  asset_dir: G:\projects\SC-NMT\research_assets\20260701_sc_nmt_loop_system_optimization
+  intended_uses:
+  - Codex retrieval
+  - research workflow governance
+  - reproducibility
+  - validation
+  manifest: G:\projects\SC-NMT\research_assets\20260701_sc_nmt_loop_system_optimization\00_asset_manifest.md
+  reproduction_entry: G:\projects\SC-NMT\research_assets\20260701_sc_nmt_loop_system_optimization\reproduction_entry.md
+  status: validated
+  created_at: '2026-07-01'
+  last_verified_at: '2026-07-01'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.9
+  confidence_reason: loop contract tests, CLI dry-run validators, compileall, and registry validation passed
+  reference_count: 10
+  last_used_at: '2026-07-01T00:00:00+08:00'
+  last_reviewed_at: '2026-07-01T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260702_phase2_2e_checkerboard_enhancement
+  project_id: sc-nmt
+  task_name: phase2_2e_checkerboard_enhancement
+  asset_dir: G:\projects\SC-NMT\research_assets\20260702_phase2_2e_checkerboard_enhancement
+  intended_uses:
+  - Codex retrieval
+  - research workflow governance
+  - calibration evidence
+  - PPT
+  manifest: G:\projects\SC-NMT\research_assets\20260702_phase2_2e_checkerboard_enhancement\00_asset_manifest.md
+  reproduction_entry: G:\projects\SC-NMT\research_assets\20260702_phase2_2e_checkerboard_enhancement\reproduction_entry.md
+  status: validated
+  created_at: '2026-07-02'
+  last_verified_at: '2026-07-02'
+  verification_due_days: 30
+  encoding_status: ok
+  confidence: 0.82
+  confidence_reason: Phase 2.2e processed all frame/view tasks with non-destructive enhancement detection; view2 remains pending manual review
+  reference_count: 8
+  last_used_at: '2026-07-02T00:00:00+08:00'
+  last_reviewed_at: '2026-07-02T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''

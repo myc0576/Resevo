@@ -1,0 +1,18 @@
+﻿{
+  "mcpServers": {
+    "ResearchLoop": {
+      "command": "python",
+      "args": [
+        "G:\\BaiduSyncdisk\\ResearchLoop\\mcp\\research_harness_mcp.py"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "search_kb",
+        "read_kb_doc",
+        "get_closeout_health",
+        "get_project_health",
+        "list_proposals"
+      ]
+    }
+  }
+}

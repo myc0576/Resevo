@@ -1,0 +1,1 @@
+Figure v0: minimal style with no explicit asset boundary.

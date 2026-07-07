@@ -1,0 +1,117 @@
+version: 1
+workflow_id: paper_lifecycle.v1
+states:
+  - state: idea
+    entry_artifacts:
+      - 00_research_brief.md
+    exit_gate: idea_gate
+  - state: literature_targeting
+    entry_artifacts:
+      - 01_target_paper_distillation.md
+      - exemplar_distillation_pack.md
+    exit_gate: idea_gate
+  - state: gap_and_claim_design
+    entry_artifacts:
+      - 02_gap_and_contribution.md
+      - 03_claim_evidence_matrix.yaml
+    exit_gate: design_gate
+  - state: experiment_and_evidence
+    entry_artifacts:
+      - 04_experiment_plan.md
+      - reproduction_entry.md
+    exit_gate: experiment_gate
+  - state: figure_quality_loop
+    entry_artifacts:
+      - 05_figure_registry.yaml
+      - figure_quality_review.md
+    exit_gate: figure_gate
+  - state: manuscript_story
+    entry_artifacts:
+      - 06_manuscript_storyboard.md
+    exit_gate: manuscript_gate
+  - state: release_packaging
+    entry_artifacts:
+      - 07_release_pack.md
+    exit_gate: release_gate
+  - state: dissemination
+    entry_artifacts:
+      - 08_dissemination_pack.md
+    exit_gate: dissemination_gate
+  - state: research_retro
+    entry_artifacts:
+      - research_retro.md
+    exit_gate: asset_candidate_gate
+  - state: asset_review
+    entry_artifacts:
+      - registry/asset_evolution.yaml
+      - templates/reusable_asset/asset_card.md
+    exit_gate: reuse_gate
+  - state: workflow_improvement
+    entry_artifacts:
+      - registry/workflow_improvement_backlog.yaml
+    exit_gate: workflow_improvement_gate
+  - state: closeout
+    entry_artifacts:
+      - registry/decisions.yaml
+      - registry/knowledge.yaml
+      - registry/prompts.yaml
+    exit_gate: closeout_gate
+
+gates:
+  idea_gate:
+    question: 是否有明确 gap 和目标 venue？
+    required_artifacts:
+      - 00_research_brief.md
+      - 01_target_paper_distillation.md
+      - 02_gap_and_contribution.md
+  design_gate:
+    question: claim 是否有 evidence plan？
+    required_artifacts:
+      - 03_claim_evidence_matrix.yaml
+  experiment_gate:
+    question: raw/intermediate/results 是否可追踪？
+    required_artifacts:
+      - 04_experiment_plan.md
+      - reproduction_entry.md
+  figure_gate:
+    question: 每张图是否服务 claim？
+    required_artifacts:
+      - 05_figure_registry.yaml
+      - figure_quality_review.md
+  manuscript_gate:
+    question: 每节是否服务中心贡献？
+    required_artifacts:
+      - 06_manuscript_storyboard.md
+  release_gate:
+    question: 代码/数据/引用/许可证是否可发布？
+    required_artifacts:
+      - 07_release_pack.md
+      - reproduction_entry.md
+  dissemination_gate:
+    question: 是否能从同一证据链生成组会、自媒体、README 素材？
+    required_artifacts:
+      - 08_dissemination_pack.md
+  asset_candidate_gate:
+    question: closeout 内容是否只进入 candidate asset，而非直接 reusable？
+    required_artifacts:
+      - research_retro.md
+      - registry/asset_evolution.yaml
+  reuse_gate:
+    question: reusable asset 是否有 asset card、适用边界、复现入口和真实使用来源？
+    required_artifacts:
+      - templates/reusable_asset/asset_card.md
+      - registry/asset_evolution.yaml
+  asset_deprecation_gate:
+    question: deprecated/replaced asset 是否说明替代资产或弃用原因？
+    required_artifacts:
+      - registry/asset_evolution.yaml
+  workflow_improvement_gate:
+    question: workflow improvement 是否来自 retro、failed run、review feedback 或 validator failure？
+    required_artifacts:
+      - registry/workflow_improvement_backlog.yaml
+  closeout_gate:
+    question: 是否沉淀 reusable knowledge/prompts/assets/decisions 并更新 registry？
+    required_artifacts:
+      - registry/decisions.yaml
+      - registry/knowledge.yaml
+      - registry/prompts.yaml

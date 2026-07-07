@@ -1,0 +1,47 @@
+﻿version: 1
+figures:
+  - id: fig_mie_pk_tv_s_f1_geometry_example
+    title: Figure 1 limited-angle optical geometry and missing-view map
+    source_project: sc-nmt
+    status: pending validation
+    path: G:\BaiduSyncdisk\ResearchLoop\examples\mie_pk_tv_s_paper_flow\figure_card_f1_geometry.md
+    visual_ref_dir: G:\BaiduSyncdisk\ResearchLoop\visual_refs\mie_pk_tv_s_limited_angle
+    figure_type: paper_figure_plan
+    claim_id: C1_relative_limited_angle_reconstruction
+    source: planned_from_project_outputs
+    evidence_use: Establish view geometry, finite-angle limitation, and scope boundary before reconstruction performance claims.
+    updated_at: '2026-07-01'
+    created_at: '2026-07-01'
+    last_verified_at: ''
+    verification_due_days: 7
+    encoding_status: ok
+    confidence: 0.45
+    confidence_reason: figure card skeleton pending real project visual and citation binding
+    reference_count: 1
+    last_used_at: '2026-07-01T00:00:00+08:00'
+    last_reviewed_at: '2026-07-01T00:00:00+08:00'
+    quality_level: bronze
+    superseded_by: ''
+  - id: fig_20260703_laser_burner_multicamera_schematic_ref
+    title: Laser burner multicamera experimental setup schematic reference
+    source_project: g-workspace
+    status: pending validation
+    path: G:\BaiduSyncdisk\ResearchLoop\visual_refs\optical_experimental_setup\20260703_laser_burner_multicamera_schematic\figure_card.md
+    visual_ref_dir: G:\BaiduSyncdisk\ResearchLoop\visual_refs\optical_experimental_setup\20260703_laser_burner_multicamera_schematic
+    figure_type: visual_reference_optical_setup
+    claim_id: visual_ref_only_no_scientific_claim
+    paper_id: ''
+    source: user_clipboard_external_reference
+    evidence_use: Internal composition reference for drawing optical experimental setup schematics; not scientific evidence and not release-ready artwork.
+    updated_at: '2026-07-03'
+    created_at: '2026-07-03'
+    last_verified_at: '2026-07-03'
+    verification_due_days: 30
+    encoding_status: ok
+    confidence: 0.55
+    confidence_reason: image copy, hash, dimensions, figure card, and registry entry verified; original citation and reuse rights remain pending
+    reference_count: 1
+    last_used_at: '2026-07-03T00:00:00+08:00'
+    last_reviewed_at: '2026-07-03T00:00:00+08:00'
+    quality_level: bronze
+    superseded_by: ''

@@ -1,0 +1,13 @@
+version: 1
+claims:
+  - claim_id: C1
+    claim_text: ""
+    manuscript_section: ""
+    supporting_experiments: []
+    supporting_figures: []
+    data_sources: []
+    code_entrypoints: []
+    reproduction_command: ""
+    status: proposed
+    risk: ""
+    next_action: ""

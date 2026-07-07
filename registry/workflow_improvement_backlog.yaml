@@ -1,0 +1,27 @@
+﻿version: 1
+workflow_improvement_backlog:
+  - issue_id: WIB-20260626-legacy-harness-cleanup
+    source_retro: G:\BaiduSyncdisk\ResearchLoop\reports\legacy_cleanup\20260626_zhishiku_harness_inventory.md
+    source_project: researchloop
+    pain_point: Legacy `_harness` roots made write targets ambiguous and left useful case-bank material outside canonical validators.
+    affected_workflow: paper_lifecycle.v1
+    affected_assets:
+      - registry/asset_evolution.yaml
+      - workflows/paper_lifecycle/validation_rules.yaml
+    proposed_fix: Migrate useful legacy cases as candidate assets, keep old status history as source context, and delete the legacy directory after validation.
+    priority: high
+    status: implemented
+    validation_method: validate_asset_evolution, registry_tool validate, closeout_check, Test-Path legacy roots
+    updated_at: 2026-06-26
+  - issue_id: WIB-20260626-minimal-asset-retro
+    source_retro: G:\BaiduSyncdisk\ResearchLoop\examples\asset_evolution_minimal\research_retro.md
+    source_project: researchloop
+    pain_point: Figure style reuse needs a small dry-run example that shows v0 to v1 improvement without real raw data.
+    affected_workflow: asset_candidate_gate
+    affected_assets:
+      - asset.figure_style.minimal_line_comparison.v1
+    proposed_fix: Keep a minimal candidate style asset with explicit reproduction entry, linked output object and backlog item.
+    priority: medium
+    status: implemented
+    validation_method: validate_asset_evolution and validate_research_project dry-runs
+    updated_at: 2026-06-26

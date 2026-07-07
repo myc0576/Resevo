@@ -1,0 +1,136 @@
+﻿version: 1
+prompts:
+- id: 20260623_sc_nmt_editable_ppt_redraw_prompt
+  title: SC-NMT 科研 PPT 图文非耦合重绘 Prompt
+  category: scientific_visualization
+  path: G:\knowledge\reusable_prompts\scientific_visualization\20260623_sc_nmt_editable_ppt_redraw_prompt.md
+  task: 将截图式科学示意图重绘为图文非耦合、可编辑、论文级 PPT 图层。
+  model: Codex Desktop / GPT-5 family
+  status: validated
+  updated_at: 2026-06-23
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.92
+  confidence_reason: default_from_status:validated;refs:2
+  reference_count: 4
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260623_batch_sc_nmt_session_ingestion_prompt
+  title: 批量 SC-NMT 历史 Codex 会话沉淀 Prompt
+  category: codex
+  path: G:\knowledge\reusable_prompts\codex\20260623_batch_sc_nmt_session_ingestion_prompt.md
+  task: 将 SC-NMT 历史会话批量沉淀到 harness、knowledge、research_assets 和 decision records。
+  model: Codex Desktop / GPT-5 family
+  status: validated
+  updated_at: '2026-06-23'
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  encoding_repaired_at: '2026-06-23T18:56:23+08:00'
+  confidence: 0.86
+  confidence_reason: default_from_status:validated;refs:1
+  reference_count: 2
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260623_solidworks_parametric_burner_modeling_prompt
+  title: SolidWorks 参数化燃烧器 API 建模 Prompt
+  category: cad_mechanical_modeling
+  path: G:\knowledge\reusable_prompts\cad_mechanical_modeling\20260623_solidworks_parametric_burner_modeling_prompt.md
+  task: 从文献约束、用户本地尺寸和照片边界生成可执行 SolidWorks API/VBA 参数化建模交付物。
+  model: Codex Desktop / GPT-5 family
+  status: validated
+  updated_at: '2026-06-23'
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.86
+  confidence_reason: default_from_status:validated;refs:1
+  reference_count: 2
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260626_asset_evolution_retro_to_candidate_prompt
+  title: Research retro to candidate asset prompt
+  category: paper_writing
+  path: G:\knowledge\reusable_prompts\paper_writing\20260626_asset_evolution_retro_to_candidate_prompt.md
+  task: 从 research retro、claim matrix、figure registry 和 output object 中提取 candidate reusable assets。
+  model: Codex Desktop / GPT-5 family
+  status: validated
+  updated_at: '2026-06-26'
+  created_at: '2026-06-26'
+  last_verified_at: '2026-06-26'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.86
+  confidence_reason: used by asset evolution loop registry design
+  reference_count: 3
+  last_used_at: '2026-06-26T00:00:00+08:00'
+  last_reviewed_at: '2026-06-26T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260627_sc_nmt_fullframe_scattermasking_prompt
+  title: SC-NMT 全幅红框杂散射门控批处理 Prompt
+  category: image_processing
+  path: G:\knowledge\reusable_prompts\image_processing\20260627_sc_nmt_fullframe_scattermasking_prompt.md
+  task: 根据整幅伪彩图上的人工红框，批量处理同批次原始 TIFF，只修改红框区域并输出派生 TIFF、manifest 和 metrics。
+  model: Codex Desktop / GPT-5 family
+  status: validated
+  updated_at: '2026-06-27'
+  created_at: '2026-06-27'
+  last_verified_at: '2026-06-27'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.86
+  confidence_reason: prompt distilled from completed 20260624 Mie batch processing task
+  reference_count: 3
+  last_used_at: '2026-06-27T00:00:00+08:00'
+  last_reviewed_at: '2026-06-27T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260701_paper_driven_prompt_card_template
+  title: Paper-driven research prompt card template
+  category: paper_writing
+  path: G:\BaiduSyncdisk\ResearchLoop\templates\prompt_card.md
+  task: Capture reusable prompts that support paper contracts, literature intake, figure intake, reviewer gates, and experiment closeout.
+  model: Codex Desktop / GPT-5 family
+  status: pending validation
+  updated_at: '2026-07-01'
+  created_at: '2026-07-01'
+  last_verified_at: ''
+  verification_due_days: 7
+  encoding_status: ok
+  confidence: 0.45
+  confidence_reason: template added for paper-driven workflow layer; pending real reuse evidence
+  reference_count: 1
+  last_used_at: '2026-07-01T00:00:00+08:00'
+  last_reviewed_at: '2026-07-01T00:00:00+08:00'
+  quality_level: bronze
+  superseded_by: ''
+- id: 20260627_sc_nmt_sequence_harness_refactor_prompt
+  title: SC-NMT 多实验组时序 harness 重构 Prompt
+  category: codex
+  path: G:\knowledge\reusable_prompts\codex\20260627_sc_nmt_sequence_harness_refactor_prompt.md
+  task: 将 SC-NMT 从 single-active-TIFF 流程重构为多实验组、多帧时序、可追溯的科研 harness。
+  model: Codex Desktop / GPT-5 family
+  status: validated
+  updated_at: '2026-06-27'
+  created_at: '2026-06-27'
+  last_verified_at: '2026-06-27'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.86
+  confidence_reason: extracted from validated SC-NMT sequence harness refactor
+  reference_count: 3
+  last_used_at: '2026-06-27T00:00:00+08:00'
+  last_reviewed_at: '2026-06-27T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''

@@ -1,0 +1,350 @@
+﻿version: 1
+decisions:
+- id: 20260707_researchloop_branding
+  date: '2026-07-07'
+  project_id: researchloop
+  decision: Use ResearchLoop as the public project brand and G:\BaiduSyncdisk\ResearchLoop as the canonical local entry.
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260707_researchloop_branding.md
+  status: validated
+  evidence_refs:
+  - G:\BaiduSyncdisk\ResearchLoop\README.md
+  - G:\BaiduSyncdisk\ResearchLoop\README.zh-CN.md
+  - G:\BaiduSyncdisk\ResearchLoop\harness.yaml
+  updated_at: '2026-07-07'
+  created_at: '2026-07-07'
+  last_verified_at: '2026-07-07'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.86
+  confidence_reason: user-requested publication branding update and local directory rename
+  reference_count: 0
+  last_used_at: '2026-07-07T00:00:00+08:00'
+  last_reviewed_at: '2026-07-07T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260623_ppt_bitmap_effective_dpi_audit_standard
+  date: 2026-06-23
+  project_id: sc-nmt
+  decision: SC-NMT 科研 PPT 审计必须计算位图按展示尺寸折算后的有效 dpi；低于 300 dpi 的图片应作为论文级最终版未达标项报告。
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260623_ppt_bitmap_effective_dpi_audit_standard.md
+  status: validated
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.92
+  confidence_reason: default_from_status:validated;refs:2
+  reference_count: 4
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260623_ppt_real_image_and_editable_layer_standard
+  date: 2026-06-23
+  project_id: sc-nmt
+  decision: SC-NMT 科研 PPT 后续优先采用真实数据图像本体 + PPT 可编辑解释图层；不再默认使用虚拟生成观测图替代真实观测图。
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260623_ppt_real_image_and_editable_layer_standard.md
+  status: validated
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.92
+  confidence_reason: default_from_status:validated;refs:2
+  reference_count: 4
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260623_grouped_historical_session_assetization
+  date: '2026-06-23'
+  project_id: sc-nmt
+  decision: SC-NMT 历史会话采用 inventory、主题聚类和按类别知识卡沉淀的方式处理。
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260623_grouped_historical_session_assetization.md
+  status: validated
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  encoding_repaired_at: '2026-06-23T18:56:23+08:00'
+  confidence: 0.86
+  confidence_reason: default_from_status:validated;refs:1
+  reference_count: 2
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260623_g_drive_workspace_closeout_required
+  date: '2026-06-23'
+  project_id: g-workspace
+  decision: 所有 G:\ 工作在最终回复前都必须执行 workspace closeout 检查；有可复用内容就写入 harness、knowledge、project research_assets 和 registry。
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260623_g_drive_workspace_closeout_required.md
+  status: validated
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.86
+  confidence_reason: default_from_status:validated;refs:1
+  reference_count: 2
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260623_canonical_harness_path_resolution
+  date: '2026-06-23'
+  project_id: g-workspace
+  decision: 在 G:\ 工作区内，harness 一词的唯一写入目标是 G:\BaiduSyncdisk\ResearchLoop；G:\knowledge\_harness 为废弃/歧义路径，不得创建或写入。
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260623_canonical_harness_path_resolution.md
+  status: validated
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.95
+  confidence_reason: default_from_status:validated;refs:5
+  reference_count: 10
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260623_lightweight_harness_automation_loop
+  date: '2026-06-23'
+  project_id: g-workspace
+  decision: 将 ResearchLoop 从纯 Markdown 协议升级为 Python CLI、YAML registry validator、SQLite FTS5、runs 和 evolution ledger 组成的轻量自动化闭环。
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260623_lightweight_harness_automation_loop.md
+  status: validated
+  created_at: '2026-06-23'
+  last_verified_at: '2026-06-23'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.86
+  confidence_reason: default_from_status:validated;refs:1
+  reference_count: 2
+  last_used_at: '2026-06-23T19:45:33+08:00'
+  last_reviewed_at: '2026-06-23T19:47:06+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260626_asset_evolution_loop_upgrade
+  date: '2026-06-26'
+  project_id: researchloop
+  decision: 将 ResearchLoop 升级为 paper-driven output lifecycle 和 Asset Evolution Loop；旧 G:\知识库\_harness 的有价值内容只作为 candidate seed 迁入，旧目录迁移验证后删除。
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260626_asset_evolution_loop_upgrade.md
+  status: validated
+  created_at: '2026-06-26'
+  last_verified_at: '2026-06-26'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.86
+  confidence_reason: validators planned and run in implementation closeout
+  reference_count: 6
+  last_used_at: '2026-06-26T00:00:00+08:00'
+  last_reviewed_at: '2026-06-26T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260627_sc_nmt_sequence_harness_registry
+  date: '2026-06-27'
+  project_id: sc-nmt
+  decision: SC-NMT 的 20260624 多实验组 Mie 时序数据先进入 experiment registry 和 Phase 0 sequence freeze manifest，不再把 P-011 single-active-TIFF 作为新数据默认入口。
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260627_sc_nmt_sequence_harness_registry.md
+  status: validated
+  created_at: '2026-06-27'
+  last_verified_at: '2026-06-27'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.9
+  confidence_reason: tests and compileall passed in SC-NMT implementation closeout
+  reference_count: 4
+  last_used_at: '2026-06-27T00:00:00+08:00'
+  last_reviewed_at: '2026-06-27T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260627_sc_nmt_fullframe_scattermasking_gate
+  date: '2026-06-27'
+  project_id: sc-nmt
+  decision: 20260624 Mie 序列在 Phase 1.7 时序 QC 前先使用用户确认的整幅红框区域生成派生去散射 TIFF，原始 TIFF 根目录保持只读。
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260627_sc_nmt_fullframe_scattermasking_gate.md
+  status: validated
+  created_at: '2026-06-27'
+  last_verified_at: '2026-06-27'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.9
+  confidence_reason: output manifest, metrics, and sampled pixel invariance verified
+  reference_count: 5
+  last_used_at: '2026-06-27T00:00:00+08:00'
+  last_reviewed_at: '2026-06-27T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260701_paper_driven_workflow_layer
+  date: '2026-07-01'
+  project_id: researchloop
+  decision: Add a paper-driven workflow layer for 3D LIF/MIE, spray optical tomography, and limited-angle 3D reconstruction so literature cards, visual references, paper contracts, reviewer gates, and closeout decisions stay traceable.
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260701_paper_driven_workflow_layer.md
+  status: validated
+  created_at: '2026-07-01'
+  last_verified_at: '2026-07-01'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.86
+  confidence_reason: implemented with workflow docs, templates, registries, README update, and validation commands
+  reference_count: 2
+  last_used_at: '2026-07-01T00:00:00+08:00'
+  last_reviewed_at: '2026-07-01T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260703_target_journal_reviewer_citation_rule
+  date: '2026-07-03'
+  project_id: sc-nmt
+  decision: SC-NMT Phase 8 submission packaging must include a target-journal reviewer/editor/field-expert literature pool and citation coverage table; relevant target-journal expert work should be cited, while confidential reviewer guessing and irrelevant citation padding are forbidden.
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260703_target_journal_reviewer_citation_rule.md
+  status: validated
+  created_at: '2026-07-03'
+  last_verified_at: '2026-07-03'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.86
+  confidence_reason: rule documented in SC-NMT manuscript, reference, review guidance, roadmap, LOOP, project decision record, and reusable knowledge card
+  reference_count: 6
+  last_used_at: '2026-07-03T00:00:00+08:00'
+  last_reviewed_at: '2026-07-03T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260701_small_paper_docs_write_root
+  date: '2026-07-01'
+  project_id: researchloop
+  decision: Any small-paper正文、图件、投稿文件 default to G:\docs\小论文\<paper_id>; ResearchLoop only stores templates, workflows, indexes, registry cards, and decision records for paper work.
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260701_small_paper_docs_write_root.md
+  status: validated
+  created_at: '2026-07-01'
+  last_verified_at: '2026-07-01'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.86
+  confidence_reason: implemented in harness rules, paper template, paper registry required fields, workflows, README, and project bridge text
+  reference_count: 2
+  last_used_at: '2026-07-01T00:00:00+08:00'
+  last_reviewed_at: '2026-07-01T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260701_sc_nmt_sci2_review_processing_gates
+  date: '2026-07-01'
+  project_id: sc-nmt
+  decision: SC-NMT 后续处理必须把 SCI 2 区审查反馈作为 Phase 2.3 至 Phase 8 的处理门槛；不得从 Phase 2.2 前置证据直接跳到论文图或投稿结论。
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260701_sc_nmt_sci2_review_processing_gates.md
+  status: pending validation
+  created_at: '2026-07-01'
+  last_verified_at: '2026-07-01'
+  verification_due_days: 30
+  encoding_status: ok
+  confidence: 0.45
+  confidence_reason: route guidance recorded; scientific evidence remains pending validation
+  reference_count: 3
+  last_used_at: '2026-07-01T00:00:00+08:00'
+  last_reviewed_at: '2026-07-01T00:00:00+08:00'
+  quality_level: bronze
+  superseded_by: ''
+- id: 20260701_sc_nmt_ppt_pseudocolor_only_rule
+  date: '2026-07-01'
+  project_id: sc-nmt
+  decision: SC-NMT 所有 phase/report/manuscript PPT 的科学数据图层必须使用伪彩；灰度图像只能作为算法内部输入，不得进入 PPT 输出。
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260701_sc_nmt_ppt_pseudocolor_only_rule.md
+  status: validated
+  created_at: '2026-07-01'
+  last_verified_at: '2026-07-01'
+  verification_due_days: 30
+  encoding_status: ok
+  confidence: 0.88
+  confidence_reason: implemented in SC-NMT AGENTS/LOOP/plan/docs plus Phase 2.3 script audit and inferno merged PPT artifact
+  reference_count: 8
+  last_used_at: '2026-07-01T00:00:00+08:00'
+  last_reviewed_at: '2026-07-01T00:00:00+08:00'
+  quality_level: gold
+  superseded_by: ''
+- id: 20260701_sc_nmt_portable_loop_contract_system
+  date: '2026-07-01'
+  project_id: sc-nmt
+  decision: SC-NMT loop system uses project-local portable contracts, CLI validators, trace files, and scorecards as the source of truth; OMX/Codex are invocation layers only, and scientific state promotion remains human-gated.
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260701_sc_nmt_portable_loop_contract_system.md
+  status: validated
+  created_at: '2026-07-01'
+  last_verified_at: '2026-07-01'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.9
+  confidence_reason: SC-NMT loop tests, CLI validators, compileall, and closeout registry validation passed
+  reference_count: 6
+  last_used_at: '2026-07-01T00:00:00+08:00'
+  last_reviewed_at: '2026-07-01T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260701_one_click_self_evolution_loop
+  date: '2026-07-01'
+  project_id: researchloop
+  decision: G:\ 工作区的“自进化、沉淀、更新、写回、复用、调用 harness”等触发词进入一键 self-evolution loop；Agent 生成 intake，runner 候选化写回并留下 contract/state/trace。
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260701_one_click_self_evolution_loop.md
+  status: validated
+  created_at: '2026-07-01'
+  last_verified_at: '2026-07-01'
+  verification_due_days: 90
+  encoding_status: ok
+  confidence: 0.86
+  confidence_reason: implemented with CLI, workflow docs, templates, trigger bridges, and targeted tests
+  reference_count: 0
+  last_used_at: '2026-07-01T00:00:00+08:00'
+  last_reviewed_at: '2026-07-01T00:00:00+08:00'
+  quality_level: silver
+  superseded_by: ''
+- id: 20260706_sc_nmt_view4_dot_board_undistort_route
+  date: '2026-07-06'
+  project_id: sc-nmt
+  decision: SC-NMT Phase 2 路线切换为 2026-07-06 补拍圆点标定板的 view4-first 标定和反畸变演示；其他视角失败不阻断 view4，但必须记录状态，固定探头-喷雾器几何只作为三维空间预飞行先验。
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260706_sc_nmt_view4_dot_board_undistort_route.md
+  status: pending validation
+  created_at: '2026-07-06'
+  last_verified_at: '2026-07-06'
+  verification_due_days: 30
+  encoding_status: ok
+  confidence: 0.45
+  confidence_reason: plan route recorded; view4 dot detection, calibration, undistortion, and 3D space preflight remain pending validation
+  reference_count: 2
+  last_used_at: '2026-07-06T00:00:00+08:00'
+  last_reviewed_at: '2026-07-06T00:00:00+08:00'
+  quality_level: bronze
+  superseded_by: ''
+- id: 20260706_sc_nmt_paper_sprint_template_manuscript_route
+  date: '2026-07-06'
+  project_id: sc-nmt
+  decision: SC-NMT plan20260627 升级为 Klinner & Willert 2022 主模板驱动、Paper Sprint、manuscript-first 的 Mie-Pk-CS-TV-T 方法论文路线；旧 P-011 / Mie-Pk-TV-S 只作为 pilot、补图候选或诊断图进入 figure pool。
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260706_sc_nmt_paper_sprint_template_manuscript_route.md
+  status: pending validation
+  created_at: '2026-07-06'
+  last_verified_at: '2026-07-06'
+  verification_due_days: 30
+  encoding_status: ok
+  confidence: 0.45
+  confidence_reason: route and plan contract recorded; manuscript, figures, originality gate, and source data remain pending validation
+  reference_count: 2
+  last_used_at: '2026-07-06T00:00:00+08:00'
+  last_reviewed_at: '2026-07-06T00:00:00+08:00'
+  quality_level: bronze
+  superseded_by: ''

@@ -1,0 +1,109 @@
+# Python caches and local tooling
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+.agents/
+.codex/
+.mcp.json
+!.mcp.json.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.csr
+*credentials*
+*secret*
+*token*
+*.local
+*.local.*
+
+# ResearchLoop generated local state and traces
+runs/
+state/
+reports/health/
+reports/evaluation/
+reports/project_health/
+reports/proposals/
+reports/daily/
+reports/war_room/
+*.jsonl
+
+# Raw data, experiment outputs, and large scientific arrays
+data/
+raw_data/
+outputs/
+outputs*/
+artifacts/
+tmp/
+temp/
+cache/
+*.raw
+*.bin
+*.dat
+*.mat
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.parquet
+*.feather
+*.sqlite
+*.sqlite3
+*.db
+
+# Images, videos, slide exports, and figure binaries
+*.tif
+*.tiff
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.gif
+*.webp
+*.avi
+*.mp4
+*.mov
+*.mkv
+*.pptx
+*.pdf
+
+# Model weights and checkpoints
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+*.pkl
+*.pickle
+
+# Project-local research assets may keep small Markdown manifests only
+research_assets/**
+!research_assets/**/
+!research_assets/**/00_asset_manifest.md
+!research_assets/**/reproduction_entry.md
+!research_assets/**/*.md
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+*.tmp
+*.bak
+*.swp
+
+# BaiduSyncdisk conflict sidecars
+*_冲突文件_*
+*冲突文件*
+*conflicted copy*

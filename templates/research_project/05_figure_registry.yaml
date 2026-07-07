@@ -1,0 +1,36 @@
+version: 1
+figures:
+  - figure_id: F1
+    target_message: ""
+    claim_id: C1
+    input_data: []
+    plotting_script: ""
+    output_path: ""
+    caption_draft: ""
+    visual_style_reference: ""
+    validation_status: draft
+    reviewer_risk: ""
+    version_history:
+      - version: v0
+        path: ""
+        change_note: ""
+        review_status: draft
+    before_after_paths:
+      before: ""
+      after: ""
+    target_paper_reference: ""
+    visual_style_pack: ""
+    quality_scores:
+      scientific_message: 0
+      visual_clarity: 0
+      journal_similarity: 0
+      reproducibility: 0
+      aesthetics: 0
+      annotation_completeness: 0
+      reviewer_risk: 0
+    known_visual_issues: []
+    next_redraw_action: ""
+    reusable_asset_candidate:
+      is_candidate: false
+      asset_type: figure_style
+      asset_id: ""

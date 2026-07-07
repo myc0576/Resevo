@@ -1,0 +1,18 @@
+version: 1
+claims:
+  - claim_id: C1
+    claim_text: A claim-first project skeleton can be validated structurally without copying real raw data.
+    manuscript_section: Methods
+    supporting_experiments:
+      - E1_minimal_fixture_validation
+    supporting_figures:
+      - F1
+    data_sources:
+      - results/minimal_points.csv
+    code_entrypoints:
+      - reproduction_entry.md
+      - scripts/validate_research_project.py
+    reproduction_command: python scripts\validate_research_project.py --project-root examples\paper_lifecycle_minimal --json
+    status: tested
+    risk: This checks structure only, not domain science.
+    next_action: Use the same skeleton in a real project and bind real evidence.

@@ -1,0 +1,42 @@
+version: 1
+figures:
+  - figure_id: F1
+    target_message: The v1 lifecycle figure records claim, data, script and release links.
+    claim_id: C1
+    input_data:
+      - results/minimal_points.csv
+    plotting_script: reproduction_entry.md
+    output_path: results/figure_v1.txt
+    caption_draft: "Fig. 1. Minimal dry-run lifecycle figure linking claim C1 to a reproduction entry; not a scientific result."
+    visual_style_reference: internal dry-run line comparison
+    validation_status: dry_run
+    reviewer_risk: Could be mistaken for scientific validation if the caption omits dry-run scope.
+    version_history:
+      - version: v0
+        path: results/figure_v0.txt
+        change_note: Missing claim link.
+        review_status: weak
+      - version: v1
+        path: results/figure_v1.txt
+        change_note: Adds claim, data and reproduction links.
+        review_status: dry_run_pass
+    before_after_paths:
+      before: results/figure_v0.txt
+      after: results/figure_v1.txt
+    target_paper_reference: 01_target_paper_distillation.md
+    visual_style_pack: internal_minimal_line_comparison
+    quality_scores:
+      scientific_message: 3
+      visual_clarity: 3
+      journal_similarity: 1
+      reproducibility: 5
+      aesthetics: 2
+      annotation_completeness: 3
+      reviewer_risk: 2
+    known_visual_issues:
+      - text fixture, not a plotted journal figure
+    next_redraw_action: Replace text fixture with a real plot in the next project.
+    reusable_asset_candidate:
+      is_candidate: true
+      asset_type: figure_style
+      asset_id: asset.figure_style.minimal_line_comparison.v1

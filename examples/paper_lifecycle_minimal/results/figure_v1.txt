@@ -1,0 +1,1 @@
+Figure v1: minimal line comparison linked to claim C1 and reproduction_entry.md.
