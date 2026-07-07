@@ -71,6 +71,7 @@ cache/
 *.bmp
 *.gif
 *.webp
+!assets/readme/*.png
 *.avi
 *.mp4
 *.mov

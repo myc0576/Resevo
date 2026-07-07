@@ -2,6 +2,8 @@
 
 **Turn every research task into a workflow your next paper can reuse.**
 
+![ResearchLoop overview architecture](assets/readme/researchloop-overview.svg)
+
 [中文 README](README.zh-CN.md)
 
 ResearchLoop 不是通用知识库，也不是另一个 AI agent。每个科研项目都不一样，所以这个仓库不承诺提供一套固定、通用、开箱即用的科学工作流。
