@@ -1,0 +1,29 @@
+version: 1
+upstream_workflows:
+  - id: yuan1z0825_nature_skills
+    title: Nature Skills
+    upstream_url: https://github.com/Yuan1z0825/nature-skills
+    license: Apache-2.0
+    pinned_ref: 8990143c3835f899e5331286a6a3b3393a2926ef
+    local_path: external/nature-skills
+    integration_status: optional_starter
+    validation_status: pending validation
+    starter_use: Optional starter workflow library for literature search, paper reading, Nature-style writing, reviewer simulation, figure workflows, citation audit, revision response, and related research-agent tasks.
+    safety_notes:
+      - Do not vendor upstream skill contents into ResearchLoop source.
+      - Download only after explicit user consent in the first-use onboarding prompt.
+      - Keep the full upstream directory structure, including skills/_shared, when installed locally.
+      - Do not install Python dependencies, configure credentials, or modify user-level agent skill directories by default.
+      - Treat upstream workflow use as pending validation until local ResearchLoop closeout evidence exists.
+    updated_at: '2026-07-08'
+    created_at: '2026-07-08'
+    last_verified_at: ''
+    verification_due_days: 7
+    encoding_status: ok
+    confidence: 0.45
+    confidence_reason: Optional starter workflow registered from upstream metadata; local install and ResearchLoop-specific validation remain user-controlled.
+    reference_count: 1
+    last_used_at: ''
+    last_reviewed_at: '2026-07-08T00:00:00+08:00'
+    quality_level: bronze
+    superseded_by: ''

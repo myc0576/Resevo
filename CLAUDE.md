@@ -40,6 +40,33 @@ the current task context before running writeback. The runner writes
 Automatic writeback is candidate-first only. Do not auto-promote to
 `validated`, `reusable`, `approved`, `pass`, or `paper_ready`.
 
+## Starter Workflow Onboarding
+
+On the first interaction in a fresh ResearchLoop checkout, check whether the
+optional Nature Skills starter workflow has already been handled:
+
+```powershell
+python G:\BaiduSyncdisk\ResearchLoop\scripts\starter_workflow_installer.py status --id nature-skills --json
+```
+
+If the result has `needs_prompt: true`, ask one structured AskUserQuestion-style
+question with these choices:
+
+- download Nature Skills to `external\nature-skills`;
+- skip for now, then run `mark --decision skipped`;
+- do not ask again, then run `mark --decision dismissed`.
+
+Only run the installer after explicit user consent:
+
+```powershell
+python G:\BaiduSyncdisk\ResearchLoop\scripts\starter_workflow_installer.py install --id nature-skills --json
+```
+
+This is clone-and-reference only. Do not install dependencies, configure
+credentials, or copy skills into `%USERPROFILE%\.codex\skills` by default. If an
+existing local clone is dirty or the local path is not a git checkout, stop and
+report the blocker.
+
 ## Visual-To-Editable
 
 When a task asks to convert an image, screenshot, PDF page, chart, table,

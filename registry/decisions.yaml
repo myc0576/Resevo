@@ -353,6 +353,30 @@ decisions:
   last_reviewed_at: '2026-07-07T00:00:00+08:00'
   quality_level: bronze
   superseded_by: ''
+- id: 20260708_nature_skills_starter_workflow_onboarding
+  date: '2026-07-08'
+  project_id: researchloop
+  decision: Add consent-first optional Nature Skills onboarding as a ResearchLoop starter workflow; clone upstream only into ignored external\nature-skills, preserve upstream structure, and keep user-level agent directories untouched by default.
+  changed_route_or_assumption: true
+  path: G:\BaiduSyncdisk\ResearchLoop\decisions\20260708_nature_skills_starter_workflow_onboarding.md
+  status: pending validation
+  evidence_refs:
+  - G:\BaiduSyncdisk\ResearchLoop\scripts\starter_workflow_installer.py
+  - G:\BaiduSyncdisk\ResearchLoop\registry\upstream_workflows.yaml
+  - G:\BaiduSyncdisk\ResearchLoop\tests\test_starter_workflow_installer.py
+  - G:\BaiduSyncdisk\ResearchLoop\README.md
+  updated_at: '2026-07-08'
+  created_at: '2026-07-08'
+  last_verified_at: ''
+  verification_due_days: 7
+  encoding_status: ok
+  confidence: 0.45
+  confidence_reason: onboarding CLI, registry wiring, docs, and tests implemented; real Nature Skills workflow use remains pending validation
+  reference_count: 1
+  last_used_at: ''
+  last_reviewed_at: '2026-07-08T00:00:00+08:00'
+  quality_level: bronze
+  superseded_by: ''
 - id: 20260706_sc_nmt_paper_sprint_template_manuscript_route
   date: '2026-07-06'
   project_id: sc-nmt

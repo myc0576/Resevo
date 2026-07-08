@@ -37,6 +37,30 @@ G:\knowledge\reusable_prompts
 
 每次完成 SC-NMT 或其他科研项目任务后，必须执行 task closeout。只有当任务确实产生可复用内容、证据、素材或路线变化时，才写入对应沉淀文件；不要为了整理而整理。
 
+## Starter Workflow Onboarding
+
+ResearchLoop 可以把优秀开源项目作为 optional starter workflow 引导用户下载，但不把这些上游仓库 vendor 进本仓库源码。
+
+首次进入一个新的 ResearchLoop checkout 时，先运行：
+
+```powershell
+python G:\BaiduSyncdisk\ResearchLoop\scripts\starter_workflow_installer.py status --id nature-skills --json
+```
+
+如果返回 `needs_prompt: true`，用当前 agent 的 structured question / AskUserQuestion 工具只问一次：
+
+- 下载 Nature Skills 到 `external\nature-skills`；
+- 暂时跳过，并运行 `mark --decision skipped`；
+- 不再询问，并运行 `mark --decision dismissed`。
+
+只有用户明确选择下载时，才运行：
+
+```powershell
+python G:\BaiduSyncdisk\ResearchLoop\scripts\starter_workflow_installer.py install --id nature-skills --json
+```
+
+默认只 clone 并 pin 到 registry 记录的 upstream ref；不要安装依赖、不要配置凭据、不要写入 `%USERPROFILE%\.codex\skills` 或其他用户级 agent 目录。若 `external\nature-skills` 已存在但不是 git checkout，或已有 checkout 存在未提交改动，停止并报告 blocker，不要覆盖。
+
 ## Visual-To-Editable Skills
 
 `visual-to-editable-skills` 是 Figure Loop 和 research asset closeout 的扩展，不是独立图片转 PPT 工具。它负责把图片、截图、PDF、图表、科研图、流程图、公式图、UI 图等不可编辑视觉输入路由到可编辑 PPT/SVG/HTML/Mermaid/Figma 风格资产的工作流。

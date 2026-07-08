@@ -77,6 +77,21 @@ ResearchLoop does not train AI to do research for you. It helps you train a work
 | Agent external brain positioning | [`AGENTS.md`](AGENTS.md), [`CLAUDE.md`](CLAUDE.md), [`mcp/README.md`](mcp/README.md) | Local integration guidance |
 | Publication safety | [`.gitignore`](.gitignore), [`harness.yaml`](harness.yaml), closeout and registry validators | Guardrails plus manual review |
 
+## Starter Workflow Integrations
+
+ResearchLoop can offer optional starter workflows from upstream open-source
+projects. These are not vendored into the repository. The first agent
+interaction should check installer status and ask before downloading anything.
+
+| Upstream project | Starter use | Local path | Install behavior | Status | License | Pinned ref |
+|---|---|---|---|---|---|---|
+| [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills) | Optional seed workflows for literature search, paper reading, writing, reviewer simulation, citation checks, figures, paper-to-PPT, revision response, and related research-agent tasks | `external\nature-skills` | Ask once, then clone only after consent; no dependency install or global skill install | Optional starter, pending validation | Apache-2.0 | `8990143c3835f899e5331286a6a3b3393a2926ef` |
+
+The machine-readable source of truth is
+[`registry/upstream_workflows.yaml`](registry/upstream_workflows.yaml). Use one
+README row per upstream project; keep detailed per-skill descriptions upstream
+or in dedicated registry/docs entries.
+
 ## From Paper 1 To Paper 2
 
 ```mermaid
@@ -98,13 +113,14 @@ flowchart LR
 
 1. Put the repository at a stable local path such as `D:\ResearchLoop`.
 2. Read [`AGENTS.md`](AGENTS.md) and, if using Claude Code, [`CLAUDE.md`](CLAUDE.md).
-3. Start a paper with [`templates/paper_contract.md`](templates/paper_contract.md) or the files in [`templates/research_project/`](templates/research_project/).
-4. Turn real sources into [`templates/literature_card.md`](templates/literature_card.md), and register them in [`registry/literature.yaml`](registry/literature.yaml).
-5. Turn useful visuals into [`templates/figure_card.md`](templates/figure_card.md), and register them in [`registry/figures.yaml`](registry/figures.yaml).
-6. When a flat visual needs editable assets, classify it with [`scripts/visual_to_editable_router.py`](scripts/visual_to_editable_router.py), then keep the reconstruction prompt, manifest, QA, and reproduction note.
-7. Bind claims to evidence with [`templates/research_project/03_claim_evidence_matrix.yaml`](templates/research_project/03_claim_evidence_matrix.yaml).
-8. End each task with the closeout rules in [`workflows/paper_driven/experiment_closeout.md`](workflows/paper_driven/experiment_closeout.md).
-9. Run validators before publishing or relying on the registry state.
+3. On first agent interaction, check optional starter workflow status and ask before downloading Nature Skills.
+4. Start a paper with [`templates/paper_contract.md`](templates/paper_contract.md) or the files in [`templates/research_project/`](templates/research_project/).
+5. Turn real sources into [`templates/literature_card.md`](templates/literature_card.md), and register them in [`registry/literature.yaml`](registry/literature.yaml).
+6. Turn useful visuals into [`templates/figure_card.md`](templates/figure_card.md), and register them in [`registry/figures.yaml`](registry/figures.yaml).
+7. When a flat visual needs editable assets, classify it with [`scripts/visual_to_editable_router.py`](scripts/visual_to_editable_router.py), then keep the reconstruction prompt, manifest, QA, and reproduction note.
+8. Bind claims to evidence with [`templates/research_project/03_claim_evidence_matrix.yaml`](templates/research_project/03_claim_evidence_matrix.yaml).
+9. End each task with the closeout rules in [`workflows/paper_driven/experiment_closeout.md`](workflows/paper_driven/experiment_closeout.md).
+10. Run validators before publishing or relying on the registry state.
 
 ## Commands
 
@@ -121,6 +137,9 @@ python scripts\closeout_check.py
 
 python scripts\visual_to_editable_router.py classify --request examples\visual_to_editable_minimal\request.yaml --json
 python scripts\visual_to_editable_router.py validate-case --case-dir examples\visual_to_editable_minimal --json
+
+python scripts\starter_workflow_installer.py status --id nature-skills --json
+python scripts\starter_workflow_installer.py install --id nature-skills --json
 
 python scripts\self_evolution_loop.py recall --query "paper closeout reusable workflow" --project-root G:\BaiduSyncdisk\ResearchLoop --json
 python scripts\self_evolution_loop.py run --intake <intake.yaml> --apply-candidates --json

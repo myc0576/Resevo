@@ -16,6 +16,7 @@ htmlcov/
 .codex/
 .mcp.json
 !.mcp.json.example
+external/
 *.pem
 *.key
 *.p12
