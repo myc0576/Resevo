@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
-      - run: python -m pip install --upgrade pip build
+      - run: python -m pip install --upgrade pip build pytest
       - if: matrix.install == 'editable'
         run: python -m pip install -e .
       - if: matrix.install == 'wheel'
