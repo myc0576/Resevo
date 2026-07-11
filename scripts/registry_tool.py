@@ -10,6 +10,7 @@ from _harness_common import (
     REUSABLE_KNOWLEDGE_ROOT,
     REUSABLE_PROMPTS_ROOT,
     PROJECTS_ROOT,
+    STATE_DIR,
     append_ledger,
     contains_bad_encoding,
     file_date,
@@ -253,7 +254,7 @@ def repair_known_encoding() -> dict[str, Any]:
             normalize_metadata(item)
         save_registry(name, data)
     result = {"changed": changed, "changed_count": len(changed)}
-    write_json(Path("G:/BaiduSyncdisk/ResearchLoop/state/registry_repair_report.json"), result)
+    write_json(STATE_DIR / "registry_repair_report.json", result)
     append_ledger("registry_repair_known_encoding", {"result": result})
     return result
 
@@ -298,7 +299,7 @@ def validate_registry() -> dict[str, Any]:
                 if ref and not path_exists(ref):
                     warnings.append(f"{path}: missing_evidence_ref:{item_id}:{ref}")
     result = {"ok": not errors, "errors": errors, "warnings": warnings, "counts": counts}
-    write_json(Path("G:/BaiduSyncdisk/ResearchLoop/state/registry_validation.json"), result)
+    write_json(STATE_DIR / "registry_validation.json", result)
     return result
 
 
@@ -324,7 +325,11 @@ def scan_assets() -> dict[str, Any]:
     data = load_registry("research_assets")
     registered = {str(item.get("asset_dir")) for item in data.get("research_assets", [])}
     project_data = load_registry("projects")
-    project_paths = [Path(str(item["path"])) for item in project_data.get("projects", []) if item.get("path") and str(item["path"]).startswith("G:\\projects")]
+    project_paths = [
+        Path(str(item["path"]))
+        for item in project_data.get("projects", [])
+        if item.get("path") and str(item["path"]).lower().startswith(str(PROJECTS_ROOT).lower())
+    ]
     asset_dirs: list[Path] = []
     for project_path in project_paths:
         root = project_path / "research_assets"

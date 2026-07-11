@@ -8,7 +8,10 @@ from typing import Any
 
 from _harness_common import (
     FORBIDDEN_HARNESS_WRITE_ROOTS,
+    PROJECTS_ROOT,
     REGISTRY_FILES,
+    REPORTS_DIR,
+    STATE_DIR,
     append_ledger,
     contains_bad_encoding,
     make_run_dir,
@@ -96,7 +99,7 @@ def scan_research_assets() -> dict[str, Any]:
     checked: list[str] = []
     for project in projects:
         raw_path = str(project.get("path") or "")
-        if not raw_path.startswith("G:\\projects"):
+        if not raw_path.lower().startswith(str(PROJECTS_ROOT).lower()):
             continue
         project_path = Path(raw_path)
         asset_root = project_path / "research_assets"
@@ -213,16 +216,17 @@ def run() -> dict[str, Any]:
     ok = health["ok"] and not assets["missing_manifest"] and not assets["missing_reproduction"] and derived_ok
     result = {"ok": ok, "run_id": run_id, "health": health, "research_assets": assets, "derived": derived}
     report = markdown_report(health, assets, derived, run_id)
-    report_path = Path("G:/BaiduSyncdisk/ResearchLoop/reports/health") / f"{today()}_closeout_health.md"
+    report_path = REPORTS_DIR / "health" / f"{today()}_closeout_health.md"
+    report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(report, encoding="utf-8")
-    write_json(Path("G:/BaiduSyncdisk/ResearchLoop/state/closeout_health.json"), result)
+    write_json(STATE_DIR / "closeout_health.json", result)
     write_yaml(
         run_dir / "manifest.yaml",
         {
             "schema": "research_harness_closeout_check.v1",
             "run_id": run_id,
             "created_at": datetime.now().isoformat(timespec="seconds"),
-            "outputs": [str(report_path), "G:\\projects\\ResearchLoop\\state\\closeout_health.json"],
+            "outputs": [str(report_path), str(STATE_DIR / "closeout_health.json")],
         },
     )
     (run_dir / "closeout_report.md").write_text(report, encoding="utf-8")

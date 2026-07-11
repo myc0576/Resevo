@@ -81,6 +81,7 @@ def seed_instance(root: Path) -> Path:
 def run_cli(instance: Path, *args: str) -> subprocess.CompletedProcess[str]:
     env = os.environ.copy()
     env["PYTHONPATH"] = str(REPO_ROOT / "src") + os.pathsep + env.get("PYTHONPATH", "")
+    env["RESEVO_USER_ROOT"] = str(instance.parent / "resevo-user")
     return subprocess.run(
         [
             sys.executable,
@@ -107,6 +108,33 @@ def test_cli_registry_validate_uses_instance_root(tmp_path: Path) -> None:
     assert result.returncode == 0, result.stderr + result.stdout
     validation = json.loads((instance / "state" / "registry_validation.json").read_text(encoding="utf-8"))
     assert validation["ok"] is True
+
+
+def test_product_cli_initializes_portable_workspace(tmp_path: Path) -> None:
+    instance = tmp_path / "instance"
+    seed_instance(instance)
+    init = run_cli(instance, "init", "--json")
+    assert init.returncode == 0, init.stderr + init.stdout
+    doctor = run_cli(instance, "doctor", "--json")
+    assert doctor.returncode == 0, doctor.stderr + doctor.stdout
+    status = run_cli(instance, "status", "--json")
+    assert status.returncode == 0, status.stderr + status.stdout
+    assert (instance / ".resevo" / "config.yaml").exists()
+    assert json.loads(doctor.stdout)["product"] == "Resevo"
+
+
+def test_workspace_remove_does_not_delete_workspace_data(tmp_path: Path) -> None:
+    instance = tmp_path / "instance"
+    seed_instance(instance)
+    target = tmp_path / "tracked-workspace"
+    target.mkdir()
+    marker = target / "keep.txt"
+    marker.write_text("keep", encoding="utf-8")
+    added = run_cli(instance, "workspace", "add", "demo", str(target))
+    removed = run_cli(instance, "workspace", "remove", "demo")
+    assert added.returncode == 0, added.stderr + added.stdout
+    assert removed.returncode == 0, removed.stderr + removed.stdout
+    assert marker.exists()
 
 
 def test_cli_self_evolution_keeps_candidate_first(tmp_path: Path) -> None:

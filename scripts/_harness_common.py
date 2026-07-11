@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import shutil
 import uuid
@@ -11,21 +12,48 @@ from typing import Any, Iterable
 import yaml
 
 
-ROOT = Path(__file__).absolute().parents[1]
-WORKSPACE_ROOT = Path("G:/")
+def configured_path(env_name: str, default: Path | str) -> Path:
+    raw = os.environ.get(env_name)
+    return Path(raw).expanduser() if raw else Path(default)
+
+
+ROOT = configured_path("RESEARCHLOOP_ROOT", Path(__file__).absolute().parents[1]).resolve()
+ENGINE_ROOT = configured_path("RESEARCHLOOP_ENGINE_ROOT", Path(__file__).absolute().parents[1]).resolve()
+
+
+def load_harness_config(root: Path) -> dict[str, Any]:
+    path = root / "harness.yaml"
+    if not path.exists():
+        return {}
+    try:
+        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    except Exception:
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+HARNESS_CONFIG = load_harness_config(ROOT)
+PATH_CONFIG = HARNESS_CONFIG.get("paths", {}) if isinstance(HARNESS_CONFIG.get("paths"), dict) else {}
+WORKSPACE_ROOT = configured_path("RESEARCHLOOP_WORKSPACE_ROOT", PATH_CONFIG.get("workspace_root") or ROOT.parent)
 REGISTRY_DIR = ROOT / "registry"
 STATE_DIR = ROOT / "state"
 RUNS_DIR = ROOT / "runs"
 REPORTS_DIR = ROOT / "reports"
 SNAPSHOTS_DIR = STATE_DIR / "snapshots"
-KNOWLEDGE_ROOT = Path("G:/knowledge")
-REUSABLE_KNOWLEDGE_ROOT = KNOWLEDGE_ROOT / "reusable_knowledge"
-REUSABLE_PROMPTS_ROOT = KNOWLEDGE_ROOT / "reusable_prompts"
-PROJECTS_ROOT = Path("G:/projects")
+REUSABLE_KNOWLEDGE_ROOT = configured_path(
+    "RESEARCHLOOP_REUSABLE_KNOWLEDGE_ROOT",
+    PATH_CONFIG.get("reusable_knowledge_root") or WORKSPACE_ROOT / "knowledge" / "reusable_knowledge",
+)
+REUSABLE_PROMPTS_ROOT = configured_path(
+    "RESEARCHLOOP_REUSABLE_PROMPTS_ROOT",
+    PATH_CONFIG.get("reusable_prompts_root") or WORKSPACE_ROOT / "knowledge" / "reusable_prompts",
+)
+KNOWLEDGE_ROOT = configured_path("RESEARCHLOOP_KNOWLEDGE_ROOT", REUSABLE_KNOWLEDGE_ROOT.parent)
+PROJECTS_ROOT = configured_path("RESEARCHLOOP_PROJECTS_ROOT", WORKSPACE_ROOT / "projects")
 
 FORBIDDEN_HARNESS_WRITE_ROOTS = [
-    Path("G:/knowledge/_harness"),
-    Path("G:/知识库/_harness"),
+    KNOWLEDGE_ROOT / "_harness",
+    WORKSPACE_ROOT / "知识库" / "_harness",
 ]
 
 REGISTRY_FILES = {
@@ -176,9 +204,39 @@ def path_exists(raw: Any) -> bool:
     if not raw:
         return False
     try:
-        return Path(str(raw)).exists()
+        return resolve_path_alias(Path(str(raw))).exists()
     except OSError:
         return False
+
+
+def configured_path_aliases() -> list[tuple[Path, Path]]:
+    raw = os.environ.get("RESEARCHLOOP_LEGACY_ROOT_ALIASES", "")
+    aliases: list[tuple[Path, Path]] = []
+    for entry in raw.split(";"):
+        if not entry.strip() or "=" not in entry:
+            continue
+        source, target = entry.split("=", 1)
+        aliases.append((Path(source).expanduser(), Path(target).expanduser()))
+    return aliases
+
+
+def _is_subpath_no_resolve(path: Path, root: Path) -> bool:
+    try:
+        path.absolute().relative_to(root.absolute())
+        return True
+    except ValueError:
+        return False
+
+
+def resolve_path_alias(path: Path) -> Path:
+    if path.exists():
+        return path
+    for source, target in configured_path_aliases():
+        if _is_subpath_no_resolve(path, source):
+            candidate = target / path.absolute().relative_to(source.absolute())
+            if candidate.exists():
+                return candidate
+    return path
 
 
 def first_heading(path: Path) -> str:

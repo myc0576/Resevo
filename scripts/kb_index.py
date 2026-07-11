@@ -8,6 +8,8 @@ from typing import Any
 
 from _harness_common import (
     ROOT,
+    REUSABLE_KNOWLEDGE_ROOT,
+    REUSABLE_PROMPTS_ROOT,
     STATE_DIR,
     append_ledger,
     first_heading,
@@ -18,8 +20,8 @@ from _harness_common import (
 
 INDEX_PATH = STATE_DIR / "kb_index" / "research_kb.sqlite"
 INDEX_ROOTS = [
-    Path("G:/knowledge/reusable_knowledge"),
-    Path("G:/knowledge/reusable_prompts"),
+    REUSABLE_KNOWLEDGE_ROOT,
+    REUSABLE_PROMPTS_ROOT,
     ROOT / "system_design",
     ROOT / "skills",
     ROOT / "workflows",

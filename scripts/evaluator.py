@@ -6,6 +6,9 @@ from typing import Any
 
 from _harness_common import (
     REGISTRY_FILES,
+    REUSABLE_KNOWLEDGE_ROOT,
+    REUSABLE_PROMPTS_ROOT,
+    ROOT,
     REPORTS_DIR,
     STATE_DIR,
     append_ledger,
@@ -230,7 +233,7 @@ def gather_reference_text() -> str:
     for path in REGISTRY_FILES.values():
         if path.exists():
             chunks.append(safe_read_text(path))
-    for root in [Path("G:/knowledge/reusable_knowledge"), Path("G:/knowledge/reusable_prompts"), Path("G:/BaiduSyncdisk/ResearchLoop") / "decisions"]:
+    for root in [REUSABLE_KNOWLEDGE_ROOT, REUSABLE_PROMPTS_ROOT, ROOT / "decisions"]:
         if root.exists():
             for path in root.rglob("*.md"):
                 chunks.append(safe_read_text(path))

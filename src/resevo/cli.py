@@ -1,94 +1,171 @@
+"""The supported Resevo command-line interface."""
+
 from __future__ import annotations
 
 import argparse
+import json
 import os
-import subprocess
 import sys
 from pathlib import Path
 
+from .core import resolve_paths
+from .services import (
+    doctor,
+    init_workspace,
+    migration_plan,
+    run_legacy,
+    status,
+    workspace_add,
+    workspace_list,
+    workspace_remove,
+)
 
-SCRIPT_COMMANDS = {
-    "closeout-check": ("scripts", "closeout_check.py"),
-    "daily-cycle": ("scripts", "daily_cycle.py"),
-    "evaluate": ("scripts", "evaluator.py"),
-    "evolve-proposals": ("scripts", "evolve_proposals.py"),
-    "kb-index": ("scripts", "kb_index.py"),
-    "project-bridge": ("scripts", "project_bridge.py"),
-    "project-health": ("scripts", "project_health.py"),
-    "registry": ("scripts", "registry_tool.py"),
-    "run-capture": ("scripts", "run_capture.py"),
-    "self-evolution": ("scripts", "self_evolution_loop.py"),
-    "validate-asset-evolution": ("scripts", "validate_asset_evolution.py"),
-    "validate-project": ("scripts", "validate_research_project.py"),
-    "visual-to-editable": ("scripts", "visual_to_editable_router.py"),
-    "war-room": ("scripts", "war_room.py"),
+
+LEGACY_COMMANDS = {
+    "closeout-check",
+    "daily-cycle",
+    "evaluate-legacy",
+    "evolve-proposals",
+    "kb-index",
+    "project-bridge",
+    "project-health",
+    "registry",
+    "run-capture",
+    "self-evolution",
+    "validate-asset-evolution",
+    "validate-project",
+    "visual-to-editable",
+    "war-room",
 }
 
 
-def package_public_root() -> Path:
-    env_root = (
-        os.environ.get("RESEVO_ENGINE_ROOT")
-        or os.environ.get("RESEARCHLOOP_ENGINE_ROOT")
-        or os.environ.get("RESEARCHLOOP_PUBLIC_ROOT")
-    )
-    if env_root:
-        return Path(env_root).expanduser().resolve()
-    return Path(__file__).resolve().parents[2]
-
-
-def run_python_file(public_root: Path, instance_root: Path, parts: tuple[str, str], argv: list[str]) -> int:
-    target = public_root / parts[0] / parts[1]
-    if not target.exists():
-        raise SystemExit(f"Resevo command implementation not found: {target}")
-    env = os.environ.copy()
-    env["RESEVO_ENGINE_ROOT"] = str(public_root)
-    env["RESEVO_ROOT"] = str(instance_root)
-    env["RESEARCHLOOP_ENGINE_ROOT"] = str(public_root)
-    env["RESEARCHLOOP_ROOT"] = str(instance_root)
-    env.setdefault("PYTHONPATH", "")
-    script_path = str(public_root / "scripts")
-    env["PYTHONPATH"] = script_path + (os.pathsep + env["PYTHONPATH"] if env["PYTHONPATH"] else "")
-    completed = subprocess.run([sys.executable, str(target), *argv], cwd=str(instance_root), env=env)
-    return int(completed.returncode)
-
-
-def normalize_mcp_args(argv: list[str]) -> list[str]:
-    if argv and argv[0] == "self-test":
-        return ["--self-test", *argv[1:]]
-    if argv and argv[0] == "serve":
-        return argv[1:]
-    return argv
+def print_json(data: object) -> None:
+    print(json.dumps(data, ensure_ascii=False, indent=2, sort_keys=True))
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="resevo",
-        description="Resevo local-first research workflow external brain.",
+        description="Resevo: Evidence-Governed Self-Evolving Research Workflow Harness.",
     )
+    parser.add_argument("--root", "--workspace-root", dest="workspace_root", default=os.environ.get("RESEVO_WORKSPACE_ROOT") or os.environ.get("RESEVO_ROOT"))
+    parser.add_argument("--engine-root", default=os.environ.get("RESEVO_ENGINE_ROOT"))
     parser.add_argument(
-        "--root",
-        default=os.environ.get("RESEARCHLOOP_ROOT"),
-        help="Resevo instance/workspace root. Defaults to the public checkout root.",
+        "command",
+        choices=sorted({"init", "doctor", "status", "workspace", "recall", "intake", "closeout", "evaluate", "evolve", "mcp", "migrate", *LEGACY_COMMANDS}),
     )
-    parser.add_argument(
-        "--engine-root",
-        default=os.environ.get("RESEARCHLOOP_ENGINE_ROOT") or os.environ.get("RESEARCHLOOP_PUBLIC_ROOT"),
-        help="Public Resevo engine checkout. Usually inferred from the editable install.",
-    )
-    parser.add_argument("command", choices=sorted([*SCRIPT_COMMANDS, "mcp"]))
     parser.add_argument("args", nargs=argparse.REMAINDER)
     return parser
+
+
+def _subparser(description: str) -> argparse.ArgumentParser:
+    return argparse.ArgumentParser(description=description)
+
+
+def dispatch(command: str, args: list[str], paths) -> int:
+    if command == "init":
+        parser = _subparser("Initialize user and workspace-local Resevo state")
+        parser.add_argument("--json", action="store_true")
+        ns = parser.parse_args(args)
+        result = init_workspace(paths)
+        print_json(result)
+        return 0
+    if command == "doctor":
+        parser = _subparser("Check Resevo installation and workspace")
+        parser.add_argument("--json", action="store_true")
+        parser.parse_args(args)
+        result = doctor(paths)
+        print_json(result)
+        return 0 if result["ok"] else 1
+    if command == "status":
+        parser = _subparser("Show Resevo installation and workspace status")
+        parser.add_argument("--json", action="store_true")
+        parser.parse_args(args)
+        print_json(status(paths))
+        return 0
+    if command == "workspace":
+        parser = _subparser("Manage registered Resevo workspaces")
+        parser.add_argument("action", choices=["add", "list", "remove"])
+        parser.add_argument("name", nargs="?")
+        parser.add_argument("root", nargs="?")
+        ns = parser.parse_args(args)
+        if ns.action == "list":
+            print_json(workspace_list(paths))
+            return 0
+        if not ns.name:
+            parser.error("workspace add/remove requires a name")
+        if ns.action == "add":
+            if not ns.root:
+                parser.error("workspace add requires a root")
+            print_json(workspace_add(paths, ns.name, ns.root))
+            return 0
+        print_json(workspace_remove(paths, ns.name))
+        return 0
+    if command == "recall":
+        parser = _subparser("Recall reusable workflow evidence")
+        parser.add_argument("--query", required=True)
+        parser.add_argument("--project-root", default=str(paths.workspace))
+        parser.add_argument("--limit", type=int, default=10)
+        parser.add_argument("--json", action="store_true")
+        ns = parser.parse_args(args)
+        return run_legacy("self-evolution", ["recall", "--query", ns.query, "--project-root", ns.project_root, "--limit", str(ns.limit), "--json"], paths)
+    if command == "intake":
+        parser = _subparser("Create a self-evolution intake")
+        parser.add_argument("--project-root", default=str(paths.workspace))
+        parser.add_argument("--trigger", default="workflow improvement")
+        parser.add_argument("--out", required=True)
+        parser.add_argument("--json", action="store_true")
+        ns = parser.parse_args(args)
+        return run_legacy("self-evolution", ["init", "--project-root", ns.project_root, "--trigger", ns.trigger, "--out", ns.out], paths)
+    if command == "closeout":
+        return run_legacy("closeout", args, paths)
+    if command == "evaluate":
+        return run_legacy("evaluate", args or ["evaluate", "--target", "all", "--json"], paths)
+    if command == "evolve":
+        parser = _subparser("Propose or apply guarded workflow changes")
+        parser.add_argument("action", choices=["propose", "apply", "promote"])
+        parser.add_argument("args", nargs=argparse.REMAINDER)
+        ns = parser.parse_args(args)
+        if ns.action == "propose":
+            return run_legacy("evolve", ["scan", *ns.args], paths)
+        if ns.action == "apply":
+            return run_legacy("evolve", ["scan", "--apply-safe", *ns.args], paths)
+        print_json({"ok": False, "status": "human_confirmation_required", "message": "Promotion is intentionally not automated by the current service layer."})
+        return 2
+    if command == "mcp":
+        if args and args[0] == "--self-test":
+            return run_legacy("mcp", ["--self-test", *args[1:]], paths)
+        parser = _subparser("Serve the local Resevo MCP")
+        parser.add_argument("action", choices=["serve", "self-test"])
+        parser.add_argument("args", nargs=argparse.REMAINDER)
+        ns = parser.parse_args(args)
+        return run_legacy("mcp", (["--self-test"] if ns.action == "self-test" else ns.args), paths)
+    if command == "migrate":
+        parser = _subparser("Migrate ResearchLoop naming without rewriting history")
+        parser.add_argument("target", choices=["researchloop"])
+        parser.add_argument("--apply", action="store_true")
+        ns = parser.parse_args(args)
+        print_json(migration_plan(paths, ns.apply))
+        return 0
+    if command in LEGACY_COMMANDS:
+        aliases = {
+            "closeout-check": "closeout",
+            "evaluate-legacy": "evaluate",
+            "evolve-proposals": "evolve",
+            "project-health": "project-health",
+            "self-evolution": "self-evolution",
+            "registry": "registry",
+            "kb-index": "kb-index",
+        }
+        return run_legacy(aliases.get(command, command), args, paths)
+    raise SystemExit(f"unsupported Resevo command: {command}")
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     ns = parser.parse_args(argv)
-    public_root = Path(ns.engine_root).expanduser().resolve() if ns.engine_root else package_public_root()
-    instance_root = Path(ns.root).expanduser().resolve() if ns.root else public_root
-
-    if ns.command == "mcp":
-        return run_python_file(public_root, instance_root, ("mcp", "resevo_mcp.py"), normalize_mcp_args(ns.args))
-    return run_python_file(public_root, instance_root, SCRIPT_COMMANDS[ns.command], ns.args)
+    paths = resolve_paths(ns.workspace_root, ns.engine_root)
+    return dispatch(ns.command, ns.args, paths)
 
 
 if __name__ == "__main__":
