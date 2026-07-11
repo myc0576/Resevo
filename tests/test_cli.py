@@ -11,6 +11,7 @@ import pytest
 import yaml
 import resevo.mcp_installer as mcp_installer
 from resevo.core import Paths
+from resevo.retrieval import rank_results
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -175,6 +176,64 @@ def test_mcp_install_is_idempotent_when_official_get_succeeds(tmp_path: Path, mo
     assert result["status"] == "already_configured"
     assert ["codex", "mcp", "add", "resevo", "--", "resevo", "mcp", "serve"] not in calls
     assert list((paths.user / "mcp-preflight").glob("*.json"))
+
+
+def test_retrieval_adds_utility_metadata_and_null_reuse(tmp_path: Path) -> None:
+    registry = tmp_path / "registry"
+    registry.mkdir()
+    (registry / "knowledge.yaml").write_text(
+        yaml.safe_dump(
+            {
+                "version": 1,
+                "knowledge": [
+                    {
+                        "id": "validated-item",
+                        "path": str(tmp_path / "validated.md"),
+                        "status": "validated",
+                        "evidence_refs": ["run.json"],
+                    }
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding="utf-8",
+    )
+    (registry / "utility_metadata.yaml").write_text(
+        yaml.safe_dump(
+            {
+                "version": 1,
+                "items": [
+                    {
+                        "id": "validated-item",
+                        "domain_fit": 0.9,
+                        "successful_reuse_count": 4,
+                        "failed_reuse_count": 1,
+                        "last_feedback": "useful",
+                        "provenance": {"run": "run.json"},
+                    }
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding="utf-8",
+    )
+    ranked = rank_results(
+        [
+            {"path": str(tmp_path / "validated.md"), "title": "Validated", "kind": "knowledge"},
+            {"path": str(tmp_path / "unknown.md"), "title": "Unknown", "kind": "knowledge"},
+        ],
+        registry,
+    )
+    selected = ranked["results"][0]
+    assert selected["utility"]["evidence_grade"] == "A"
+    assert selected["utility"]["successful_reuse_count"] == 4
+    assert selected["utility"]["last_feedback"] == "useful"
+    assert ranked["reuse"]["selected_path"] == str(tmp_path / "validated.md")
+    assert rank_results([], registry)["reuse"] is None
+    assert rank_results(
+        [{"path": str(tmp_path / "unknown.md"), "title": "Unknown", "kind": "knowledge"}],
+        registry,
+    )["reuse"] is None
 
 
 def test_cli_self_evolution_keeps_candidate_first(tmp_path: Path) -> None:

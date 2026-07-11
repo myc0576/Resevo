@@ -9,6 +9,7 @@ from typing import Any
 
 from fastmcp import FastMCP
 from resevo.core import Paths
+from resevo.retrieval import rank_results
 from resevo.services import run_legacy
 
 ROOT = Path(__file__).absolute().parents[1]
@@ -61,6 +62,12 @@ def _search_kb_impl(query: str, limit: int = 10) -> dict[str, Any]:
     if not (STATE_DIR / "kb_index" / "research_kb.sqlite").exists():
         kb_index.rebuild()
     return kb_index.search(query, max(1, min(int(limit), 50)))
+
+
+def _ranked_search_impl(query: str, limit: int = 10) -> dict[str, Any]:
+    raw = _search_kb_impl(query, limit)
+    ranked = rank_results(raw.get("results", []), ROOT / "registry", limit)
+    return {**raw, **ranked}
 
 
 def _read_kb_doc_impl(path: str) -> dict[str, Any]:
@@ -142,18 +149,44 @@ def search_kb(query: str, limit: int = 10) -> dict[str, Any]:
 @mcp.tool()
 def search_knowledge(query: str, limit: int = 10) -> dict[str, Any]:
     """Search reusable knowledge and prompts through the local index."""
-    result = _search_kb_impl(query, limit)
-    result["results"] = [item for item in result.get("results", []) if item.get("kind") in {"knowledge", "prompts"}]
+    result = _ranked_search_impl(query, limit)
+    result["results"] = [item for item in result.get("results", []) if item.get("kind") in {"knowledge", "prompt"}]
     result["result_count"] = len(result["results"])
+    result["reliable_result_count"] = sum(item.get("utility", {}).get("utility_score", 0) >= 0.45 for item in result["results"])
+    result["reuse"] = next(
+        (
+            {
+                "selected_path": item.get("path"),
+                "selected_title": item.get("title"),
+                "utility_score": item["utility"]["utility_score"],
+            }
+            for item in result["results"]
+            if item.get("utility", {}).get("utility_score", 0) >= 0.45
+        ),
+        None,
+    )
     return result
 
 
 @mcp.tool()
 def search_workflows(query: str, limit: int = 10) -> dict[str, Any] | None:
     """Search workflow, decision, asset, and proposal records."""
-    result = _search_kb_impl(query, limit)
+    result = _ranked_search_impl(query, limit)
     result["results"] = [item for item in result.get("results", []) if item.get("kind") in {"research_assets", "decisions", "workflow_improvement_backlog", "registry"}]
     result["result_count"] = len(result["results"])
+    result["reliable_result_count"] = sum(item.get("utility", {}).get("utility_score", 0) >= 0.45 for item in result["results"])
+    result["reuse"] = next(
+        (
+            {
+                "selected_path": item.get("path"),
+                "selected_title": item.get("title"),
+                "utility_score": item["utility"]["utility_score"],
+            }
+            for item in result["results"]
+            if item.get("utility", {}).get("utility_score", 0) >= 0.45
+        ),
+        None,
+    )
     return result if result["results"] else {"ok": True, "query": query, "result_count": 0, "results": [], "reuse": None}
 
 

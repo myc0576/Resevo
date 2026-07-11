@@ -1,0 +1,13 @@
+schema: resevo.utility_metadata.v1
+description: Optional per-item utility overrides; derived defaults are applied to every retrieval result.
+fields:
+  semantic_relevance: number
+  domain_fit: number
+  evidence_grade: A|B|C|D|unknown
+  successful_reuse_count: integer
+  failed_reuse_count: integer
+  last_used_at: datetime
+  last_feedback: string
+  utility_score: number
+  provenance: object
+  status: string
