@@ -1,10 +1,8 @@
 ﻿{
   "mcpServers": {
-    "ResearchLoop": {
-      "command": "python",
-      "args": [
-        "G:\\BaiduSyncdisk\\ResearchLoop\\mcp\\research_harness_mcp.py"
-      ],
+    "Resevo": {
+      "command": "resevo",
+      "args": ["mcp", "serve"],
       "disabled": false,
       "autoApprove": [
         "search_kb",

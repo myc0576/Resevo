@@ -1,15 +1,15 @@
 ﻿version: 1
-name: ResearchLoop
-description: 'ResearchLoop: a self-evolving workflow harness for paper-driven research and reusable knowledge assets.'
+name: Resevo
+description: 'Resevo: Evidence-Governed Self-Evolving Research Workflow Harness.'
 
 brand:
-  name: ResearchLoop
-  positioning: 'ResearchLoop: a self-evolving workflow harness for paper-driven research and reusable knowledge assets.'
-  local_directory_note: 'The repository brand and canonical local entry are ResearchLoop at G:\BaiduSyncdisk\ResearchLoop; historical research-harness identifiers may remain only for compatibility.'
+  name: Resevo
+  positioning: 'Evidence-Governed Self-Evolving Research Workflow Harness'
+  local_directory_note: 'The repository brand and canonical local entry are Resevo at G:\BaiduSyncdisk\Resevo; historical researchloop and research-harness identifiers remain only for compatibility.'
 
 paths:
   workspace_root: 'G:\'
-  harness_root: 'G:\BaiduSyncdisk\ResearchLoop'
+  harness_root: 'G:\BaiduSyncdisk\Resevo'
   primary_project: 'G:\projects\SC-NMT'
   paper_docs_root: 'G:\docs\小论文'
   reusable_knowledge_root: 'G:\knowledge\reusable_knowledge'
@@ -17,9 +17,9 @@ paths:
   removed_legacy_reference: 'G:\知识库\_harness'
 
 path_resolution:
-  canonical_harness_root: 'G:\BaiduSyncdisk\ResearchLoop'
-  harness_write_root: 'G:\BaiduSyncdisk\ResearchLoop'
-  phrase_harness_means: 'G:\BaiduSyncdisk\ResearchLoop'
+  canonical_harness_root: 'G:\BaiduSyncdisk\Resevo'
+  harness_write_root: 'G:\BaiduSyncdisk\Resevo'
+  phrase_harness_means: 'G:\BaiduSyncdisk\Resevo'
   phrase_knowledge_base_means: 'G:\knowledge'
   small_paper_outputs_default_root: 'G:\docs\小论文\<paper_id>'
   legacy_read_only_references: []

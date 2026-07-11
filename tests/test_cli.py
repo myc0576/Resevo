@@ -1,0 +1,172 @@
+from __future__ import annotations
+
+import importlib.util
+import json
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+import pytest
+import yaml
+
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+REGISTRY_NAMES = [
+    "projects",
+    "knowledge",
+    "prompts",
+    "research_assets",
+    "papers",
+    "literature",
+    "figures",
+    "output_objects",
+    "asset_evolution",
+    "workflow_improvement_backlog",
+    "decisions",
+    "upstream_workflows",
+    "visual_to_editable_skills",
+    "ppt_assets",
+    "model_assets",
+    "feedback",
+]
+
+
+def seed_instance(root: Path) -> Path:
+    registry = root / "registry"
+    registry.mkdir(parents=True)
+    for name in REGISTRY_NAMES:
+        (registry / f"{name}.yaml").write_text(f"version: 1\n{name}: []\n", encoding="utf-8")
+    project = root.parent / "projects" / "demo"
+    project.mkdir(parents=True)
+    (project / "README.md").write_text("# Demo\n", encoding="utf-8")
+    (registry / "projects.yaml").write_text(
+        yaml.safe_dump(
+            {
+                "version": 1,
+                "projects": [
+                    {
+                        "project_id": "demo",
+                        "name": "demo",
+                        "path": str(project),
+                        "role": "test",
+                        "closeout_required": True,
+                        "notes": "temporary test project",
+                    }
+                ],
+            },
+            allow_unicode=True,
+            sort_keys=False,
+        ),
+        encoding="utf-8",
+    )
+    (root / "harness.yaml").write_text(
+        yaml.safe_dump(
+            {
+                "version": 1,
+                "paths": {
+                    "workspace_root": str(root.parent),
+                    "reusable_knowledge_root": str(root.parent / "knowledge" / "reusable_knowledge"),
+                    "reusable_prompts_root": str(root.parent / "knowledge" / "reusable_prompts"),
+                },
+            },
+            allow_unicode=True,
+            sort_keys=False,
+        ),
+        encoding="utf-8",
+    )
+    return project
+
+
+def run_cli(instance: Path, *args: str) -> subprocess.CompletedProcess[str]:
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(REPO_ROOT / "src") + os.pathsep + env.get("PYTHONPATH", "")
+    return subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "resevo.cli",
+            "--engine-root",
+            str(REPO_ROOT),
+            "--root",
+            str(instance),
+            *args,
+        ],
+        cwd=str(REPO_ROOT),
+        env=env,
+        capture_output=True,
+        text=True,
+        timeout=120,
+    )
+
+
+def test_cli_registry_validate_uses_instance_root(tmp_path: Path) -> None:
+    instance = tmp_path / "instance"
+    seed_instance(instance)
+    result = run_cli(instance, "registry", "validate")
+    assert result.returncode == 0, result.stderr + result.stdout
+    validation = json.loads((instance / "state" / "registry_validation.json").read_text(encoding="utf-8"))
+    assert validation["ok"] is True
+
+
+def test_cli_self_evolution_keeps_candidate_first(tmp_path: Path) -> None:
+    instance = tmp_path / "instance"
+    project = seed_instance(instance)
+    intake = tmp_path / "intake.yaml"
+    intake.write_text(
+        yaml.safe_dump(
+            {
+                "schema": "research_harness_self_evolution_intake.v1",
+                "trigger": "自进化",
+                "project_root": str(project),
+                "project_id": "demo",
+                "task": {
+                    "title": "CLI writeback",
+                    "summary": "Exercise candidate-first writeback through the packaged CLI.",
+                    "source_refs": [str(project / "README.md")],
+                    "evidence_refs": [str(project / "README.md")],
+                    "verification_commands": ["researchloop self-evolution run"],
+                },
+                "candidates": {
+                    "knowledge": [{"title": "CLI Knowledge", "category": "system_engineering", "status": "validated"}],
+                    "research_assets": [{"title": "CLI Asset", "status": "reusable"}],
+                    "decisions": [{"title": "CLI Decision", "status": "approved", "decision": "Keep wrappers candidate-first."}],
+                },
+            },
+            allow_unicode=True,
+            sort_keys=False,
+        ),
+        encoding="utf-8",
+    )
+    result = run_cli(instance, "self-evolution", "run", "--intake", str(intake), "--apply-candidates", "--skip-validation", "--json")
+    assert result.returncode == 0, result.stderr + result.stdout
+    knowledge = yaml.safe_load((instance / "registry" / "knowledge.yaml").read_text(encoding="utf-8"))["knowledge"]
+    assets = yaml.safe_load((instance / "registry" / "research_assets.yaml").read_text(encoding="utf-8"))["research_assets"]
+    decisions = yaml.safe_load((instance / "registry" / "decisions.yaml").read_text(encoding="utf-8"))["decisions"]
+    assert knowledge[0]["status"] == "pending validation"
+    assert assets[0]["status"] == "candidate"
+    assert decisions[0]["status"] == "pending validation"
+
+
+@pytest.mark.skipif(importlib.util.find_spec("fastmcp") is None, reason="fastmcp is not installed in this environment")
+def test_cli_mcp_self_test_starts(tmp_path: Path) -> None:
+    instance = tmp_path / "instance"
+    seed_instance(instance)
+    result = run_cli(instance, "mcp", "self-test")
+    assert result.returncode == 0, result.stderr + result.stdout
+    payload = json.loads(result.stdout)
+    assert payload["ok"] is True
+
+
+def test_legacy_researchloop_import_points_to_resevo() -> None:
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(REPO_ROOT / "src") + os.pathsep + env.get("PYTHONPATH", "")
+    result = subprocess.run(
+        [sys.executable, "-c", "import researchloop, resevo; assert researchloop.__version__ == resevo.__version__"],
+        cwd=str(REPO_ROOT),
+        env=env,
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+    assert result.returncode == 0, result.stderr + result.stdout

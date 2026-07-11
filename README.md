@@ -1,28 +1,35 @@
-﻿# ResearchLoop
+﻿# Resevo
 
 **Turn every research task into a workflow your next paper can reuse.**
 
-![ResearchLoop overview architecture](assets/readme/researchloop-overview.svg)
+![Resevo overview architecture](assets/readme/resevo-overview.svg)
 
 [中文 README](README.zh-CN.md)
 
-ResearchLoop 不是通用知识库，也不是另一个 AI agent。每个科研项目都不一样，所以这个仓库不承诺提供一套固定、通用、开箱即用的科学工作流。
+> **Resevo does not do research for you. It makes your research workflow improve with use.**
+
+**Brand:** Resevo · **中文定位:** 科研自进化工作流外置大脑 · **English:** Evidence-Governed Self-Evolving Research Workflow Harness
+
+The supported entrypoint is `resevo`. The historical `researchloop` command and
+`mcp/research_harness_mcp.py` filename remain deprecated compatibility wrappers.
+
+Resevo 不是通用知识库，也不是另一个 AI agent。每个科研项目都不一样，所以这个仓库不承诺提供一套固定、通用、开箱即用的科学工作流。
 
 它做的是更窄也更耐用的事：在真实科研发生的过程中，帮助你稳定、验证、复用并迭代自己的研究工作流。
 
-当你完成一次文献任务，它可以沉淀为 literature intake card。当你做了一页组会 slide，它可以沉淀为 figure 或 PPT asset。当你决定一个 claim、baseline、metric 或 limitation，它可以进入 claim-evidence matrix 和 decision record。当 Codex、Claude Code、Cursor 或其他 agent 完成一个研究任务，ResearchLoop 给 closeout 步骤一个地方，把有用经验写回 workflow memory。
+当你完成一次文献任务，它可以沉淀为 literature intake card。当你做了一页组会 slide，它可以沉淀为 figure 或 PPT asset。当你决定一个 claim、baseline、metric 或 limitation，它可以进入 claim-evidence matrix 和 decision record。当 Codex、Claude Code、Cursor 或其他 agent 完成一个研究任务，Resevo 给 closeout 步骤一个地方，把有用经验写回 workflow memory。
 
-ResearchLoop 是 Codex、Claude Code、Cursor 和类似 coding agent 的本地外置大脑。它不替代这些 agent，不内置 LLM，也不要求额外的模型 API key。它负责存储、检索、审查、验证和演化 reusable knowledge、reusable prompts、research and figure assets、decision records、paper workflows、claim-evidence links 和 feedback loops。
+Resevo 是 Codex、Claude Code、Cursor 和类似 coding agent 的本地外置大脑。它不替代这些 agent，不内置 LLM，也不要求额外的模型 API key。它负责存储、检索、审查、验证和演化 reusable knowledge、reusable prompts、research and figure assets、decision records、paper workflows、claim-evidence links 和 feedback loops。
 
 ---
 
-ResearchLoop is not a generic knowledge base, and it is not another AI agent. Every research project is different, so this repository does not promise a fixed, universal, ready-made scientific workflow.
+Resevo is not a generic knowledge base, and it is not another AI agent. Every research project is different, so this repository does not promise a fixed, universal, ready-made scientific workflow.
 
 It does something narrower and more durable: it helps you stabilize, validate, reuse, and iterate your own research workflow while real research is happening.
 
-When you finish a literature task, it can become a literature intake card. When you make a lab-meeting slide, it can become a figure or PPT asset. When you decide a claim, baseline, metric, or limitation, it can become a claim-evidence matrix row and a decision record. When Codex, Claude Code, Cursor, or another agent finishes a research task, ResearchLoop gives the closeout step a place to write useful experience back into a workflow memory.
+When you finish a literature task, it can become a literature intake card. When you make a lab-meeting slide, it can become a figure or PPT asset. When you decide a claim, baseline, metric, or limitation, it can become a claim-evidence matrix row and a decision record. When Codex, Claude Code, Cursor, or another agent finishes a research task, Resevo gives the closeout step a place to write useful experience back into a workflow memory.
 
-ResearchLoop is a local external brain for Codex, Claude Code, Cursor, and similar coding agents. It does not replace those agents, does not embed an LLM, and does not require an extra model API key. It stores, retrieves, reviews, validates, and evolves reusable knowledge, reusable prompts, research and figure assets, decision records, paper workflows, claim-evidence links, and feedback loops.
+Resevo is a local external brain for Codex, Claude Code, Cursor, and similar coding agents. It does not replace those agents, does not embed an LLM, and does not require an extra model API key. It stores, retrieves, reviews, validates, and evolves reusable knowledge, reusable prompts, research and figure assets, decision records, paper workflows, claim-evidence links, and feedback loops.
 
 ## Core Idea
 
@@ -30,7 +37,7 @@ The first paper is not the finish line. It is the point where your research work
 
 After one small paper, you should not only have a manuscript. You should also know which fields and venues to track, how papers enter your evidence chain, which figures are reusable, what every claim needs for support, and which prompts, scripts, templates, figure styles, and decisions can serve the second and third papers.
 
-ResearchLoop does not train AI to do research for you. It helps you train a workflow around your own research topic.
+Resevo does not train AI to do research for you. It helps you train a workflow around your own research topic.
 
 ## Loop Map
 
@@ -79,7 +86,7 @@ ResearchLoop does not train AI to do research for you. It helps you train a work
 
 ## Starter Workflow Integrations
 
-ResearchLoop can offer optional starter workflows from upstream open-source
+Resevo can offer optional starter workflows from upstream open-source
 projects. These are not vendored into the repository. The first agent
 interaction should check installer status and ask before downloading anything.
 
@@ -111,7 +118,7 @@ flowchart LR
 
 ## First Use Path
 
-1. Put the repository at a stable local path such as `D:\ResearchLoop`.
+1. Put the repository at a stable local path such as `D:\Resevo`.
 2. Read [`AGENTS.md`](AGENTS.md) and, if using Claude Code, [`CLAUDE.md`](CLAUDE.md).
 3. On first agent interaction, check optional starter workflow status and ask before downloading Nature Skills.
 4. Start a paper with [`templates/paper_contract.md`](templates/paper_contract.md) or the files in [`templates/research_project/`](templates/research_project/).
@@ -127,7 +134,7 @@ flowchart LR
 PowerShell examples:
 
 ```powershell
-Set-Location G:\BaiduSyncdisk\ResearchLoop
+Set-Location G:\BaiduSyncdisk\Resevo
 
 python scripts\registry_tool.py validate
 python scripts\validate_research_project.py --project-root examples\paper_lifecycle_minimal --json
@@ -141,7 +148,7 @@ python scripts\visual_to_editable_router.py validate-case --case-dir examples\vi
 python scripts\starter_workflow_installer.py status --id nature-skills --json
 python scripts\starter_workflow_installer.py install --id nature-skills --json
 
-python scripts\self_evolution_loop.py recall --query "paper closeout reusable workflow" --project-root G:\BaiduSyncdisk\ResearchLoop --json
+python scripts\self_evolution_loop.py recall --query "paper closeout reusable workflow" --project-root G:\BaiduSyncdisk\Resevo --json
 python scripts\self_evolution_loop.py run --intake <intake.yaml> --apply-candidates --json
 ```
 
@@ -151,7 +158,7 @@ Optional local MCP read surface:
 python mcp\research_harness_mcp.py --self-test
 ```
 
-The MCP file name keeps the historical `research_harness` identifier for compatibility; the project brand is ResearchLoop.
+The MCP file name keeps the historical `research_harness` identifier for compatibility; the project brand is Resevo.
 
 ## Publication Safety
 
@@ -165,7 +172,7 @@ Do not commit:
 - model weights, checkpoints, binary arrays, large outputs, or temporary artifacts;
 - `research_assets/` binaries beyond small Markdown manifests and reproduction notes.
 
-ResearchLoop should point to sensitive or large material through explicit, local-only references when needed. It should not copy that material into the repository.
+Resevo should point to sensitive or large material through explicit, local-only references when needed. It should not copy that material into the repository.
 
 Visual-to-editable reconstruction follows the same rule: keep source screenshots,
 PDFs, private figures, final figures, generated PPTX files, and tool traces
