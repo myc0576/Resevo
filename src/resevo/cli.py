@@ -22,6 +22,7 @@ from .services import (
 from .mcp_installer import install as install_mcp
 from .mcp_installer import status as mcp_status
 from .mcp_installer import uninstall as uninstall_mcp
+from .evolution import evaluate_guard
 
 
 LEGACY_COMMANDS = {
@@ -127,12 +128,29 @@ def dispatch(command: str, args: list[str], paths) -> int:
     if command == "evolve":
         parser = _subparser("Propose or apply guarded workflow changes")
         parser.add_argument("action", choices=["propose", "apply", "promote"])
-        parser.add_argument("args", nargs=argparse.REMAINDER)
-        ns = parser.parse_args(args)
+        parser.add_argument("--workflow-id", default="default-workflow")
+        parser.add_argument("--champion-score", type=float)
+        parser.add_argument("--candidate-score", type=float)
+        parser.add_argument("--min-improvement", type=float, default=0.05)
+        parser.add_argument("--held-out-pass", action="store_true")
+        parser.add_argument("--next-bottleneck", default="Collect more held-out task evidence.")
+        ns, remainder = parser.parse_known_args(args)
         if ns.action == "propose":
-            return run_legacy("evolve", ["scan", *ns.args], paths)
+            return run_legacy("evolve", ["scan", *remainder], paths)
         if ns.action == "apply":
-            return run_legacy("evolve", ["scan", "--apply-safe", *ns.args], paths)
+            if ns.champion_score is not None and ns.candidate_score is not None:
+                result = evaluate_guard(
+                    paths.workspace,
+                    ns.workflow_id,
+                    ns.champion_score,
+                    ns.candidate_score,
+                    held_out_pass=ns.held_out_pass,
+                    minimum_improvement=ns.min_improvement,
+                    next_bottleneck=ns.next_bottleneck,
+                )
+                print_json(result)
+                return 0 if result["status"] == "candidate_accepted_for_experiment" else 1
+            return run_legacy("evolve", ["scan", "--apply-safe", *remainder], paths)
         print_json({"ok": False, "status": "human_confirmation_required", "message": "Promotion is intentionally not automated by the current service layer."})
         return 2
     if command == "mcp":

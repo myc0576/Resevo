@@ -12,6 +12,7 @@ import yaml
 import resevo.mcp_installer as mcp_installer
 from resevo.core import Paths
 from resevo.retrieval import rank_results
+from resevo.evolution import evaluate_guard
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -234,6 +235,23 @@ def test_retrieval_adds_utility_metadata_and_null_reuse(tmp_path: Path) -> None:
         [{"path": str(tmp_path / "unknown.md"), "title": "Unknown", "kind": "knowledge"}],
         registry,
     )["reuse"] is None
+
+
+def test_guarded_evolution_reverts_without_held_out_pass(tmp_path: Path) -> None:
+    result = evaluate_guard(tmp_path, "workflow-a", 0.80, 0.95, held_out_pass=False)
+    assert result["status"] == "reverted"
+    assert result["apply_allowed"] is False
+    assert result["rollback"]["champion_preserved"] is True
+    decision = json.loads((Path(result["run_dir"]) / "decision.json").read_text(encoding="utf-8"))
+    assert decision["promotion_required"] is True
+
+
+def test_guarded_evolution_allows_experiment_only_after_gates(tmp_path: Path) -> None:
+    result = evaluate_guard(tmp_path, "workflow-a", 0.80, 0.90, held_out_pass=True)
+    assert result["status"] == "candidate_accepted_for_experiment"
+    assert result["apply_allowed"] is True
+    assert result["promotion_required"] is True
+    assert set(result["rollback"]) == {"performed", "champion_preserved", "reason"}
 
 
 def test_cli_self_evolution_keeps_candidate_first(tmp_path: Path) -> None:
