@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import uuid
 from pathlib import Path
@@ -12,12 +13,14 @@ from resevo.core import Paths
 from resevo.retrieval import rank_results
 from resevo.services import run_legacy
 
-ROOT = Path(__file__).absolute().parents[1]
-SCRIPTS = ROOT / "scripts"
+ENGINE_ROOT = Path(os.environ.get("RESEVO_ENGINE_ROOT") or os.environ.get("RESEARCHLOOP_ENGINE_ROOT") or Path(__file__).absolute().parents[1]).resolve()
+ROOT = Path(os.environ.get("RESEVO_ROOT") or os.environ.get("RESEVO_WORKSPACE_ROOT") or ENGINE_ROOT).resolve()
+SCRIPTS = ENGINE_ROOT / "scripts"
 sys.path.insert(0, str(SCRIPTS))
 
 from _harness_common import (  # noqa: E402
     REGISTRY_FILES,
+    ENGINE_ROOT,
     REUSABLE_KNOWLEDGE_ROOT,
     REUSABLE_PROMPTS_ROOT,
     STATE_DIR,

@@ -271,6 +271,28 @@ def test_provenance_records_hashes_without_copying_inputs(tmp_path: Path) -> Non
     assert (run_dir / "trace.jsonl").read_text(encoding="utf-8").count("run_recorded") == 1
 
 
+def test_mcp_resolves_engine_and_workspace_separately(tmp_path: Path) -> None:
+    workspace = tmp_path / "private-instance"
+    workspace.mkdir()
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(REPO_ROOT / "src")
+    env["RESEVO_ENGINE_ROOT"] = str(REPO_ROOT)
+    env["RESEVO_ROOT"] = str(workspace)
+    code = (
+        "import importlib.util; from pathlib import Path; "
+        "spec=importlib.util.spec_from_file_location('resevo_mcp_check', r'"
+        + str(REPO_ROOT / "mcp" / "resevo_mcp.py")
+        + "'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod); "
+        "assert mod.ENGINE_ROOT == Path(r'"
+        + str(REPO_ROOT)
+        + "').resolve(); assert mod.ROOT == Path(r'"
+        + str(workspace)
+        + "').resolve()"
+    )
+    result = subprocess.run([sys.executable, "-c", code], env=env, capture_output=True, text=True, timeout=30)
+    assert result.returncode == 0, result.stderr + result.stdout
+
+
 def test_cli_self_evolution_keeps_candidate_first(tmp_path: Path) -> None:
     instance = tmp_path / "instance"
     project = seed_instance(instance)
