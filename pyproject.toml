@@ -9,6 +9,10 @@ description = "Evidence-governed self-evolving research workflow harness."
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{ name = "Resevo maintainers" }]
+dependencies = [
+  "PyYAML>=6.0",
+  "fastmcp>=2.0",
+]
 
 [project.scripts]
 resevo = "resevo.cli:main"

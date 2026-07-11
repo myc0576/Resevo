@@ -5,75 +5,75 @@ description: 'Resevo: Evidence-Governed Self-Evolving Research Workflow Harness.
 brand:
   name: Resevo
   positioning: 'Evidence-Governed Self-Evolving Research Workflow Harness'
-  local_directory_note: 'The repository brand and canonical local entry are Resevo at G:\BaiduSyncdisk\Resevo; historical researchloop and research-harness identifiers remain only for compatibility.'
+  local_directory_note: 'The repository brand and canonical local entry are configured by the user; historical researchloop and research-harness identifiers remain only for compatibility.'
 
 paths:
-  workspace_root: 'G:\'
-  harness_root: 'G:\BaiduSyncdisk\Resevo'
-  primary_project: 'G:\projects\SC-NMT'
-  paper_docs_root: 'G:\docs\小论文'
-  reusable_knowledge_root: 'G:\knowledge\reusable_knowledge'
-  reusable_prompts_root: 'G:\knowledge\reusable_prompts'
-  removed_legacy_reference: 'G:\知识库\_harness'
+  workspace_root: ''
+  harness_root: ''
+  primary_project: ''
+  paper_docs_root: ''
+  reusable_knowledge_root: ''
+  reusable_prompts_root: ''
+  removed_legacy_reference: ''
 
 path_resolution:
-  canonical_harness_root: 'G:\BaiduSyncdisk\Resevo'
-  harness_write_root: 'G:\BaiduSyncdisk\Resevo'
-  phrase_harness_means: 'G:\BaiduSyncdisk\Resevo'
-  phrase_knowledge_base_means: 'G:\knowledge'
-  small_paper_outputs_default_root: 'G:\docs\小论文\<paper_id>'
+  canonical_harness_root: '<configured-engine-root>'
+  harness_write_root: '<configured-engine-root>'
+  phrase_harness_means: '<configured-engine-root>'
+  phrase_knowledge_base_means: '<configured-knowledge-root>'
+  small_paper_outputs_default_root: '<configured-paper-docs-root>/<paper_id>'
   legacy_read_only_references: []
   removed_legacy_references:
-    - 'G:\知识库\_harness'
+    - '<legacy-knowledge-root>\_harness'
   deprecated_or_ambiguous_paths:
-    - 'G:\knowledge\_harness'
-    - 'G:\知识库\_harness'
+    - '<knowledge-root>\_harness'
+    - '<legacy-knowledge-root>\_harness'
   forbidden_harness_write_roots:
-    - 'G:\knowledge\_harness'
-    - 'G:\知识库\_harness'
+    - '<knowledge-root>\_harness'
+    - '<legacy-knowledge-root>\_harness'
 
 registries:
-  projects: 'G:\BaiduSyncdisk\ResearchLoop\registry\projects.yaml'
-  knowledge: 'G:\BaiduSyncdisk\ResearchLoop\registry\knowledge.yaml'
-  prompts: 'G:\BaiduSyncdisk\ResearchLoop\registry\prompts.yaml'
-  research_assets: 'G:\BaiduSyncdisk\ResearchLoop\registry\research_assets.yaml'
-  papers: 'G:\BaiduSyncdisk\ResearchLoop\registry\papers.yaml'
-  literature: 'G:\BaiduSyncdisk\ResearchLoop\registry\literature.yaml'
-  figures: 'G:\BaiduSyncdisk\ResearchLoop\registry\figures.yaml'
-  output_objects: 'G:\BaiduSyncdisk\ResearchLoop\registry\output_objects.yaml'
-  asset_evolution: 'G:\BaiduSyncdisk\ResearchLoop\registry\asset_evolution.yaml'
-  workflow_improvement_backlog: 'G:\BaiduSyncdisk\ResearchLoop\registry\workflow_improvement_backlog.yaml'
-  decisions: 'G:\BaiduSyncdisk\ResearchLoop\registry\decisions.yaml'
-  visual_to_editable_skills: 'G:\BaiduSyncdisk\ResearchLoop\registry\visual_to_editable_skills.yaml'
-  ppt_assets: 'G:\BaiduSyncdisk\ResearchLoop\registry\ppt_assets.yaml'
-  model_assets: 'G:\BaiduSyncdisk\ResearchLoop\registry\model_assets.yaml'
-  feedback: 'G:\BaiduSyncdisk\ResearchLoop\registry\feedback.yaml'
+  projects: 'registry/projects.yaml'
+  knowledge: 'registry/knowledge.yaml'
+  prompts: 'registry/prompts.yaml'
+  research_assets: 'registry/research_assets.yaml'
+  papers: 'registry/papers.yaml'
+  literature: 'registry/literature.yaml'
+  figures: 'registry/figures.yaml'
+  output_objects: 'registry/output_objects.yaml'
+  asset_evolution: 'registry/asset_evolution.yaml'
+  workflow_improvement_backlog: 'registry/workflow_improvement_backlog.yaml'
+  decisions: 'registry/decisions.yaml'
+  visual_to_editable_skills: 'registry/visual_to_editable_skills.yaml'
+  ppt_assets: 'registry/ppt_assets.yaml'
+  model_assets: 'registry/model_assets.yaml'
+  feedback: 'registry/feedback.yaml'
 
 automation:
-  scripts_root: 'G:\BaiduSyncdisk\ResearchLoop\scripts'
-  runs_root: 'G:\BaiduSyncdisk\ResearchLoop\runs'
-  state_root: 'G:\BaiduSyncdisk\ResearchLoop\state'
-  evolution_ledger: 'G:\BaiduSyncdisk\ResearchLoop\state\evolution_ledger.jsonl'
-  snapshots_root: 'G:\BaiduSyncdisk\ResearchLoop\state\snapshots'
-  quality_evaluation: 'G:\BaiduSyncdisk\ResearchLoop\scripts\evaluator.py'
-  project_health: 'G:\BaiduSyncdisk\ResearchLoop\scripts\project_health.py'
-  evolution_proposals: 'G:\BaiduSyncdisk\ResearchLoop\scripts\evolve_proposals.py'
-  daily_cycle: 'G:\BaiduSyncdisk\ResearchLoop\scripts\daily_cycle.py'
-  war_room: 'G:\BaiduSyncdisk\ResearchLoop\scripts\war_room.py'
-  self_evolution_loop: 'G:\BaiduSyncdisk\ResearchLoop\scripts\self_evolution_loop.py'
-  self_evolution_workflow: 'G:\BaiduSyncdisk\ResearchLoop\workflows\self_evolution_loop\README.md'
-  self_evolution_intake_template: 'G:\BaiduSyncdisk\ResearchLoop\templates\self_evolution_intake.yaml'
-  self_evolution_contract_template: 'G:\BaiduSyncdisk\ResearchLoop\templates\self_evolution_contract.md'
-  visual_to_editable_router: 'G:\BaiduSyncdisk\ResearchLoop\scripts\visual_to_editable_router.py'
-  visual_to_editable_workflow: 'G:\BaiduSyncdisk\ResearchLoop\workflows\visual_to_editable\README.md'
-  visual_to_editable_rules: 'G:\BaiduSyncdisk\ResearchLoop\workflows\visual_to_editable\router_rules.yaml'
+  scripts_root: 'scripts'
+  runs_root: 'runs'
+  state_root: 'state'
+  evolution_ledger: 'state/evolution_ledger.jsonl'
+  snapshots_root: 'state/snapshots'
+  quality_evaluation: 'scripts/evaluator.py'
+  project_health: 'scripts/project_health.py'
+  evolution_proposals: 'scripts/evolve_proposals.py'
+  daily_cycle: 'scripts/daily_cycle.py'
+  war_room: 'scripts/war_room.py'
+  self_evolution_loop: 'scripts/self_evolution_loop.py'
+  self_evolution_workflow: 'workflows/self_evolution_loop/README.md'
+  self_evolution_intake_template: 'templates/self_evolution_intake.yaml'
+  self_evolution_contract_template: 'templates/self_evolution_contract.md'
+  visual_to_editable_router: 'scripts/visual_to_editable_router.py'
+  visual_to_editable_workflow: 'workflows/visual_to_editable/README.md'
+  visual_to_editable_rules: 'workflows/visual_to_editable/router_rules.yaml'
 
 search:
   canonical_engine: sqlite_fts5
-  sqlite_path: 'G:\BaiduSyncdisk\ResearchLoop\state\kb_index\research_kb.sqlite'
-  mcp_server: 'G:\BaiduSyncdisk\ResearchLoop\mcp\research_harness_mcp.py'
+  sqlite_path: 'state/kb_index/research_kb.sqlite'
+  mcp_server: 'mcp/resevo_mcp.py'
   openviking_status: legacy_optional_noncanonical
-  openviking_cleanup_inventory: 'G:\BaiduSyncdisk\ResearchLoop\reports\openviking_cleanup_inventory.md'
+  openviking_cleanup_inventory: 'reports/openviking_cleanup_inventory.md'
 
 quality:
   score_total: 100
@@ -177,41 +177,41 @@ knowledge_categories:
   - experimental_system
   - mechanical_modeling
 
-  prompt_categories:
-    - codex
-    - claude
-    - chatgpt
-    - visual_to_editable
-    - scientific_visualization
-    - paper_writing
-    - project_review
+prompt_categories:
+  - codex
+  - claude
+  - chatgpt
+  - visual_to_editable
+  - scientific_visualization
+  - paper_writing
+  - project_review
   - cad_mechanical_modeling
 
-  rules:
+rules:
   no_large_data_in_knowledge: true
   no_literature_pdf_originals_in_reusable_knowledge: true
   small_paper_manuscript_figures_and_submission_default_to_docs_root: true
-  researchloop_only_stores_templates_workflows_indexes_and_decisions_for_papers: true
-  researchloop_brand_name: true
+  resevo_only_stores_templates_workflows_indexes_and_decisions_for_papers: true
+  resevo_brand_name: true
   visual_refs_require_figure_card: true
   paper_contract_required_for_paper_outputs: true
   no_legacy_move_or_delete_without_explicit_request: true
   closeout_required_after_research_task: true
   closeout_required_for_all_g_workspace_tasks: true
-  harness_phrase_resolves_to_projects_researchloop: true
+  harness_phrase_resolves_to_configured_engine_root: true
   never_write_harness_assets_to_knowledge_underscore_harness: true
   sqlite_fts5_is_canonical_search: true
   openviking_is_not_canonical_search: true
   asset_evolution_default_status: candidate
-    self_evolution_loop_enabled: true
-    self_evolution_candidate_first: true
-    self_evolution_requires_agent_generated_intake: true
-    visual_to_editable_router_enabled: true
-    visual_to_editable_external_execution_only: true
-    visual_to_editable_no_vendored_external_skills: true
-    visual_to_editable_requires_prompt_manifest_qa_reproduction: true
-    visual_to_editable_forbid_committed_raw_visual_payloads: true
-    auto_safe_fixes_enabled: true
+  self_evolution_loop_enabled: true
+  self_evolution_candidate_first: true
+  self_evolution_requires_agent_generated_intake: true
+  visual_to_editable_router_enabled: true
+  visual_to_editable_external_execution_only: true
+  visual_to_editable_no_vendored_external_skills: true
+  visual_to_editable_requires_prompt_manifest_qa_reproduction: true
+  visual_to_editable_forbid_committed_raw_visual_payloads: true
+  auto_safe_fixes_enabled: true
   auto_safe_fix_allowlist:
     - fill_v2_metadata_fields
     - update_reference_counts

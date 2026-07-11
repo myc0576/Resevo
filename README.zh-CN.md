@@ -7,6 +7,24 @@
 正式入口是 `resevo`。历史 `researchloop` 命令和
 `mcp/research_harness_mcp.py` 文件名暂时保留为 deprecated 兼容层。
 
+Resevo 的四个产品边界是：
+
+1. **Paper-to-paper workflow inheritance**：上一份论文的工作流经验成为下一份论文的起点；
+2. **Claim-evidence-artifact provenance**：claim、evidence、artifact、command、run 和 decision 可追踪；
+3. **Candidate-first, evidence-gated evolution**：自动写回只到 `candidate` / `pending validation`，晋升需要人工或证据门禁；
+4. **Agent-agnostic CLI + MCP external brain**：Codex、Claude Code 调用本地 CLI/MCP，Resevo 不内置 Agent、LLM 或额外 API。
+
+| 项目 | 主要对象 | Resevo 的差异 |
+|---|---|---|
+| OpenWiki | 项目知道什么 | Resevo 管理科研任务以后怎样做 |
+| SimpleMem / MemRL / EvolveMem | 通用记忆和检索优化 | Resevo 演化带 claim-evidence-artifact 的科研 workflow |
+| Open Science Desktop | 自动科研应用 | Resevo 是外部 Agent 的治理和记忆层 |
+| Nature Skills | 科研 Agent starter skills | Resevo 可引用或接入 workflow，但不内置 Agent |
+| Resevo | 证据治理科研 workflow harness | 本地 CLI + stdio MCP + candidate-first 演化 |
+
+参考边界见 [`docs/architecture/reference-projects.md`](docs/architecture/reference-projects.md)，
+目标架构见 [`docs/architecture/target-architecture.md`](docs/architecture/target-architecture.md)。
+
 每个人的课题都不一样：有人做燃烧诊断，有人做材料表征，有人做结构仿真，有人做生信分析。所以 Resevo 不试图给你一套“开箱即用但很快失效”的万能科研流程。
 
 Resevo 做的是另一件事：它帮助你在真实科研过程中，把自己的论文生产流程一步一步固定下来、验证起来、复用起来。
@@ -110,30 +128,28 @@ flowchart LR
 
 ## 常用命令
 
-PowerShell 示例：
+PowerShell 示例（将 `<Resevo路径>` 替换为本地 checkout）：
 
 ```powershell
-Set-Location G:\BaiduSyncdisk\Resevo
-
-python scripts\registry_tool.py validate
-python scripts\validate_research_project.py --project-root examples\paper_lifecycle_minimal --json
-python scripts\validate_asset_evolution.py --registry registry\asset_evolution.yaml --json
-python scripts\evaluator.py evaluate --target all --json
-python scripts\closeout_check.py
-
-python scripts\visual_to_editable_router.py classify --request examples\visual_to_editable_minimal\request.yaml --json
-python scripts\visual_to_editable_router.py validate-case --case-dir examples\visual_to_editable_minimal --json
-
-python scripts\starter_workflow_installer.py status --id nature-skills --json
-python scripts\starter_workflow_installer.py install --id nature-skills --json
-
-python scripts\self_evolution_loop.py recall --query "paper closeout reusable workflow" --project-root G:\BaiduSyncdisk\Resevo --json
-python scripts\self_evolution_loop.py run --intake <intake.yaml> --apply-candidates --json
+Set-Location <Resevo路径>
+python -m pip install -e .
+resevo init
+resevo doctor
+resevo status
+resevo recall --query "paper closeout reusable workflow" --project-root <项目路径>
+resevo intake --project-root <项目路径> --trigger "closeout" --out <intake.yaml>
+resevo closeout
+resevo evaluate
+resevo evolve propose
+resevo mcp install codex --print
+resevo mcp install claude --dry-run
+resevo migrate researchloop --apply
 ```
 
 可选的本地 MCP 只读入口：
 
 ```powershell
+resevo mcp self-test
 python mcp\research_harness_mcp.py --self-test
 ```
 

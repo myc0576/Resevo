@@ -13,6 +13,24 @@
 The supported entrypoint is `resevo`. The historical `researchloop` command and
 `mcp/research_harness_mcp.py` filename remain deprecated compatibility wrappers.
 
+## Why Resevo
+
+- **Paper-to-paper workflow inheritance:** closeout turns lessons from one paper into the next paper's starting workflow.
+- **Claim-evidence-artifact provenance:** claims stay connected to evidence, artifacts, commands, runs, and decisions.
+- **Candidate-first, evidence-gated evolution:** automatic writeback stops at `candidate` or `pending validation`; promotion is human- or validator-gated.
+- **Agent-agnostic CLI + MCP external brain:** Codex and Claude Code call a local CLI/service surface; Resevo contains no Agent, LLM, or extra API layer.
+
+| Project | Main object | Boundary compared with Resevo |
+|---|---|---|
+| OpenWiki | What a project knows | Resevo governs how a research task should be done next |
+| SimpleMem / MemRL / EvolveMem | General memory and retrieval | Resevo evolves claim-evidence-artifact workflows, not generic memory |
+| Open Science Desktop | Autonomous research application | Resevo is the external governance and memory layer |
+| Nature Skills | Research-agent starter skills | Resevo can reference or seed workflows without bundling an Agent |
+| Resevo | Evidence-governed workflow harness | Local CLI + stdio MCP with candidate-first evolution |
+
+See the [reference-project boundary record](docs/architecture/reference-projects.md)
+and [target architecture](docs/architecture/target-architecture.md).
+
 Resevo 不是通用知识库，也不是另一个 AI agent。每个科研项目都不一样，所以这个仓库不承诺提供一套固定、通用、开箱即用的科学工作流。
 
 它做的是更窄也更耐用的事：在真实科研发生的过程中，帮助你稳定、验证、复用并迭代自己的研究工作流。
@@ -118,7 +136,7 @@ flowchart LR
 
 ## First Use Path
 
-1. Put the repository at a stable local path such as `D:\Resevo`.
+1. Put the repository at a stable local path such as `<Resevo路径>`.
 2. Read [`AGENTS.md`](AGENTS.md) and, if using Claude Code, [`CLAUDE.md`](CLAUDE.md).
 3. On first agent interaction, check optional starter workflow status and ask before downloading Nature Skills.
 4. Start a paper with [`templates/paper_contract.md`](templates/paper_contract.md) or the files in [`templates/research_project/`](templates/research_project/).
@@ -131,30 +149,29 @@ flowchart LR
 
 ## Commands
 
-PowerShell examples:
+PowerShell examples (replace `<Resevo路径>` with your local checkout):
 
 ```powershell
-Set-Location G:\BaiduSyncdisk\Resevo
-
-python scripts\registry_tool.py validate
-python scripts\validate_research_project.py --project-root examples\paper_lifecycle_minimal --json
-python scripts\validate_asset_evolution.py --registry registry\asset_evolution.yaml --json
-python scripts\evaluator.py evaluate --target all --json
-python scripts\closeout_check.py
-
-python scripts\visual_to_editable_router.py classify --request examples\visual_to_editable_minimal\request.yaml --json
-python scripts\visual_to_editable_router.py validate-case --case-dir examples\visual_to_editable_minimal --json
-
-python scripts\starter_workflow_installer.py status --id nature-skills --json
-python scripts\starter_workflow_installer.py install --id nature-skills --json
-
-python scripts\self_evolution_loop.py recall --query "paper closeout reusable workflow" --project-root G:\BaiduSyncdisk\Resevo --json
-python scripts\self_evolution_loop.py run --intake <intake.yaml> --apply-candidates --json
+Set-Location <Resevo路径>
+python -m pip install -e .
+resevo init
+resevo doctor
+resevo status
+resevo recall --query "paper closeout reusable workflow" --project-root <项目路径>
+resevo intake --project-root <项目路径> --trigger "closeout" --out <intake.yaml>
+resevo closeout
+resevo evaluate
+resevo evolve propose
+resevo mcp install codex --print
+resevo mcp install claude --dry-run
+resevo migrate researchloop --apply
 ```
 
-Optional local MCP read surface:
+The old script paths remain callable as deprecated compatibility wrappers while
+modules migrate to the shared service layer. Optional local MCP self-test:
 
 ```powershell
+resevo mcp self-test
 python mcp\research_harness_mcp.py --self-test
 ```
 

@@ -1,10 +1,10 @@
 ﻿# CLAUDE.md
 
 This file provides guidance to Claude Code when working on Resevo in
-`G:\BaiduSyncdisk\Resevo`.
+`<Resevo路径>`.
 
 Resevo is the project brand and the current canonical local entry is
-`G:\BaiduSyncdisk\Resevo`. The historical name `research-harness` should be
+`<Resevo路径>`. The historical name `research-harness` should be
 treated only as an old path or compatibility identifier, not as the recommended
 working directory.
 
@@ -14,10 +14,10 @@ working directory.
 
 ## Canonical Targets
 
-- Resevo local root: `G:\BaiduSyncdisk\Resevo`
-- Reusable knowledge: `G:\knowledge\reusable_knowledge`
-- Reusable prompts: `G:\knowledge\reusable_prompts`
-- Forbidden harness write roots: `G:\knowledge\_harness`, `G:\知识库\_harness`
+- Resevo local root: `<Resevo路径>`
+- Reusable knowledge: `<knowledge-root>\reusable_knowledge`
+- Reusable prompts: `<knowledge-root>\reusable_prompts`
+- Forbidden harness write roots: `<knowledge-root>\_harness`, `<legacy-knowledge-root>\_harness`
 
 Do not treat legacy `_harness` paths as write targets.
 
@@ -28,9 +28,9 @@ When the user says any broad harness trigger such as `自进化`, `沉淀`,
 `一键 loop`, or `retro`, use the self-evolution loop:
 
 ```powershell
-python G:\BaiduSyncdisk\Resevo\scripts\self_evolution_loop.py recall --query "<task>" --project-root <cwd> --json
-python G:\BaiduSyncdisk\Resevo\scripts\self_evolution_loop.py init --project-root <cwd> --trigger "自进化" --out <intake.yaml>
-python G:\BaiduSyncdisk\Resevo\scripts\self_evolution_loop.py run --intake <intake.yaml> --apply-candidates --json
+resevo recall --query "<task>" --project-root <cwd>
+resevo intake --project-root <cwd> --trigger "自进化" --out <intake.yaml>
+resevo self-evolution run --intake <intake.yaml> --apply-candidates --json
 ```
 
 Claude Code should create or fill `templates\self_evolution_intake.yaml` from
@@ -46,7 +46,7 @@ On the first interaction in a fresh Resevo checkout, check whether the
 optional Nature Skills starter workflow has already been handled:
 
 ```powershell
-python G:\BaiduSyncdisk\Resevo\scripts\starter_workflow_installer.py status --id nature-skills --json
+resevo status
 ```
 
 If the result has `needs_prompt: true`, ask one structured AskUserQuestion-style
@@ -59,7 +59,7 @@ question with these choices:
 Only run the installer after explicit user consent:
 
 ```powershell
-python G:\BaiduSyncdisk\Resevo\scripts\starter_workflow_installer.py install --id nature-skills --json
+resevo workspace add nature-skills <starter-workflow-path>
 ```
 
 This is clone-and-reference only. Do not install dependencies, configure
@@ -77,9 +77,9 @@ Resevo as the converter.
 Use the router first:
 
 ```powershell
-python G:\BaiduSyncdisk\Resevo\scripts\visual_to_editable_router.py classify --request <request.yaml> --json
-python G:\BaiduSyncdisk\Resevo\scripts\visual_to_editable_router.py validate-manifest --manifest <visual_reconstruction_manifest.yaml> --json
-python G:\BaiduSyncdisk\Resevo\scripts\visual_to_editable_router.py validate-case --case-dir <case_dir> --json
+python scripts\visual_to_editable_router.py classify --request <request.yaml> --json
+python scripts\visual_to_editable_router.py validate-manifest --manifest <visual_reconstruction_manifest.yaml> --json
+python scripts\visual_to_editable_router.py validate-case --case-dir <case_dir> --json
 ```
 
 Actual reconstruction stays with Claude Code, Codex, Cursor, or an external
