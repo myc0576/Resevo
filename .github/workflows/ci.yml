@@ -1,4 +1,4 @@
-name: Resevo CI
+name: MycEvo CI
 
 on:
   push:
@@ -24,18 +24,20 @@ jobs:
       - if: matrix.install == 'wheel'
         shell: bash
         run: python -m build --wheel && python -m pip install dist/*.whl
-      - run: python -c "import resevo; print(resevo.__version__)"
+      - run: python -c "import mycevo; print(mycevo.__version__)"
+      - run: mycevo --help
+      - shell: bash
+        run: mycevo --root "$RUNNER_TEMP/mycevo-workspace" init --json
+      - shell: bash
+        run: mycevo --root "$RUNNER_TEMP/mycevo-workspace" demo --json
+      - shell: bash
+        run: mycevo --root "$RUNNER_TEMP/mycevo-workspace" doctor --json
+      - shell: bash
+        run: mycevo --root "$RUNNER_TEMP/mycevo-workspace" mcp install codex --dry-run
+      - shell: bash
+        run: mycevo --root "$RUNNER_TEMP/mycevo-workspace" mcp install claude --dry-run
       - run: resevo --help
-      - shell: bash
-        run: resevo --root "$RUNNER_TEMP/resevo-workspace" init --json
-      - shell: bash
-        run: resevo --root "$RUNNER_TEMP/resevo-workspace" demo --json
-      - shell: bash
-        run: resevo --root "$RUNNER_TEMP/resevo-workspace" doctor --json
-      - shell: bash
-        run: resevo --root "$RUNNER_TEMP/resevo-workspace" mcp install codex --dry-run
-      - shell: bash
-        run: resevo --root "$RUNNER_TEMP/resevo-workspace" mcp install claude --dry-run
+      - run: researchloop --help
       - if: runner.os != 'Windows'
         run: PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python -m pytest -q
       - if: runner.os == 'Windows'
