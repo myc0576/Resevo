@@ -1,13 +1,13 @@
-# Resevo Target Architecture
+# MycEvo Target Architecture
 
 ```mermaid
 flowchart TD
-  Agent["Codex / Claude Code / other external Agent"] --> CLI["resevo CLI"]
-  Agent --> MCP["Resevo stdio MCP"]
+  Agent["Codex / Claude Code / other external Agent"] --> CLI["mycevo CLI"]
+  Agent --> MCP["MycEvo stdio MCP"]
   MCP --> Service["Shared core + service layer"]
   CLI --> Service
   Service --> Registry["Workspace registries\nknowledge / prompts / assets / decisions"]
-  Service --> State["Workspace .resevo/\nconfig / runs / evolution / migration"]
+  Service --> State["Workspace .mycevo/\nconfig / runs / evolution / migration"]
   Service --> Index["Local SQLite FTS + utility metadata"]
   Service --> Validators["Validation + closeout gates"]
   Validators --> Provenance["run / trace / artifact manifest\nclaim-evidence-artifact links"]
@@ -27,8 +27,8 @@ passing regression test.
 The dependency direction is one-way:
 
 ```text
-Resevo public engine -> version-locked research-harness instance
-research-harness real use -> sanitized candidate -> validation -> Resevo
+MycEvo public engine -> version-locked research-harness instance
+research-harness real use -> sanitized candidate -> validation -> MycEvo
 ```
 
 No promotion path may infer `validated`, `reusable`, `approved`, `pass`, or

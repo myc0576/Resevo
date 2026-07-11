@@ -1,10 +1,10 @@
-﻿# CLAUDE.md
+# CLAUDE.md
 
-This file provides guidance to Claude Code when working on Resevo in
-`<Resevo路径>`.
+This file provides guidance to Claude Code when working on MycEvo in
+`<MycEvo路径>`.
 
-Resevo is the project brand and the current canonical local entry is
-`<Resevo路径>`. The historical name `research-harness` should be
+MycEvo is the project brand and the current canonical local entry is
+`<MycEvo路径>`. The historical name `research-harness` should be
 treated only as an old path or compatibility identifier, not as the recommended
 working directory.
 
@@ -14,7 +14,7 @@ working directory.
 
 ## Canonical Targets
 
-- Resevo local root: `<Resevo路径>`
+- MycEvo local root: `<MycEvo路径>`
 - Reusable knowledge: `<knowledge-root>\reusable_knowledge`
 - Reusable prompts: `<knowledge-root>\reusable_prompts`
 - Forbidden harness write roots: `<knowledge-root>\_harness`, `<legacy-knowledge-root>\_harness`
@@ -28,9 +28,9 @@ When the user says any broad harness trigger such as `自进化`, `沉淀`,
 `一键 loop`, or `retro`, use the self-evolution loop:
 
 ```powershell
-resevo recall --query "<task>" --project-root <cwd>
-resevo intake --project-root <cwd> --trigger "自进化" --out <intake.yaml>
-resevo self-evolution run --intake <intake.yaml> --apply-candidates --json
+mycevo recall --query "<task>" --project-root <cwd>
+mycevo intake --project-root <cwd> --trigger "自进化" --out <intake.yaml>
+mycevo self-evolution run --intake <intake.yaml> --apply-candidates --json
 ```
 
 Claude Code should create or fill `templates\self_evolution_intake.yaml` from
@@ -42,11 +42,11 @@ Automatic writeback is candidate-first only. Do not auto-promote to
 
 ## Starter Workflow Onboarding
 
-On the first interaction in a fresh Resevo checkout, check whether the
+On the first interaction in a fresh MycEvo checkout, check whether the
 optional Nature Skills starter workflow has already been handled:
 
 ```powershell
-resevo status
+mycevo status
 ```
 
 If the result has `needs_prompt: true`, ask one structured AskUserQuestion-style
@@ -59,7 +59,7 @@ question with these choices:
 Only run the installer after explicit user consent:
 
 ```powershell
-resevo workspace add nature-skills <starter-workflow-path>
+mycevo workspace add nature-skills <starter-workflow-path>
 ```
 
 This is clone-and-reference only. Do not install dependencies, configure
@@ -72,7 +72,7 @@ report the blocker.
 When a task asks to convert an image, screenshot, PDF page, chart, table,
 scientific figure, flowchart, formula image, or UI screenshot into editable
 assets, treat it as a Figure Loop / closeout extension. Do not treat
-Resevo as the converter.
+MycEvo as the converter.
 
 Use the router first:
 
@@ -83,7 +83,7 @@ python scripts\visual_to_editable_router.py validate-case --case-dir <case_dir> 
 ```
 
 Actual reconstruction stays with Claude Code, Codex, Cursor, or an external
-skill. Resevo stores only templates, prompts, manifests, QA summaries,
+skill. MycEvo stores only templates, prompts, manifests, QA summaries,
 reproduction notes, registry entries, and sanitized examples. Do not commit raw
 screenshots, PDFs, private experiment figures, final paper figures, generated
 PPTX files, large binaries, credentials, or tool traces.
