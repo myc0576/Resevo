@@ -17,23 +17,23 @@ updated_at: 2026-07-12
 ## Editability
 
 - Editability score: 1.0.
-- Editable text count: 116 across four files.
-- Editable shapes/charts/tables/formulas: 156 SVG shapes; no chart, table, or formula objects.
+- Editable text count: 112 bilingual text nodes and 224 language spans across four files.
+- Editable shapes/charts/tables/formulas: 144 SVG shapes; no chart, table, or formula objects.
 - Remaining raster backgrounds: none.
 
 ## OCR And Text Alignment
 
 - OCR/text alignment status: not applicable; all labels are native SVG text.
-- Missing text: none in the required semantic chains.
+- Missing text: none in the required semantic chains; every visible English line has a Chinese counterpart.
 - Extra text: only explanatory captions and privacy/gate labels.
-- Font/size issues: system fallback metrics may vary slightly; multi-scale Chrome renders passed.
+- Font/size issues: system fallback metrics may vary slightly; Chinese-first hierarchy and multi-scale Chrome renders passed.
 
 ## Layout Comparison
 
 - Layout overlap score: 1.0 after final review.
 - Render-before-after comparison status: pass.
 - Major offsets: none in final assets.
-- Cropping or overflow: none in 1600, 800, 400, or 840 px renders.
+- Cropping or overflow: none in 1600, 800, 400, or 840 px renders; no reviewed text touches or crosses an enclosing boundary.
 
 ## Background Residue
 
@@ -53,4 +53,4 @@ updated_at: 2026-07-12
 - Commands: XML parse, forbidden-content scan, contrast calculation, Playwright/system-Chrome multi-scale render, Git diff checks.
 - Logs: current task transcript and OpenDesign run IDs in the exploration README.
 - Render previews: `docs/design/previews/qa/` and `design/explorations/mycevo-diagrams/*-preview.png`.
-- Object inventory: 116 text nodes and 156 vector shapes.
+- Object inventory: 112 bilingual text nodes, 224 language spans, and 144 vector shapes.

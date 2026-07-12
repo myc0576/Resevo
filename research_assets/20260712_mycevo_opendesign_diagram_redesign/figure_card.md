@@ -22,6 +22,8 @@ updated_at: 2026-07-12
 
 Explain how real research evidence becomes reusable workflow memory only through validation, and how the public MycEvo engine serves a private workspace without uploading raw private evidence.
 
+All visible content is bilingual: concise Simplified Chinese is the primary line and English is the secondary line inside the same editable SVG text block.
+
 ## Evidence Use
 
 | Claim/Figure Slot | Evidence Role | Data/Code Path | Validation Status |
@@ -43,7 +45,7 @@ Explain how real research evidence becomes reusable workflow memory only through
 
 ## Reviewer Risk
 
-- Small explanatory labels are intentionally secondary at 25% scale.
+- English explanatory labels are intentionally secondary at 25% scale; Chinese primary labels and topology remain readable.
 - Human approval is still required before changing the registry status.
 
 ## Linked Files

@@ -15,6 +15,8 @@ git diff --check
 - Router selects `flowchart_to_mermaid_svg` for workflow-diagram input and SVG/HTML targets.
 - Manifest and closeout case pass safety and required-field validation.
 - Four final SVGs parse as 1600×900 XML with accessible metadata.
+- Every visible SVG text block contains paired Simplified Chinese and English spans, with Chinese above English.
+- Device-scaled Chrome renders cover 1600×900, 800×450, 400×225, and 840×472 without clipping or boundary contact.
 - No external asset, remote font, base64 image, script, or OpenDesign runtime is embedded.
 - Registry state remains `pending validation` until human approval.
 

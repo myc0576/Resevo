@@ -55,7 +55,11 @@ scripts, gradients, glassmorphism, emoji, or runtime dependencies.
 
 Codex must then rebuild the selected direction as clean native SVG with text,
 rect, circle, line, and path primitives; light and dark variants must have
-identical information structure.
+identical information structure. Every visible label and explanatory line must
+be bilingual, with concise Simplified Chinese above the English source text.
+Keep at least 18px of visual inset between bilingual text and its enclosing
+card, and re-render at 1600, 800, 400, and representative GitHub widths to
+detect clipping, overlap, or boundary contact.
 ```
 
 ## Model
@@ -74,4 +78,5 @@ identical information structure.
 
 | Date | Change | Reason |
 |---|---|---|
+| 2026-07-12 | Added Chinese-first bilingual and safe-inset requirements | Prevent text overflow and make both READMEs independently readable. |
 | 2026-07-12 | Initial version | Record the OpenDesign-to-native-SVG reconstruction workflow. |

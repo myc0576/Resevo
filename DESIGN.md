@@ -96,6 +96,9 @@ These README assets are static. State is communicated semantically:
 ## Content voice
 
 - Tone: precise, calm, evidence-led, and non-promotional.
+- README diagrams use a strict bilingual hierarchy: concise Simplified Chinese first, English second, stacked within the same text block.
+- Every visible English label or explanatory line has a Chinese counterpart; agent product names remain unchanged but receive a Chinese role label above them.
+- Bilingual nodes retain at least 18px of visual inset from their enclosing boundary at the 1600×900 source size.
 - Use MycEvo terms exactly: `candidate`, `held-out validation`, `evidence gate`, `human promotion`, and `reusable workflow memory`.
 - Never imply automatic promotion, private-data publication, scientific proof from visual polish, or an embedded LLM/agent.
 
@@ -111,4 +114,4 @@ These README assets are static. State is communicated semantically:
 
 - [x] Product diagram uses Organic Evidence Network semantics with Warm Editorial typography and spacing.
 - [x] Technical diagram uses Structured Research System boundaries with restrained evidence-network grouping.
-- [x] Chinese variants are deferred; the English diagrams passed QA and the Chinese README provides surrounding explanation.
+- [x] All four light/dark assets use the same Chinese-first, English-second bilingual information structure.

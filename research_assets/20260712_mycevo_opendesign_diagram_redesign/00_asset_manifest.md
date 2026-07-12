@@ -16,10 +16,10 @@ created_at: 2026-07-12
 
 | File | Type | Purpose | Notes |
 |---|---|---|---|
-| `assets/readme/mycevo-product-light.svg` | editable SVG | README 产品机制图 | 浅色主题 |
-| `assets/readme/mycevo-product-dark.svg` | editable SVG | README 产品机制图 | 深色主题，同构 |
-| `assets/readme/mycevo-technical-light.svg` | editable SVG | README 技术架构图 | 浅色主题 |
-| `assets/readme/mycevo-technical-dark.svg` | editable SVG | README 技术架构图 | 深色主题，同构 |
+| `assets/readme/mycevo-product-light.svg` | editable SVG | README 双语产品机制图 | 浅色主题，中文在上、英文在下 |
+| `assets/readme/mycevo-product-dark.svg` | editable SVG | README 双语产品机制图 | 深色主题，同构 |
+| `assets/readme/mycevo-technical-light.svg` | editable SVG | README 双语技术架构图 | 浅色主题，中文在上、英文在下 |
+| `assets/readme/mycevo-technical-dark.svg` | editable SVG | README 双语技术架构图 | 深色主题，同构 |
 | `design/explorations/mycevo-diagrams/` | HTML + PNG previews | OpenDesign 三方向探索证据 | 不作为最终 SVG |
 | `docs/design/mycevo-diagram-qa.md` | QA report | 设计选择与多尺度审计 | 人工批准前 pending validation |
 
@@ -42,7 +42,7 @@ created_at: 2026-07-12
 
 ## 证据
 
-- 指标：关键文本对比度达到 WCAG AA；116 个 text、156 个 vector shape、0 个 raster background。
+- 指标：关键文本对比度达到 WCAG AA；112 个双语 text、224 个语言 tspan、144 个 vector shape、0 个 raster background。
 - 对比图：`docs/design/previews/before/` 与 `docs/design/previews/qa/`。
 - 运行日志：OpenDesign run IDs 记录于探索 README。
 - 复现命令：见 `reproduction_entry.md`。

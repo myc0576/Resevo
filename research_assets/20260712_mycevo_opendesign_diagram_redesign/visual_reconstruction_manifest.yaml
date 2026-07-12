@@ -33,15 +33,17 @@ output_paths:
   output_manifest: visual_reconstruction_manifest.yaml
   qa_report: visual_reconstruction_qa.md
 editable_output_inventory:
-  text_objects: 116
-  vector_shapes: 156
+  text_objects: 112
+  language_spans: 224
+  bilingual_pairing: simplified_chinese_above_english
+  vector_shapes: 144
   native_charts: 0
   editable_tables: 0
   formulas: 0
   raster_backgrounds: 0
 qa:
   editability_score: 1.0
-  editable_text_count: 116
+  editable_text_count: 112
   ocr_text_alignment_status: not_applicable_native_svg_text
   layout_overlap_score: 1.0
   render_comparison_status: multi_scale_render_pass
