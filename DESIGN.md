@@ -109,6 +109,6 @@ These README assets are static. State is communicated semantically:
 
 ## Open questions
 
-- [ ] Decide after exploration scoring whether the product diagram uses Warm Editorial Flow or Organic Evidence Network as its primary composition.
-- [ ] Decide after exploration scoring whether the technical diagram uses Structured Research System or a restrained hybrid composition.
-- [ ] Add Chinese diagram variants only if typography and reduced-scale QA match the English versions.
+- [x] Product diagram uses Organic Evidence Network semantics with Warm Editorial typography and spacing.
+- [x] Technical diagram uses Structured Research System boundaries with restrained evidence-network grouping.
+- [x] Chinese variants are deferred; the English diagrams passed QA and the Chinese README provides surrounding explanation.
